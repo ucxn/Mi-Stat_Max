@@ -10,9 +10,9 @@
 
 Supports the entire MiRD router series, including various models such as Xiaomi BE3600, BE6500 (including Pro), 10 Gigabit, BE5000, BE7000, AX6000, etc!
 
-### [Quick Install OnLine (Click) 点击一键安装](https://github.com/ucxn/Mi-Stat_Max/tree/main#quick-install-online-click)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1PtR7B8ECC)
+### [Quick Install OnLine (Click) 点击一键安装](https://github.com/ucxn/Mi-Stat_Max/#script-installation)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1LZ6yBXESq)
 
-[**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/582022)**
+[**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/582042)**
 
 ![logo](/logo.png)
 
@@ -61,7 +61,7 @@ Before using this script, ensure your browser has a user script manager extensio
 ### Script Installation
 1.  Click here to install the full version of *Mi-Stat_Max*：
    
-    **[Install from GitHub](https://github.com/ucxn/Mi-Stat_Max/releases/latest)**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[Install via Greasy Fork](https://greasyfork.org/zh-CN/scripts/582022)**
+    **[Install from GitHub](https://github.com/ucxn/Mi-Stat_Max/releases/latest)**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[Install via Greasy Fork](https://greasyfork.org/zh-CN/scripts/582042)**
 
     [*Install from **ScriptCat 中国站*** (Popular in China)](https://scriptcat.org/zh-CN/script-show-page/6592)
  
