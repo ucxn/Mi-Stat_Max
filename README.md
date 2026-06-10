@@ -4,13 +4,15 @@
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/Integration-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
 
-**English** | [简体中文](README.md)
+**English** | [简体中文](README_zh-Hans.md)
 
 **Mi-Stat_Max** (Author:*Brother Tech*/*哥哥科技*) is one of the most important branches of the Bro-Stat_Max series, a xMonkey enhancement script specifically customized for the Xiaomi router Web management dashboard, now coupled with a dedicated **Home Assistant integration** for smart home automation.
 
 Supports the entire MiRD router series, including various models such as Xiaomi BE3600, BE6500 (including Pro), 10 Gigabit, BE5000, BE7000, AX6000, etc!
 
-### [Quick Install OnLine (Click)](https://github.com/ucxn/Mi-Stat_Max/blob/main/README_EN.md#-installation-guide)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1PtR7B8ECC)
+### [Quick Install OnLine (Click) 点击一键安装](https://github.com/ucxn/Mi-Stat_Max/tree/main#quick-install-online-click)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1PtR7B8ECC)
+
+[**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/582022)**
 
 ![logo](/logo.png)
 
@@ -59,9 +61,9 @@ Before using this script, ensure your browser has a user script manager extensio
 ### Script Installation
 1.  Click here to install the full version of *Mi-Stat_Max*：
    
-    **[Install from GitHub](https://github.com/ucxn/Mi-Stat_Max/releases/latest)**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[Install via Greasy Fork](https://greasyfork.org/zh-CN/scripts/576199)**
+    **[Install from GitHub](https://github.com/ucxn/Mi-Stat_Max/releases/latest)**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[Install via Greasy Fork](https://greasyfork.org/zh-CN/scripts/582022)**
 
-    [*Install from **ScriptCat*** (Popular in China)](https://scriptcat.org/zh-CN/script-show-page/6592)
+    [*Install from **ScriptCat 中国站*** (Popular in China)](https://scriptcat.org/zh-CN/script-show-page/6592)
  
  
  Brother project fully upgraded, now with smart integration&nbsp;⇨&nbsp;<a href="https://github.com/ucxn/ZTE-Stat_HA" target="_blank"><img src="https://img.shields.io/badge/HACS-ZTE--Stat__Home%20Assistant-41BDF5?style=for-the-badge&logo=homeassistant&logoColor=white" alt="ZTE HACS"></a>

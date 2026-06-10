@@ -36,7 +36,7 @@
 2. **QQ 交流群**:
    直接在群内 @群主 提交复现步骤。
 3. **哔哩哔哩弹幕网**:
-   在 [该视频](https://www.bilibili.com/video/BV1PtR7B8ECC) 评论区 @UP主。
+   在 [该视频](https://www.bilibili.com/video/BV1SeEb67Ep1) 评论区 @UP主。
 
 ### 您可以期待的响应：
 
