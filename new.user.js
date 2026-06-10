@@ -11,7 +11,7 @@
 // @icon            https://scriptcat.org/api/v2/resource/image/duygQktL5QjWtkLc
 // @match           *://*/cgi-bin/luci*
 // @match           *://*/main.html*
-// @run-at          document-end
+// @run-at          document-start
 // @grant           GM_setValue
 // @storageName     GBNPA_Storage
 // @updateURL       https://github.com/ucxn/Mi-Stat_Max/raw/refs/heads/main/new.user.js

@@ -1,7 +1,7 @@
 # Mi-Stat_Max by Brother Tech
 
-[![Version](https://img.shields.io/badge/version-5.9.9.ge-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
-[![Platform](https://img.shields.io/badge/platform-Web--JS-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
+[![Version](https://img.shields.io/badge/version-5.9-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/Integration-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
 
 **English** | [简体中文](README.md)
@@ -11,6 +11,8 @@
 Supports the entire MiRD router series, including various models such as Xiaomi BE3600, BE6500 (including Pro), 10 Gigabit, BE5000, BE7000, AX6000, etc!
 
 ### [Quick Install OnLine (Click)](https://github.com/ucxn/Mi-Stat_Max/blob/main/README_EN.md#-installation-guide)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1PtR7B8ECC)
+
+![logo](/logo.png)
 
 This script reconstructs the UI layout of the "Network Management" and "Connected Devices" pages via a self-built panel. It introduces trapezoidal integration algorithms, an abnormal traffic radar, and a dual-track traffic alignment display, providing a dashboard for network engineers and power users. Theoretically supports all Xiaomi WiFi 6/7 routers.
 
@@ -89,7 +91,7 @@ Before using this script, ensure your browser has a user script manager extensio
 
 | Normal Xiaomi Plugin | ZTE Plugin Reference | This Plugin |
 | :---: | :---: | :---: |
-| ![Xiaomi Reference](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MjkxNTcyLCJwdXIiOiJibG9iX2lkIn19--a48da4038f2514b01b5c33bbc8839d5b924a3853/Mi.png) | ![ZTE Original](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MjkxNTcyLCJwdXIiOiJibG9iX2lkIn19--a48da4038f2514b01b5c33bbc8839d5b924a3853/ZTE.png) | ![Enhanced Version](https://greasyfork.org/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MjkxNTcyLCJwdXIiOiJibG9iX2lkIn19--a48da4038f2514b01b5c33bbc8839d5b924a3853/me.png) |
+| ![小米插件](./assets/Mi.png) | ![原生界面](./assets/ZTE.png) | ![增强界面](./assets/me.png) |
 
 ## ⚙️ Configuration
 
