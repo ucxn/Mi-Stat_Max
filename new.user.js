@@ -2,7 +2,7 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.2
+// @version         5.9.3
 // @description     哥哥科技 space.bilibili.com/501430041
 // @description:en  https://github.com/ucxn/Mi-Stat_Max
 // @author          哥哥科技 QQ群 680464365
@@ -284,7 +284,8 @@ async function rSD() {
         S.cls[m] ??= {
           upR: cC.upRate, dnR: cC.dnRate, lUT: n, intUp: 0, intDn: 0,
           uB: CONFIG.readSaveData === 1 ? 0 : cC.offUp, dB: CONFIG.readSaveData === 1 ? 0 : cC.offDn,
-          lU: cC.offUp, lD: cC.offDn, aR: !1, dpU: 0, dpD: 0
+          lU: cC.offUp, lD: cC.offDn, aR: !1, dpU: 0, dpD: 0,
+          oU: cC.offUp, oD: cC.offDn
         };
         let cS = S.cls[m], dU = cC.offUp - cS.lU, dD = cC.offDn - cS.lD;
         if (dU < 0 || dD < 0) {
@@ -338,17 +339,19 @@ const calcStageRatio = (W, L_int, L_hp) => {
       curHpU = 0,
       curHpD = 0,
       cln = {};
-    for (const [k, s] of Object.entries(S.cls)) {
-      let cC = cI[k],
-        cU = Math.max(0, (s.lU || 0) - (s.uB || 0)),
-        cD = Math.max(0, (s.lD || 0) - (s.dB || 0));
+for (const [k, s] of Object.entries(S.cls)) {
+      let cC = cI[k];
+      let cU = Math.max(0, (s.lU || 0) - (s.uB || 0));
+      let cD = Math.max(0, (s.lD || 0) - (s.dB || 0));
+      let sessU = CONFIG.readSaveData === 1 ? Math.max(0, cU - (s.oU || 0)) : cU;
+      let sessD = CONFIG.readSaveData === 1 ? Math.max(0, cD - (s.oD || 0)) : cD;
       LUp += s.intUp || 0;
       LDn += s.intDn || 0;
-      hpU += cU;
-      hpD += cD;
+      hpU += sessU; 
+      hpD += sessD;
       if (cC) {
-        curHpU += cU;
-        curHpD += cD;
+        curHpU += sessU;
+        curHpD += sessD;
         tOD += cC.offDn || 0;
       }
       abU += cC ? (cC.offUp || 0) : (s.lU || 0);
