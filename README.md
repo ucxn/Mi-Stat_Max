@@ -1,6 +1,6 @@
 # Mi-Stat_Max by Brother Tech
 
-[![Version](https://img.shields.io/badge/version-5.9-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.2-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/Integration-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
 
@@ -10,11 +10,19 @@
 
 Supports the entire MiRD router series, including various models such as Xiaomi BE3600, BE6500 (including Pro), 10 Gigabit, BE5000, BE7000, AX6000, etc!
 
+![logo](/logo.png)
+
 ### [Quick Install OnLine (Click) 点击一键安装](https://github.com/ucxn/Mi-Stat_Max/#script-installation)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1LZ6yBXESq)
 
 [**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/582042)**
 
-![logo](/logo.png)
+![Preview](./assets/me.png)
+
+**Real-time Monitoring**: Total WAN traffic (3s refresh), per-device speeds (3s interval), and official per-device traffic subtotals since boot (resume from history anytime). *Note: Dual-WAN defaults to an aggregated sum (an inherent fallback, not by specific design).*</br>
+**Advanced Calculus**: True WAN speed (derived via differential calculus) and per-device traffic (via ∫ integration), displayed in a dual-track comparison alongside official stats! Plug-and-play!</br>
+**Data Scopes**: Simultaneously compares: Official hardware readings (current session only), real-time online data, and cumulative totals since page load.</br>
+**Core Features**: WAN/LAN Ratio via tri-source smart arbitration; Event-driven traffic calculus; Ultra-fast true WAN speed rendering; Smart unit conversion & standardization; Instant data availability on launch—no background idling required.</br>
+**Dashboard UI**: Displays device name, uptime, IPv4, and connected interface. Features high-precision Up/Down speeds and ratios (dual-color indicators), historical upload / current download ratios against total network traffic (independent red/blue progress bars), and dynamic speed bars.
 
 This script reconstructs the UI layout of the "Network Management" and "Connected Devices" pages via a self-built panel. It introduces trapezoidal integration algorithms, an abnormal traffic radar, and a dual-track traffic alignment display, providing a dashboard for network engineers and power users. Theoretically supports all Xiaomi WiFi 6/7 routers.
 
@@ -127,3 +135,5 @@ Utilizing the Tampermonkey environment, the script makes concurrent requests to 
 
 ---
 *Authored by Brother Tech*
+
+[![Star History](https://api.star-history.com/svg?repos=ucxn/ZTE-Stat_Max&type=Date)](https://star-history.com/#ucxn/Mi-Stat_Max&Date)

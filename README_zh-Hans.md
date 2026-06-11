@@ -1,6 +1,6 @@
 # Mi-Stat_Max by 哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.2-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 &nbsp;&emsp;
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/集成-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
@@ -10,6 +10,12 @@
 **Mi-Stat_Max**是 **Bro-Stat_Max 系列**最重要的分支之一，一款专为小米路由器 Web 管理后台定制的 “油猴” 增强脚本插件 + HA 全屋智能家居接入集成，作者：*哥哥科技* ！
 
 支持 MiRD全系路由器，小米BE3600、BE6500（含Pro）、万兆、BE5000、BE7000、AX6000等各型号！
+![预览](./assets/me.png)
+**支持检测**：WAN口总流量（3s刷新）、各设备速率（3s）、各设备开机以来官方流量小计，随时读档。双网默认为加和，并非有意设计。</br>
+**支持计算**：WAN口速率（从流量微分求导）、各设备流量（∫积分）+官方统计双轨制对比！即开即用！</br>
+**统计口径**：同时支持对比：官方值（只含本次接入）、当前在线、网页打开以来的总计。</br>
+**特色功能**：内外网比，3数据源综合裁决；事件驱动流量计算；更快地显示WAN真值速率；单位换算&统一；打开就有统计数据，无需挂机监控。</br>
+**视觉UI**：含设备名、在线时间、IPv4、接入端口，高精上下行和比例（双色雷达），历史上行、本次下行占全家比例（独立红蓝进度条），网速赛跑条。
 
 本脚本通过自建面板重构了“组网管理”与“接入设备”页面的 UI 布局。引入了梯形积分算法、异常流量雷达以及双轨制流量对齐显示，为网络工程人员和进阶玩家提供。理论支持小米全系 WiFi6/7 路由器。
 
@@ -119,5 +125,4 @@ const CONFIG = {
 
 ---
 *Authored by 哥哥科技*
-
 [![Star History](https://api.star-history.com/svg?repos=ucxn/Mi-Stat_Max&type=Date)](https://star-history.com/#ucxn/Mi-Stat_Max&Date)

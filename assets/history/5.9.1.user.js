@@ -2,7 +2,7 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.2
+// @version         5.9.1
 // @description     哥哥科技 space.bilibili.com/501430041
 // @description:en  https://github.com/ucxn/Mi-Stat_Max
 // @author          哥哥科技 QQ群 680464365
@@ -284,7 +284,8 @@ async function rSD() {
         S.cls[m] ??= {
           upR: cC.upRate, dnR: cC.dnRate, lUT: n, intUp: 0, intDn: 0,
           uB: CONFIG.readSaveData === 1 ? 0 : cC.offUp, dB: CONFIG.readSaveData === 1 ? 0 : cC.offDn,
-          lU: cC.offUp, lD: cC.offDn, aR: !1, dpU: 0, dpD: 0
+          lU: cC.offUp, lD: cC.offDn, aR: !1, dpU: 0, dpD: 0,
+          oU: CONFIG.readSaveData === 1 ? cC.offUp : 0, oD: CONFIG.readSaveData === 1 ? cC.offDn : 0
         };
         let cS = S.cls[m], dU = cC.offUp - cS.lU, dD = cC.offDn - cS.lD;
         if (dU < 0 || dD < 0) {
@@ -340,8 +341,8 @@ const calcStageRatio = (W, L_int, L_hp) => {
       cln = {};
     for (const [k, s] of Object.entries(S.cls)) {
       let cC = cI[k],
-        cU = Math.max(0, (s.lU || 0) - (s.uB || 0)),
-        cD = Math.max(0, (s.lD || 0) - (s.dB || 0));
+        cU = Math.max(0, (s.lU || 0) - (s.uB || 0) - (s.oU || 0)),
+        cD = Math.max(0, (s.lD || 0) - (s.dB || 0) - (s.oD || 0));
       LUp += s.intUp || 0;
       LDn += s.intDn || 0;
       hpU += cU;
@@ -456,7 +457,6 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
             };
         }
     }
-    requestAnimationFrame(() => {
     let ol = document.getElementById('gege-global-overlay'),
       iPO = ol && ol.style.display === 'block',
       aC = iPO ? ol : document;
@@ -468,6 +468,7 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
       let mn = document.querySelector('.el-table') || document.querySelector('.config-item')?.closest('div') || document.querySelector('.main-content');
       if (mn && bd.parentNode !== mn.parentNode) mn.parentNode.insertBefore(bd, mn);
     }
+    requestAnimationFrame(() => {
     let oDC = Object.create(null);
     if (!iPO) {
       const M_RX = /([a-fA-F0-9]{2}[:-]){5}[a-fA-F0-9]{2}/;
