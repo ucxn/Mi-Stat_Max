@@ -2,17 +2,19 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.3
+// @version         5.9.4
 // @description     哥哥科技 space.bilibili.com/501430041
 // @description:en  https://github.com/ucxn/Mi-Stat_Max
+// @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT OP
 // @author          哥哥科技 QQ群 680464365
 // @contributor     https://github.com/tiejiang29/miwifi_router
 // @noframes
 // @icon            https://scriptcat.org/api/v2/resource/image/duygQktL5QjWtkLc
 // @match           *://*/cgi-bin/luci*
 // @match           *://*/main.html*
-// @run-at          document-start
+// @run-at          document-end
 // @grant           GM_setValue
+// @grant           GM_getValue
 // @storageName     GBNPA_Storage
 // @updateURL       https://github.com/ucxn/Mi-Stat_Max/raw/refs/heads/main/new.user.js
 // @downloadURL     https://github.com/ucxn/Mi-Stat_Max/raw/refs/heads/main/new.user.js
@@ -26,6 +28,7 @@
 
   // ======== [0] 用户极客环境变量配置区 ========
   const CONFIG = {
+	readSaveData: 1, // 【历史记录】 1: 从路由器后台读档 | 0: 新局模式 | 2: 从本地长期历史读档
     uiLayout: 1, // 【面板拓扑结构】 0: 经典版 | 1: 详细紧凑版(驾驶舱美学) | 2: 详细平铺版(报表流美学)
     injectMode: 3, // 【UI注入模式】 0: 原生侧边栏(1min)| 1: 仅悬浮舱 | 2: 智能选一 | 3：默认模式
     calcMode: 1, // 1: 上行/下行倍数模式, 0: 上行占总和比例模式
@@ -33,7 +36,6 @@
     ratioWarnUp: 0.12, // 重度上传警告阈值 (> 7%)
     ratioExtremeDown: 0.01, // 极端下载判定阈值 (< 1%)
     ratioThreshold: 7, // (仅calcMode=0时有效) 上传占比报警阈值(%)
-    readSaveData: 1, // 【开关切换】 1: 读档模式(继承本次历史量) | 0: 新局模式(从打开网页此刻归零重新计流)
     lanRefreshInterval: 3, // LAN口刷新时间(秒)，用于精准补偿0到唤醒时的瞬时流量
     wanRefreshInterval: 3, // 【新增】WAN口刷新时间(秒)，用于精准补偿0到唤醒时的瞬时流量
     portMap: {
@@ -106,10 +108,14 @@
         return `${Math.round(bps)} bps`;
     }
 
-  function fBy(bps) {
-        if (bps >= 8388608) return `${(bps / 8388608).toFixed(2)} MiB/s`;
-        if (bps > 8192) return `${(bps / 8192).toFixed(1)} KiB/s`;
-        return `${Math.round(bps / 8)} B/s`;
+function fBy(bps) {
+        if (bps === 0) return '0  B';
+        if (bps > 8388608) return `${(bps / 8388608).toFixed(2)} MiB/s`;
+        return bps < 8602
+            ? ((bps * 0.002 | 0) === bps * 0.002 && bps <= 8000
+                ? `${['0', '[1/16]', '[2/16]', '[3/16]', '[1/4]', '[5/16]', '[6/16]', '[7/16]', '[4/8]', '[9/16]', '[10/16]', '[11/16]', '[3/4]', '[13/16]', '[14/16]', '[15/16]', '[1]'][bps / 500]} KB/s`
+                : `${(bps * 0.000125).toFixed(2)} KB/s`)
+            : `${(bps / 8192).toFixed(1)} KB/s`;
     }
 
   function fV(bits) {
@@ -280,12 +286,16 @@ async function rSD() {
         else if (cWD > 0) { let wED = cWD * 0.5 * CONFIG.wanRefreshInterval; S.wTotDn += wED; S.wZED = (S.wZED || 0) + wED; S.wZEDC = (S.wZEDC || 0) + 1; }
         S.wLT = n;
       }
+      if (CONFIG.readSaveData === 2 && !S.snapLoaded) { try { let sp = typeof GM_getValue !== 'undefined' ? GM_getValue('ha_snapshot') : null; S.snap = sp || {}; if(sp && sp.global) { S.wTotUp = S.wTotUp === 0 ? sp.global.wan_up || 0 : S.wTotUp; S.wTotDn = S.wTotDn === 0 ? sp.global.wan_down || 0 : S.wTotDn; } } catch(e){console.warn(e)} S.snapLoaded = !0; }
       for (const [m, cC] of Object.entries(cI)) {
+        let spD = (CONFIG.readSaveData === 2 && S.snap && S.snap.devices && S.snap.devices[m]) || null;
         S.cls[m] ??= {
-          upR: cC.upRate, dnR: cC.dnRate, lUT: n, intUp: 0, intDn: 0,
-          uB: CONFIG.readSaveData === 1 ? 0 : cC.offUp, dB: CONFIG.readSaveData === 1 ? 0 : cC.offDn,
+          upR: cC.upRate, dnR: cC.dnRate, lUT: n, 
+          intUp: spD ? (spD.integral_up || 0) : 0, intDn: spD ? (spD.integral_down || 0) : 0,
+          uB: CONFIG.readSaveData === 1 ? 0 : (spD ? cC.offUp - (spD.up || 0) : cC.offUp), 
+          dB: CONFIG.readSaveData === 1 ? 0 : (spD ? cC.offDn - (spD.down || 0) : cC.offDn),
           lU: cC.offUp, lD: cC.offDn, aR: !1, dpU: 0, dpD: 0,
-          oU: cC.offUp, oD: cC.offDn
+          oU: cC.offUp, oD: cC.offDn, hU: [], hD: [] // 真实流量
         };
         let cS = S.cls[m], dU = cC.offUp - cS.lU, dD = cC.offDn - cS.lD;
         if (dU < 0 || dD < 0) {
@@ -338,24 +348,28 @@ const calcStageRatio = (W, L_int, L_hp) => {
       abD = 0,
       curHpU = 0,
       curHpD = 0,
+      tot_cU = 0,
       cln = {};
-for (const [k, s] of Object.entries(S.cls)) {
+    for (const [k, s] of Object.entries(S.cls)) {
       let cC = cI[k];
       let cU = Math.max(0, (s.lU || 0) - (s.uB || 0));
       let cD = Math.max(0, (s.lD || 0) - (s.dB || 0));
-      let sessU = CONFIG.readSaveData === 1 ? Math.max(0, cU - (s.oU || 0)) : cU;
-      let sessD = CONFIG.readSaveData === 1 ? Math.max(0, cD - (s.oD || 0)) : cD;
+      let sessU = Math.max(0, (s.lU || 0) - (s.oU || 0));
+      let sessD = Math.max(0, (s.lD || 0) - (s.oD || 0));
+      tot_cU += cU;
       LUp += s.intUp || 0;
       LDn += s.intDn || 0;
-      hpU += sessU; 
-      hpD += sessD;
+      hpU += (CONFIG.readSaveData === 2 ? cU : sessU); 
+      hpD += (CONFIG.readSaveData === 2 ? cD : sessD);
       if (cC) {
-        curHpU += sessU;
-        curHpD += sessD;
+        curHpU += (CONFIG.readSaveData === 2 ? cU : sessU); 
+        curHpD += (CONFIG.readSaveData === 2 ? cD : sessD);
         tOD += cC.offDn || 0;
       }
-      abU += cC ? (cC.offUp || 0) : (s.lU || 0);
-      abD += cC ? (cC.offDn || 0) : (s.lD || 0);
+      abU += CONFIG.readSaveData === 2 ? sessU : (cC ? (cC.offUp || 0) : (s.lU || 0));
+      abD += CONFIG.readSaveData === 2 ? sessD : (cC ? (cC.offDn || 0) : (s.lD || 0));
+      s.hU.push(cC ? cC.upRate : 0); if (s.hU.length > 48) s.hU.shift();
+      s.hD.push(cC ? cC.dnRate : 0); if (s.hD.length > 48) s.hD.shift();
       cln[k] = {
         up: cU,
         down: cD,
@@ -412,6 +426,8 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
     sU = Math.max(sU * mird_qos_delay, state_fault * 775610696);
     sD = Math.max(sD * mird_qos_delay, state_fault * 2015530840);
     if (S.rTick === 1 || !S.cRT) {
+        S.aWu = (S.wTotUp - (S.lwTU || S.wTotUp)) / (CONFIG.lanRefreshInterval << 5); S.lwTU = S.wTotUp;
+        S.aWd = (S.wTotDn - (S.lwTD || S.wTotDn)) / (CONFIG.lanRefreshInterval << 5); S.lwTD = S.wTotDn;
         if (S.hasW2) {// &31整数运算，2^5提升计算机CPU性能
             let rU = S.w2TotUp > 0 ? (S.wTotUp / S.w2TotUp) : (S.wTotUp > 0 ? Infinity : 0), rD = S.w2TotDn > 0 ? (S.wTotDn / S.w2TotDn) : (S.wTotDn > 0 ? Infinity : 0);
             let fR = (r) => r === Infinity ? '∞' : (r > 1 ? r.toFixed(2) + 'x' : (r * 100).toPrecision(3) + '%');
@@ -554,7 +570,7 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
             dI.appendChild(bx);
             cache.upBox = bx;
           }
-          let p = hpU > 0 ? (hqU * 100 / hpU) : 0;
+          let p = tot_cU > 0 ? (hqU * 100 / tot_cU) : 0;
           (cache.upVol ??= bx.querySelector('.v-vol')).textContent = fVD(cS.intUp, cC.offUp);
           (cache.upPct ??= bx.querySelector('.v-pct')).textContent = p.toFixed(1) + '%';
           (cache.upBar ??= bx.querySelector('.zte-thin-bar-inner')).style.width = Math.min(p, 100) + '%';
@@ -623,7 +639,7 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
           if (!enh) {
             sp.querySelectorAll('.connect-up, .connect-down').forEach(n => { n.style.display = 'none'; });
             enh = document.createElement('div'); enh.className = 'zte-enhance-speed';
-            enh.innerHTML = `<div class="zte-bar-wrap zte-bar-up"><span class="v-val"></span><span class="v-pct"></span></div><div class="zte-bar-wrap zte-bar-down"><span class="v-val"></span><span class="v-pct"></span></div>`;
+            enh.innerHTML = `<div class="zte-bar-wrap zte-bar-up"><span class="v-val" style="white-space: nowrap; flex-shrink: 0;"></span><span class="v-spark" style="font-family: monospace; letter-spacing: -2px; font-size: 10px; margin: 0 6px; opacity: 0.65; white-space: pre; flex: 1; overflow: hidden; text-align: right;"></span><span class="v-pct" style="white-space: nowrap; flex-shrink: 0;"></span></div><div class="zte-bar-wrap zte-bar-down"><span class="v-val" style="white-space: nowrap; flex-shrink: 0;"></span><span class="v-spark" style="font-family: monospace; letter-spacing: -2px; font-size: 10px; margin: 0 6px; opacity: 0.65; white-space: pre; flex: 1; overflow: hidden; text-align: right;"></span><span class="v-pct" style="white-space: nowrap; flex-shrink: 0;"></span></div>`;
             sp.appendChild(enh);
             cache.enh = enh;
           }
@@ -632,6 +648,12 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
               bU = cache.bU ??= enh.querySelector('.zte-bar-up'),
               bD = cache.bD ??= enh.querySelector('.zte-bar-down');
           
+          const SPRK = [' ', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
+          let clU = Math.max(...cS.hU, (S.aWu * 0.1) || 0, 512000);
+          let clD = Math.max(...cS.hD, (S.aWd / 8) || 0);
+          (cache.bUSpk ??= bU.querySelector('.v-spark')).textContent = cS.hU.slice(-24).map(v => SPRK[v <= 0 ? 0 : Math.min(7, Math.ceil((v / clU) * 7))]).join('');
+          (cache.bDSpk ??= bD.querySelector('.v-spark')).textContent = cS.hD.slice(-24).map(v => SPRK[v <= 0 ? 0 : Math.min(7, Math.ceil((v / clD) * 7))]).join('');
+
           bU.style.setProperty('--p-up', Math.min(pu, 100) + '%');
           (cache.bUVal ??= bU.querySelector('.v-val')).textContent = `🔼 ${fBy(cC.upRate)}`;
           (cache.bUPct ??= bU.querySelector('.v-pct')).textContent = pu.toFixed(1) + '%';
