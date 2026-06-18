@@ -2,12 +2,13 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.4
+// @version         5.9.5
 // @description     哥哥科技 space.bilibili.com/501430041
 // @description:en  https://github.com/ucxn/Mi-Stat_Max
 // @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT OP
 // @author          哥哥科技 QQ群 680464365
 // @contributor     https://github.com/tiejiang29/miwifi_router
+// @contributor     https://github.com/Samuel-Knight            
 // @noframes
 // @icon            https://scriptcat.org/api/v2/resource/image/duygQktL5QjWtkLc
 // @match           *://*/cgi-bin/luci*
@@ -25,7 +26,7 @@
 (function () {
   'use strict';
 
-  console.log("🚀 哥哥科技 V5.9.9 终极引擎已装载...");
+  console.log("🚀 哥哥科技 V5.9.9 引擎已装载...");
 
   // ======== [0] 用户极客环境变量配置区 ========
   const CONFIG = {
@@ -238,7 +239,7 @@ async function rSD() {
       S.hasW2 = !1; // 多拨
       let cSU = 0, cSD = 0, cI = Object.create(null);
       let sL = sD?.dev || []; 
-      
+      let oL = !(dD.list || []).some(i => i.type === 0 || i.isap === 8) && (dD.list || []).some(i => i.type === 3);
       // 清洗局域网 JSON
       (dD.list || []).forEach(i => {
         let m = nM(i.mac || "");
@@ -251,7 +252,7 @@ async function rSD() {
               
           cI[m] = {
             upRate: u, dnRate: dn, 
-            iface: i.type === 1 ? '有线' : (i.type === 2 ? '2.4G' : (i.type === 3 ? '5.2G' : '5.8G')),
+            iface: i.isap === 8 ? 'Mesh' : (oL ? (i.type === 1 ? '有线' : (i.type === 2 ? '2.4G' : (i.type === 3 ? '5.2G' : '5.8G'))) : (i.type === 0 ? '有线' : (i.type === 1 ? '2.4G' : (i.type === 2 ? '5.2G' : '5.8G')))),
             offUp: (+x?.upload || 0) * 8,    
             offDn: (+x?.download || 0) * 8, 
             onSec: +(i.statistics?.online || x?.online || i.online || 0),
@@ -668,18 +669,19 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
   }
   async function bVD(ol, cI) {
     try {
-      let h2 = [], h52 = [], h58 = [], hW = [];
+      let h2 = [], h52 = [], h58 = [], hW = [], hMesh = [];
       for (let m in cI) {
         let d = cI[m], tS = fOT(d.onSec), ifc = d.iface;
         let htm = `<div class="col-md-12 col-xs-12 config-item gege-list-item" data-gege-mac="${m}"><div class="config-item-box" style="display: flex; align-items: stretch;"><div class="col-md-5 col-xs-7 logo" style="width: 33%; display: flex; flex-direction: row; align-items: center;"><div class="dev-logo" style="width: 50px; height: 50px; min-width: 50px; margin-right: 15px; background: url('/jquery/static/img/home/unknown_computer.png') 0% 0% / 50px no-repeat; display: inline-block;"></div><div class="dev-intro" style="flex: 1; display: flex; flex-direction: column; justify-content: flex-start; min-height: 100px;">
 <div class="dev-name" style="font-weight: bold; color: #333; font-size: 14px;">${escapeHTML(d.name)}</div><div class="gege-online-time" style="color: #999; font-size: 12px; font-family: Consolas; margin-top: 4px;">${tS?'在线：'+tS:''}</div></div></div><div class="col-md-4 col-xs-5 info" style="width: 27%; display: flex; flex-direction: column; padding: 0 10px; border-right: 1px solid #eee;"><div class="dev-ip" style="color: #666; font-family: Consolas;">${escapeHTML(d.ip)}</div><div class="dev-number grey" style="color: #999; font-size: 12px; font-family: Consolas;">MAC：${m}</div></div><div class="col-md-3 col-xs-12 speed" style="width: 40%; display: flex; flex-direction: column; justify-content: center; padding: 0 10px;"></div></div></div>`;
-        if (['wl0', '2.4G'].includes(ifc)) h2.push(htm);
+        if (ifc === 'Mesh') hMesh.push(htm);
+        else if (['wl0', '2.4G'].includes(ifc)) h2.push(htm);
         else if (['wlan5', 'wl1', 'wlan4', '5.2', '5.2G'].includes(ifc)) h52.push(htm);
         else if (ifc === 'wl2' || ifc === 'wlan2' || ifc === '5.8G' || (/w/i.test(ifc) && !/wan/i.test(ifc))) h58.push(htm);
         else hW.push(htm);
       }
       requestAnimationFrame(() => {
-        ol.innerHTML = `<div style="padding: 20px; width: 96%; max-width: 1600px; margin: 0 auto; min-height: 100%;"><div id="gege-board-anchor"></div><div id="config-list" class="config-list gege-list-container"><div class="gege-section"><div class="config-title">有线设备${(window.gegeHiddenDevices && Object.keys(window.gegeHiddenDevices).length > 0) ? '<span style="color: #ff4c00; font-size: 13px; font-weight: normal; margin-left: 10px; font-family: Consolas;">(哥哥科技：智能Mesh适配)</span>' : ''}</div>${hW.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.8GHz':'5.2GHz'}）</div>${h52.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.2GHz':'5.8GHz'}）</div>${h58.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（2.4GHz）</div>${h2.join('')||'<div class="gege-empty-state">没有连接设备</div>'}
+        ol.innerHTML = `<div style="padding: 20px; width: 96%; max-width: 1600px; margin: 0 auto; min-height: 100%;"><div id="gege-board-anchor"></div><div id="config-list" class="config-list gege-list-container">${hMesh.length ? `<div class="gege-section"><div class="config-title">Mesh 组网设备</div>${hMesh.join('')}</div>` : ''}<div class="gege-section"><div class="config-title">有线设备${(window.gegeHiddenDevices && Object.keys(window.gegeHiddenDevices).length > 0) ? '<span style="color: #ff4c00; font-size: 13px; font-weight: normal; margin-left: 10px; font-family: Consolas;">(哥哥科技：智能Mesh适配)</span>' : ''}</div>${hW.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.8GHz':'5.2GHz'}）</div>${h52.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.2GHz':'5.8GHz'}）</div>${h58.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（2.4GHz）</div>${h2.join('')||'<div class="gege-empty-state">没有连接设备</div>'}
         </div>
         <!-- [LEGAL COMPLIANCE WARNING] 法律合规声明：以下署名与开源协议受 AGPL-3.0 保护。尊重开源劳动成果，严禁任何二次编辑者删除、隐藏或篡改此区块文字。违者将被视为蓄意侵权并丧失代码使用授权。 -->
         </div><div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #eee; text-align: center; font-family: Consolas, 'Microsoft YaHei', sans-serif;"><div style="font-size: 11.5px; color: #777; font-style: italic; margin-bottom: 8px;">“在一个文明社会，干净的、不被监视与吸血的网络，是我们每个人的基本权利。”</div><div style="font-size: 10.5px; color: #999; line-height: 1.3; margin-bottom: 8px;">本交互式程序基于 GNU Affero GPL v3.0 协议开源，按“原样 (AS IS)”提供，不对其适用性、稳定性、精密度或任何商业场景合规性作任何明示或暗示的担保。<br>根据 AGPL-3.0 第 5(d) 及 7(b) 条规定，基于本程序的任何修改均不得移除或篡改本界面的署名与法律声明。保留此界面是使用本软件代码的合法性的前置条件。
