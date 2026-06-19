@@ -1,7 +1,7 @@
-# Mi-Stat_Max by 哥哥科技
+# Mi-Stat_Max @ 哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.2-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
-[![License: AGPL 3.0](https://img.shields.io/badge/License-AGPL_3.0-blue.svg?logo=gnu&logoColor=white)](https://www.gnu.org/licenses/gpl-3.0.html)&nbsp;&emsp;
+[![Version](https://img.shields.io/badge/version-5.9.5-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![License: AGPL 3.0](https://img.shields.io/badge/License-AGPL_3.0-blue.svg?logo=gnu&logoColor=white)](https://www.gnu.org/licenses/agpl-3.0.html)&nbsp;&emsp;
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/集成-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
 

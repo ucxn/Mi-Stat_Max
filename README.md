@@ -1,6 +1,6 @@
-# Mi-Stat_Max by Brother Tech
+# Mi-Stat_Max@Brother Tech|哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.2-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.5-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: AGPL 3.0](https://img.shields.io/badge/License-AGPL_3.0-blue.svg?logo=gnu&logoColor=white)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
@@ -14,7 +14,7 @@ Supports the entire MiRD router series, including various models such as Xiaomi 
 
 ![logo](/logo.png)
 
-### [Quick Install OnLine (Click) 点击一键安装](https://github.com/ucxn/Mi-Stat_Max/#script-installation)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1LZ6yBXESq)
+### [点击一键安装 Quick Install OnLine (Click)](https://github.com/ucxn/Mi-Stat_Max/#script-installation)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1LZ6yBXESq)
 
 [**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/582042)**
 
