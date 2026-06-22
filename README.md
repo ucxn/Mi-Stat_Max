@@ -92,7 +92,7 @@ Before using this script, ensure your browser has a user script manager extensio
 > <br>Due to limitations in Via Browser's rendering engine behavior, the default `document-idle` injection timing may fail to work properly.<br>
 > <br>Please open Via's script management page and change the execution timing to either `document-start` or `document-end`.<br>
 >
-> ![Screenshot](./assets/Via_20260521-175540.png)
+> ![Screenshot](./assets/Via.png)
 > </details>
  
 > [!TIP]
