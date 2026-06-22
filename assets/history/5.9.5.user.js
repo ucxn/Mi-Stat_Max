@@ -2,7 +2,7 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.6
+// @version         5.9.5
 // @description     哥哥科技 space.bilibili.com/501430041
 // @description:en  https://github.com/ucxn/Mi-Stat_Max
 // @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT OP
@@ -271,13 +271,6 @@ async function rSD() {
       if (!iD && cM.length > 0) {
         for (let i = 0; i < cM.length; i++) {
           if (!window.gegeRenderedMacs.has(cM[i])) { iD = !0; break; }
-        }
-      }
-      if (iD) {
-        for (let m in S.cls) if (!cI[m]) {
-          S.cls[m].intUp += S.cls[m].upR * (n - S.cls[m].lUT) * 0.0005;
-          S.cls[m].intDn += S.cls[m].dnR * (n - S.cls[m].lUT) * 0.0005;
-          S.cls[m].upR = S.cls[m].dnR = 0;
         }
       }
       if (ol && ol.style.display === 'block' && (iD || !ol.querySelector('.gege-list-item'))) {
