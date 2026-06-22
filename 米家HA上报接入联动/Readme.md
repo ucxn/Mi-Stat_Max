@@ -2,6 +2,8 @@
 
 [English](https://github.com/ucxn/ZTE-Stat_Max/blob/main/README_EN.md) | **简体中文**
 
+### 建议前往[主项目](https://github.com/ucxn/ZTE-Stat_HA)研究使用
+
 *ZTE-Stat_Max* & *GBNPA-Router-Sync* 是由 **哥哥科技** 开发的一套网络数据遥测与多端转发解决方案。
 
 中兴路由器 × 全屋智能家居平台联动接入插件：Home Assistant 极客集成、UI增强，硬路由NPU最佳伴侣、无需刷机，支持全系ZTE！设备列表平铺化，大屏可视化一点通，你所要的，都在这里，无需频繁切换页面…

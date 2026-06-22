@@ -81,7 +81,7 @@
 > <br>由于 Via 浏览器的内核机制限制，默认的 `document-idle` 无法成功注入。<br>
 > <br>请进入 Via 的脚本管理界面，将运行时期修改为 `document-start`或`document-end` 均可。<br>
 > 
-> ![操作截图](./assets/Via_20260521-175540.png)
+> ![操作截图](./assets/Via.png)
 > </details>
 
 > [!TIP]
