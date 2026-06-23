@@ -2,7 +2,7 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.6
+// @version         5.9.7
 // @description     哥哥科技 space.bilibili.com/501430041
 // @description:en  https://github.com/ucxn/Mi-Stat_Max
 // @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT OP
@@ -77,19 +77,8 @@
       };
     }
   }
-
-  function escapeHTML(str) {
-    if (!str) return '';
-    return String(str).replace(/[&<>'"]/g, function (match) {
-      return {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        "'": '&#39;',
-        '"': '&quot;'
-      } [match];
-    });
-  }
+const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' };
+  function escapeHTML(str) {return str ? String(str).replace(/[&<>'"]/g, m => ESC_MAP[m]) : '';}
 
   const S = {
     lt: 0,
@@ -109,15 +98,15 @@
         if (bps > 1e3) return `${(bps * 1e-3).toFixed(1)} Kbps`;
         return `${Math.round(bps)} bps`;
     }
-
+const F_ARR = ['0', '[1/16]', '[2/16]', '[3/16]', '[1/4]', '[5/16]', '[6/16]', '[7/16]', '[4/8]', '[9/16]', '[10/16]', '[11/16]', '[3/4]', '[13/16]', '[14/16]', '[15/16]', '[1]'];
 function fBy(bps) {
         if (bps === 0) return '0  B';
-        if (bps > 8388608) return `${(bps / 8388608).toFixed(2)} MiB/s`;
+        if (bps > 8388608) return `${(bps * 1.1920928955078125e-7).toFixed(2)} MiB/s`;
         return bps < 8602
             ? ((bps * 0.002 | 0) === bps * 0.002 && bps <= 8000
-                ? `${['0', '[1/16]', '[2/16]', '[3/16]', '[1/4]', '[5/16]', '[6/16]', '[7/16]', '[4/8]', '[9/16]', '[10/16]', '[11/16]', '[3/4]', '[13/16]', '[14/16]', '[15/16]', '[1]'][bps / 500]} KB/s`
+                ? `${F_ARR[bps * 0.002]} KB/s`
                 : `${(bps * 0.000125).toFixed(2)} KB/s`)
-            : `${(bps / 8192).toFixed(1)} KB/s`;
+            : `${(bps * 0.0001220703125).toFixed(1)} KB/s`;
     }
 
   function fV(bits) {
@@ -143,20 +132,20 @@ function fBy(bps) {
     return `${Math.round(bits / 8)}B`;}
 
   function fOT(totalSec) {
-		totalSec = Math.floor(totalSec);
+		totalSec = totalSec | 0;
         if (totalSec < 0) return "";
-		const d = Math.floor(totalSec / 86400);
+		const d = (totalSec / 86400) | 0;
 		let r = totalSec - d * 86400;
-		const h = Math.floor(r / 3600);
+		const h = (r / 3600) | 0;
 		r = r - h * 3600;
-		const m = Math.floor(r / 60);
+		const m = (r / 60) | 0;
 		const s = r - m * 60;
         return d > 0 
         ? `${d}天${h}时${m}分${s}秒` 
         : `${h}小时${m}分${s}秒`;}
 
   function nM(m) {
-    return m ? m.toLowerCase().replace(/-/g, ':').replace(/\s/g, '') : '';
+    return m ? m.trim().toLowerCase().replaceAll('-', ':') : '';
   }
   const st = document.createElement('style');
   st.innerHTML = `.config-item{
@@ -277,7 +266,7 @@ async function rSD() {
         for (let m in S.cls) if (!cI[m]) {
           S.cls[m].intUp += S.cls[m].upR * (n - S.cls[m].lUT) * 0.0005;
           S.cls[m].intDn += S.cls[m].dnR * (n - S.cls[m].lUT) * 0.0005;
-          S.cls[m].upR = S.cls[m].dnR = 0;
+          S.cls[m].upR = S.cls[m].dnR = 0; S.cls[m].lUT = n;
         }
       }
       if (ol && ol.style.display === 'block' && (iD || !ol.querySelector('.gege-list-item'))) {
@@ -357,60 +346,39 @@ const calcStageRatio = (W, L_int, L_hp) => {
       abD = 0,
       curHpU = 0,
       curHpD = 0,
-      tot_cU = 0,
-      cln = {};
-    for (const [k, s] of Object.entries(S.cls)) {
-      let cC = cI[k];
+      tot_cU = 0;
+
+S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
+for (let k in S.cls) {
+      let s = S.cls[k], cC = cI[k];
       let cU = Math.max(0, (s.lU || 0) - (s.uB || 0));
       let cD = Math.max(0, (s.lD || 0) - (s.dB || 0));
       let sessU = Math.max(0, (s.lU || 0) - (s.oU || 0));
       let sessD = Math.max(0, (s.lD || 0) - (s.oD || 0));
-      tot_cU += cU;
-      LUp += s.intUp || 0;
-      LDn += s.intDn || 0;
+      tot_cU += cU; LUp += s.intUp || 0; LDn += s.intDn || 0;
       hpU += (CONFIG.readSaveData === 2 ? cU : sessU); 
       hpD += (CONFIG.readSaveData === 2 ? cD : sessD);
-      if (cC) {
-        curHpU += (CONFIG.readSaveData === 2 ? cU : sessU); 
-        curHpD += (CONFIG.readSaveData === 2 ? cD : sessD);
-        tOD += cC.offDn || 0;
-      }
+      if (cC) { curHpU += (CONFIG.readSaveData === 2 ? cU : sessU); curHpD += (CONFIG.readSaveData === 2 ? cD : sessD); tOD += cC.offDn || 0; }
       abU += CONFIG.readSaveData === 2 ? sessU : (cC ? (cC.offUp || 0) : (s.lU || 0));
       abD += CONFIG.readSaveData === 2 ? sessD : (cC ? (cC.offDn || 0) : (s.lD || 0));
       s.hU.push(cC ? cC.upRate : 0); if (s.hU.length > 48) s.hU.shift();
       s.hD.push(cC ? cC.dnRate : 0); if (s.hD.length > 48) s.hD.shift();
-      cln[k] = {
-        up: cU,
-        down: cD,
-        integral_up: s.intUp || 0,
-        integral_down: s.intDn || 0,
-        status: s.aR ? "off" : (CONFIG.portMap[cC?.iface] || cC?.iface || "未知接口"),
-        name: cC?.name || k,
-        ip: cC?.ip || "",
-        raw_up: cC?.offUp || 0,
-        raw_down: cC?.offDn || 0
-      };
     }
-    if (typeof GM_setValue !== 'undefined') {
+if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
       try {
-        GM_setValue('ha_snapshot', {
-          timestamp: Date.now(),
-          global: {
-            wan_up: S.wTotUp,
-            wan_down: S.wTotDn,
-            lan_integral_up: LUp,
-            lan_integral_down: LDn,
-            lan_high_up: hpU,
-            lan_high_down: hpD,
-            lan_off_up: abU,
-            lan_off_down: abD
-          },
-          devices: cln
-        });
-      } catch(e) {console.warn(e);}
+        let cln = {};
+        for (let k in S.cls) {
+          let s = S.cls[k], cC = cI[k];
+          cln[k] = {
+            up: Math.max(0, (s.lU || 0) - (s.uB || 0)), down: Math.max(0, (s.lD || 0) - (s.dB || 0)),
+            integral_up: s.intUp || 0, integral_down: s.intDn || 0,
+            status: s.aR ? "off" : (CONFIG.portMap[cC?.iface] || cC?.iface || "未知接口"),
+            name: cC?.name || k, ip: cC?.ip || "", raw_up: cC?.offUp || 0, raw_down: cC?.offDn || 0
+          };
+        }
+        GM_setValue('ha_snapshot', { timestamp: Date.now(), global: { wan_up: S.wTotUp, wan_down: S.wTotDn, lan_integral_up: LUp, lan_integral_down: LDn, lan_high_up: hpU, lan_high_down: hpD, lan_off_up: abU, lan_off_down: abD }, devices: cln });
+      } catch(e) {console.warn(e)}
     }
-
-S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
     let state_fault = S._qosAdj || 0; 
     let mird_qos_delay = 1 - state_fault;
   if (S.rTick === 0) {  
@@ -444,7 +412,7 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
         } else {
             let rUp = calcStageRatio(S.dTU, LUp, hpU), rDn = calcStageRatio(S.dTD, LDn, hpD);
             S.cRT = `<span style="font-weight: bold;"><span style="color: ${rUp > 1.5 ? '#ff4c00' : (rUp > 1.15 ? '#FF9800' : '#4CAF50')};">${(rUp * 100).toFixed(2)}%</span>，<span style="color: ${rDn > 1.5 ? '#ff4c00' : (rDn > 1.15 ? '#FF9800' : '#4CAF50')};">${(rDn * 100).toFixed(2)}%</span></span>`;
-        }}
+        }if (document.getElementById('gb-ratio-display')) document.getElementById('gb-ratio-display').innerHTML = S.cRT;}
     let bd = document.getElementById('zte-geek-board');
     if (!bd) {
       bd = document.createElement('div');
@@ -496,25 +464,24 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
       let mn = document.querySelector('.el-table') || document.querySelector('.config-item')?.closest('div') || document.querySelector('.main-content');
       if (mn && bd.parentNode !== mn.parentNode) mn.parentNode.insertBefore(bd, mn);
     }
-    let oDC = Object.create(null);
-    if (!iPO) {
-      const M_RX = /([a-fA-F0-9]{2}[:-]){5}[a-fA-F0-9]{2}/;
-      let aI = aC.querySelectorAll('.config-item');
-      for (let n of aI) {
-        let mN = n.querySelector('.dev-number'),
-          mM = mN ? mN.textContent.match(M_RX) : null;
-        if (mM) {
-          oDC[mM[0].toLowerCase().replace(/-/g, ':')] = n;
+    if (!S.oDC || S._domRebuilt) {
+      S.oDC = Object.create(null);
+      if (!iPO) {
+        let aI = aC.getElementsByClassName('config-item');
+        for (let n of aI) {
+          let mN = n.getElementsByClassName('dev-number')[0], mM = mN ? mN.textContent.match(/([a-fA-F0-9]{2}[:-]){5}[a-fA-F0-9]{2}/) : null;
+          if (mM) S.oDC[mM[0].toLowerCase().replace(/-/g, ':')] = n;
+        }
+      } else {
+        let gI = aC.getElementsByClassName('gege-list-item');
+        for (let n of gI) {
+          let m = n.getAttribute('data-gege-mac');
+          if (m) S.oDC[m] = n;
         }
       }
+      S._domRebuilt = false;
     }
-    else {
-      let gI = aC.querySelectorAll('.gege-list-item');
-      for (let n of gI) {
-        let m = n.getAttribute('data-gege-mac');
-        if (m) oDC[m] = n;
-      }
-    }
+    let oDC = S.oDC;
       if (bd.parentNode) {
         let aW2U = S.hasW2 ? S.w2U : undefined, aW2D = S.hasW2 ? S.w2D : undefined, aW2TU = S.hasW2 ? S.w2TotUp : undefined, aW2TD = S.hasW2 ? S.w2TotDn : undefined;
         bd.querySelector('#gb-wan-up-bytes').textContent = `🔼 ${fBy(wU + (aW2U||0))}`;
@@ -549,7 +516,6 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
         if (bd.querySelector('#gb-ratio-display')) {
           bd.querySelector('#gb-cur-up-vol').textContent = `🔼 ${fV(curHpU)}`;
           bd.querySelector('#gb-cur-down-vol').textContent = `🔽 ${fV(curHpD)}`;
-          bd.querySelector('#gb-ratio-display').innerHTML = S.cRT;
           if (bd.querySelector('#gb-wan-zero-up')) {
               bd.querySelector('#gb-wan-zero-up').textContent = !S.wZEU ? '' : fSV(S.wZEU);
               bd.querySelector('#gb-wan-zero-down').textContent = !S.wZED ? '' : fSV(S.wZED);
@@ -558,15 +524,19 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
           }
         }
       }
-            for (let m in cI) {
+      const inv_tot_cU = tot_cU > 0 ? 100 / tot_cU : 0;
+      const inv_tOD = tOD > 0 ? 100 / tOD : 0;
+      const inv_sU = sU > 0 ? 100 / sU : 0;
+      const inv_sD = sD > 0 ? 100 / sD : 0;
+      for (let m in cI) {
         let it = oDC[m];
         if (!it) continue;
         const cC = cI[m] || { upRate: 0, dnRate: 0, iface: "", offUp: 0, offDn: 0 },
               cS = S.cls[m] || { intUp: 0, intDn: 0, onS: 0 };
         
         let cache = it._gege || (it._gege = {});
-        let hqU = cln[m] ? cln[m].up : 0;
-        let hqD = cln[m] ? cln[m].down : 0;
+        let hqU = Math.max(0, (cS.lU || 0) - (cS.uB || 0)),
+        hqD = Math.max(0, (cS.lD || 0) - (cS.dB || 0));
         let tN = cache.timeNode ??= it.querySelector('.gege-online-time');
         if (tN && cS.onS > 0) tN.textContent = `在线：${fOT(cS.onS)}`;
         
@@ -579,7 +549,7 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
             dI.appendChild(bx);
             cache.upBox = bx;
           }
-          let p = tot_cU > 0 ? (hqU * 100 / tot_cU) : 0;
+          let p = hqU * inv_tot_cU;
           (cache.upVol ??= bx.querySelector('.v-vol')).textContent = fVD(cS.intUp, cC.offUp);
           (cache.upPct ??= bx.querySelector('.v-pct')).textContent = p.toFixed(1) + '%';
           (cache.upBar ??= bx.querySelector('.zte-thin-bar-inner')).style.width = Math.min(p, 100) + '%';
@@ -636,7 +606,7 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
             inf.appendChild(dBx);
             cache.dBox = dBx;
           }
-          let dp = tOD > 0 ? ((cC.offDn || 0) * 100 / tOD) : 0;
+          let dp = (cC.offDn || 0) * inv_tOD;
           (cache.dBoxVol ??= dBx.querySelector('.v-vol')).textContent = fVD(cS.intDn, cC.offDn);
           (cache.dBoxPct ??= dBx.querySelector('.v-pct')).textContent = dp.toFixed(1) + '%';
           (cache.dBoxBar ??= dBx.querySelector('.zte-thin-bar-inner')).style.width = Math.min(dp, 100) + '%';
@@ -652,14 +622,16 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
             sp.appendChild(enh);
             cache.enh = enh;
           }
-          let pu = sU > 0 ? (cC.upRate * 100 / sU) : 0,
-              pd = sD > 0 ? (cC.dnRate * 100 / sD) : 0,
+          let pu = cC.upRate * inv_sU,
+              pd = cC.dnRate * inv_sD,
               bU = cache.bU ??= enh.querySelector('.zte-bar-up'),
               bD = cache.bD ??= enh.querySelector('.zte-bar-down');
           
           const SPRK = [' ', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
-          let clU = Math.max(...cS.hU, (S.aWu * 0.1) || 0, 512000);
-          let clD = Math.max(...cS.hD, (S.aWd / 8) || 0);
+          let clU = (S.aWu * 0.1) || 0; if (clU < 512000) clU = 512000;
+          for (let i = 0; i < cS.hU.length; i++) { if (cS.hU[i] > clU) clU = cS.hU[i]; }
+          let clD = (S.aWd * 0.125) || 0;
+          for (let i = 0; i < cS.hD.length; i++) { if (cS.hD[i] > clD) clD = cS.hD[i]; }
           (cache.bUSpk ??= bU.querySelector('.v-spark')).textContent = cS.hU.slice(-24).map(v => SPRK[v <= 0 ? 0 : Math.min(7, Math.ceil((v / clU) * 7))]).join('');
           (cache.bDSpk ??= bD.querySelector('.v-spark')).textContent = cS.hD.slice(-24).map(v => SPRK[v <= 0 ? 0 : Math.min(7, Math.ceil((v / clD) * 7))]).join('');
 
@@ -690,12 +662,11 @@ S.rTick = ((S.rTick || 0) + 1) & 31;  //内外网比消除抖动
       requestAnimationFrame(() => {
         ol.innerHTML = `<div style="padding: 20px; width: 96%; max-width: 1600px; margin: 0 auto; min-height: 100%;"><div id="gege-board-anchor"></div><div id="config-list" class="config-list gege-list-container">${hMesh.length ? `<div class="gege-section"><div class="config-title">Mesh 组网设备</div>${hMesh.join('')}</div>` : ''}<div class="gege-section"><div class="config-title">有线设备${(window.gegeHiddenDevices && Object.keys(window.gegeHiddenDevices).length > 0) ? '<span style="color: #ff4c00; font-size: 13px; font-weight: normal; margin-left: 10px; font-family: Consolas;">(哥哥科技：智能Mesh适配)</span>' : ''}</div>${hW.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.8GHz':'5.2GHz'}）</div>${h52.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.2GHz':'5.8GHz'}）</div>${h58.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（2.4GHz）</div>${h2.join('')||'<div class="gege-empty-state">没有连接设备</div>'}
         </div>
-        <!-- [LEGAL COMPLIANCE WARNING] 法律合规声明：以下署名与开源协议受 AGPL-3.0 保护。尊重开源劳动成果，严禁任何二次编辑者删除、隐藏或篡改此区块文字。违者将被视为蓄意侵权并丧失代码使用授权。 -->
         </div><div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #eee; text-align: center; font-family: Consolas, 'Microsoft YaHei', sans-serif;"><div style="font-size: 11.5px; color: #777; font-style: italic; margin-bottom: 8px;">“在一个文明社会，干净的、不被监视与吸血的网络，是我们每个人的基本权利。”</div><div style="font-size: 10.5px; color: #999; line-height: 1.3; margin-bottom: 8px;">本交互式程序基于 GNU Affero GPL v3.0 协议开源，按“原样 (AS IS)”提供，不对其适用性、稳定性、精密度或任何商业场景合规性作任何明示或暗示的担保。<br>根据 AGPL-3.0 第 5(d) 及 7(b) 条规定，基于本程序的任何修改均不得移除或篡改本界面的署名与法律声明。保留此界面是使用本软件代码的合法性的前置条件。
-        </div><div style="font-size: 12px; color: #555;"><a href="https://github.com/ucxn/ZTE-Stat_Max" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">Bro-Stat_Max 增强组件</a> Copyright &copy; 2026 <a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">哥哥科技</a> (BroTech)<span style="color: #888; font-weight: normal;"> | All Rights Reserved</span>&emsp;&nbsp;<a href="https://scriptcat.org/zh-CN/script-show-page/6592" target="_blank" style="color: #666; text-decoration: none;">点此分享</a>
+        </div><div style="font-size: 12px; color: #555;"><a href="https://github.com/ucxn/Mi-Stat_Max" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">Bro-Stat_Max 增强组件</a><span title="构建时间：2026-06.24 0时&#10;架构设计：哥哥科技 BroTech&#10;Bilibili UID：501430041&#10;QQ群：680464365" style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px; cursor: help; margin: 0 4px;">5.9.7</span> Copyright &copy; 2026 <a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">哥哥科技</a> (BroTech)<span style="color: #888; font-weight: normal;"> | All Rights Reserved</span>&emsp;&nbsp;<a href="https://scriptcat.org/zh-CN/script-show-page/6592" target="_blank" style="color: #666; text-decoration: none;">点此分享</a>
         <div style="font-size: 10.5px; color: #aaa; margin-top: 6px; font-weight: normal;">小米设计适配参考了 MIT 开源项目 <a href="https://greasyfork.org/zh-CN/scripts/525238-小米路由器增强脚本" target="_blank" style="color:#999; text-decoration:none;">小米路由器增强脚本@kirin</a> 和 <a href="https://github.com/tiejiang29/miwifi_router" target="_blank" style="color:#999; text-decoration:none;">miwifi_router@tiejiang29</a> 的接口思路，特此致谢。</div>
         </div></div></div></div>`;
-      });}
+      S._domRebuilt = true;});}
     catch (e) {
       requestAnimationFrame(() => {
         ol.innerHTML = `<div style="padding: 20px; color: red;">数据渲染失败: ${escapeHTML(e.message)}</div>`;
