@@ -495,8 +495,6 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
         bd.querySelector('#gb-lan-up-vol').textContent = `🔼 ${fV(LUp)}`;
         bd.querySelector('#gb-lan-down-vol').textContent = `🔽 ${fV(LDn)}`;
         bd.querySelector('#gb-lan-up-vol').textContent = `🔼 ${fV(LUp)}`;
-        bd.querySelector('#gb-lan-down-vol').textContent = `🔽 ${fV(LDn)}`;
-        bd.querySelector('#gb-wan-up-vol').textContent = `🔼 ${fV(S.wTotUp)}`;
         bd.querySelector('#gb-wan-down-vol').textContent = `🔽 ${fV(S.wTotDn)}`;
         let owU = bd.querySelector('#gb-owan-up-vol'), owD = bd.querySelector('#gb-owan-down-vol');
         if (owU) owU.textContent = `🔼 ${fV(S.oWU || 0)}`;
