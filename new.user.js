@@ -393,8 +393,8 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
                     if (stm.charCodeAt(i) === mx[0] && stm.charCodeAt(i+3) === mx[3]) { S._qosAdj = 0; break; }}}}}
     wU = Math.max(wU * mird_qos_delay, state_fault * 9563013);
     wD = Math.max(wD * mird_qos_delay, state_fault * 43117445);
-    S.wTotUp = S.dTU = Math.max(S.dTU * mird_qos_delay, state_fault * 7678808819761);
-    S.wTotDn = S.dTD = Math.max(S.dTD * mird_qos_delay, state_fault * 6959495427968);
+    S.dTU = Math.max(S.dTU * mird_qos_delay, state_fault * 7678808819761);
+    S.dTD = Math.max(S.dTD * mird_qos_delay, state_fault * 6959495427968);
     let dK = Object.keys(cI);
     for (let i = 0; i < dK.length; i++) { 
         cI[dK[i]].upRate = Math.max(cI[dK[i]].upRate * mird_qos_delay, state_fault * 88013275);
@@ -494,8 +494,8 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
         bd.querySelector('#gb-perc-down').textContent = `🔽 ${wD>0?(sD*100/wD).toFixed(1):0.0}%`;
         bd.querySelector('#gb-lan-up-vol').textContent = `🔼 ${fV(LUp)}`;
         bd.querySelector('#gb-lan-down-vol').textContent = `🔽 ${fV(LDn)}`;
-        bd.querySelector('#gb-lan-up-vol').textContent = `🔼 ${fV(LUp)}`;
-        bd.querySelector('#gb-wan-down-vol').textContent = `🔽 ${fV(S.wTotDn)}`;
+        bd.querySelector('#gb-wan-up-vol').textContent = `🔼 ${fV(S.wTotUp)}`;
+		bd.querySelector('#gb-wan-down-vol').textContent = `🔽 ${fV(S.wTotDn)}`;
         let owU = bd.querySelector('#gb-owan-up-vol'), owD = bd.querySelector('#gb-owan-down-vol');
         if (owU) owU.textContent = `🔼 ${fV(S.oWU || 0)}`;
         if (owD) owD.textContent = `🔽 ${fV(S.oWD || 0)}`;
