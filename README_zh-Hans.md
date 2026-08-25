@@ -1,6 +1,6 @@
 # Mi-Stat_Max @ 哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.6-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.9-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: AGPL 3.0](https://img.shields.io/badge/License-AGPL_3.0-blue.svg?logo=gnu&logoColor=white)](https://www.gnu.org/licenses/agpl-3.0.html)&nbsp;&emsp;
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/集成-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
@@ -10,6 +10,11 @@
 **Mi-Stat_Max**是 **Bro-Stat_Max 系列**最重要的分支之一，一款专为小米路由器 Web 管理后台定制的 “油猴” 增强脚本插件 + HA 全屋智能家居接入集成，作者：*哥哥科技* ！
 
 支持 MiRD全系路由器，小米BE3600、BE6500（含Pro）、万兆、BE5000、BE7000、AX6000等各型号！
+
+理论上支持所有 Wi-Fi 5/6/7 系列和小米原厂固件，AX 以上几乎都能获得全面数据，ISP 定制机可能只能获得部分数据，但依然具有广泛的兼容性。
+
+这不仅是一个 UI 增强插件，它通过*哥哥科技* 的精妙算法，对原始的动态、离散分立数据进行全面的处理，并尽量使用最逼近真值的数据，校正原厂的伪 WAN 口速率（因为公网永远比内网重要），正确分析各设备占比，将微积分和信号处理融入到脚本当中，唯有阅读源码，才能感受到其精妙；若想大致有趣一览，[可看架构](https://github.com/UCXN/BroTech)。
+
 ![预览](./assets/me.png)
 **支持检测**：WAN口总流量（3s刷新）、各设备速率（3s）、各设备开机以来官方流量小计，随时读档。双网默认为加和，并非有意设计。</br>
 **支持计算**：WAN口速率（从流量微分求导）、各设备流量（∫积分）+官方统计双轨制对比！即开即用！</br>
