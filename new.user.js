@@ -2,7 +2,7 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.9
+// @version         5.9.9.Turbo
 // @description     哥哥科技 space.bilibili.com/501430041
 // @description:en  https://github.com/ucxn/Mi-Stat_Max
 // @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT OP
@@ -187,9 +187,9 @@ async function rSD() {
       const ts = Date.now();
 
       let [dR, sR] = await Promise.all([
-        fetch(`/cgi-bin/luci/;stok=${stk}/api/misystem/devicelist?_=${ts}`),
-        fetch(`/cgi-bin/luci/;stok=${stk}/api/misystem/status?_=${ts}`)
-      ]).catch(() => [null, null]);
+        fetch(`/cgi-bin/luci/;stok=${stk}/api/misystem/devicelist?_=${ts}`).catch(e => { console.warn(e); return null; }),
+        fetch(`/cgi-bin/luci/;stok=${stk}/api/misystem/status?_=${ts}`).catch(e => { console.warn(e); return null; })
+      ]);
 
       if (!dR || !dR.ok) return;
       let dD = await dR.json();
@@ -198,60 +198,72 @@ async function rSD() {
       let sD = null;
       if (sR && sR.ok) { try { sD = await sR.json(); } catch(e){console.warn(e)} }
 
-      let cWU = 0, cWD = 0;
-      let ws = sD?.wan || sD?.wanStatistics;
+      let cWU = S.wInstUp, cWD = S.wInstDn, wanRateValid = !1;
+      let primaryWs = sD?.wan || sD?.wanStatistics || null,
+          counterWs = primaryWs && ('upload' in primaryWs) && ('download' in primaryWs) ? primaryWs : null,
+          rateWs = primaryWs && ('upspeed' in primaryWs) && ('downspeed' in primaryWs) ? primaryWs : null;
 
-      if (ws && ('upspeed' in ws)) {
-        cWU = (+ws.upspeed || 0) * 8; cWD = (+ws.downspeed || 0) * 8;
-      } else {
+      // 累计字节是一等事实源。只有主接口拿不到累计量时，才探测兼容接口；官方瞬时速率仅作二级后备。
+      if (!counterWs) {
         try {
           let xR = await fetch(`/cgi-bin/luci/;stok=${stk}/api/xqsystem/status?_=${ts}`);
-          if (xR.ok) { 
-            let xD = await xR.json(); ws = xD?.wanStatistics || xD?.wan || {}; 
-            cWU = (+ws.upspeed || 0) * 8; cWD = (+ws.downspeed || 0) * 8; 
+          if (xR.ok) {
+            let xD = await xR.json(), xWs = xD?.wanStatistics || xD?.wan || null;
+            if (xWs && ('upload' in xWs) && ('download' in xWs)) counterWs = xWs;
+            if (!rateWs && xWs && ('upspeed' in xWs) && ('downspeed' in xWs)) rateWs = xWs;
           }
         } catch (err) { console.warn(err) }
       }
       n = performance.now(); // devicelist 与 status 并发且设备统计混用两者，统一以整批数据就绪时间为本轮时间
-      S.oWU = (+ws?.upload || 0) * 8; S.oWD = (+ws?.download || 0) * 8; 
+      let wanCounterValid = !!counterWs;
 
       // === 🔪 小米专属微分引擎 (求导测速 + 基准线锚定) ===
-      S.bWU ??= S.oWU; S.bWD ??= S.oWD;
-      S.lRU ??= S.oWU; S.lRD ??= S.oWD;
-      S.lTU ??= n; S.lTD ??= n; // 上下行独立时间戳
-      S.zCU ??= 0; S.zCD ??= 0;
-      S.dWU ??= 0; S.dWD ??= 0; 
-      
-      // 容错兜底：防御路由器突然重启导致底层计数器硬件清零
-      if (S.oWU < S.lRU) { S.bWU = S.lRU = S.oWU; S.lTU = n; S.dWU = S.zCU = 0; }
-      if (S.oWD < S.lRD) { S.bWD = S.lRD = S.oWD; S.lTD = n; S.dWD = S.zCD = 0; }
-      if (S.oWU > S.lRU) {
-          S.dWU = (S.oWU - S.lRU) / ((n - S.lTU) * 0.001); 
-          S.lRU = S.oWU; S.lTU = n; S.zCU = 0; 
-      } else if (++S.zCU > 3) {
-          S.dWU = 0; S.lTU = n; }
-      if (S.oWD > S.lRD) {
-          S.dWD = (S.oWD - S.lRD) / ((n - S.lTD) * 0.001);
-          S.lRD = S.oWD; S.lTD = n; S.zCD = 0;
-      } else if (++S.zCD > 3) {
-          S.dWD = 0; S.lTD = n;
-      }// 绝对事件
-      
-      // 网页打开以来的真实绝对流量 (供比例计算使用)
-      S.dTU = Math.max(0, S.oWU - S.bWU); 
-      S.dTD = Math.max(0, S.oWD - S.bWD);
+      if (wanCounterValid) {
+        S.oWU = (+counterWs.upload || 0) * 8; S.oWD = (+counterWs.download || 0) * 8;
+        S.bWU ??= S.oWU; S.bWD ??= S.oWD;
+        S.lRU ??= S.oWU; S.lRD ??= S.oWD;
+        S.lTU ??= n; S.lTD ??= n; // 上下行独立时间戳
+        S.zCU ??= 0; S.zCD ??= 0;
+        S.dWU ??= 0; S.dWD ??= 0;
+
+        // 仅在收到真实官方累计量时，才把回退解释为路由器计数器清零。
+        if (S.oWU < S.lRU) { S.bWU = S.lRU = S.oWU; S.lTU = n; S.dWU = S.zCU = 0; }
+        if (S.oWD < S.lRD) { S.bWD = S.lRD = S.oWD; S.lTD = n; S.dWD = S.zCD = 0; }
+        if (S.oWU > S.lRU) {
+            S.dWU = (S.oWU - S.lRU) / ((n - S.lTU) * 0.001);
+            S.lRU = S.oWU; S.lTU = n; S.zCU = 0;
+        } else if (++S.zCU > 3) {
+            S.dWU = 0; S.lTU = n; }
+        if (S.oWD > S.lRD) {
+            S.dWD = (S.oWD - S.lRD) / ((n - S.lTD) * 0.001);
+            S.lRD = S.oWD; S.lTD = n; S.zCD = 0;
+        } else if (++S.zCD > 3) {
+            S.dWD = 0; S.lTD = n;
+        }// 绝对事件
+
+        // 网页打开以来的真实绝对流量 (供比例计算使用)
+        S.dTU = Math.max(0, S.oWU - S.bWU);
+        S.dTD = Math.max(0, S.oWD - S.bWD);
+        cWU = S.dWU; cWD = S.dWD; wanRateValid = !0;
+      } else if (rateWs) {
+        // 兼容未知固件：只有累计字节不可用时，才允许官方瞬时速率接管。
+        cWU = (+rateWs.upspeed || 0) * 8; cWD = (+rateWs.downspeed || 0) * 8;
+        S.dTU ??= 0; S.dTD ??= 0;
+        wanRateValid = !0;
+      }
 
       S.hasW2 = !1; // 多拨
       let cSU = 0, cSD = 0, cI = Object.create(null);
-      记总速率图(S.dWU, S.dWD);
-      let sL = sD?.dev || []; 
+      if (wanRateValid) 记总速率图(cWU, cWD);
+      let sL = sD?.dev || [], sDByMac = Object.create(null), 有累计MAC = new Set();
+      if (Array.isArray(sL)) for (const d of sL) { let mac = nM(d.mac || ''); if (mac) sDByMac[mac] = d; }
       let oL = !(dD.list || []).some(i => i.type === 0 || i.isap === 8) && (dD.list || []).some(i => i.type === 3);
       // 清洗局域网 JSON
       (dD.list || []).forEach(i => {
         let m = nM(i.mac || "");
         if (m) {
-          let x = null; 
-          for (let k = 0; k < sL.length; k++) { if (nM(sL[k].mac) === m) { x = sL[k]; break; } }
+          let x = sDByMac[m] || null, 有累计 = !!x && ('upload' in x) && ('download' in x);
+          if (有累计) 有累计MAC.add(m);
           
           let u = (+i.statistics?.upspeed || +x?.upspeed || 0) * 8, 
               dn = (+i.statistics?.downspeed || +x?.downspeed || 0) * 8;
@@ -259,8 +271,8 @@ async function rSD() {
           cI[m] = {
             upRate: u, dnRate: dn, 
             iface: i.isap === 8 ? 'Mesh' : (oL ? (i.type === 1 ? '有线' : (i.type === 2 ? '2.4G' : (i.type === 3 ? '5.2G' : '5.8G'))) : (i.type === 0 ? '有线' : (i.type === 1 ? '2.4G' : (i.type === 2 ? '5.2G' : '5.8G')))),
-            offUp: (+x?.upload || 0) * 8,    
-            offDn: (+x?.download || 0) * 8, 
+            offUp: 有累计 ? (+x.upload || 0) * 8 : (S.cls[m]?.lU ?? 0),
+            offDn: 有累计 ? (+x.download || 0) * 8 : (S.cls[m]?.lD ?? 0),
             onSec: +(i.statistics?.online || x?.online || i.online || 0),
             name: i.name || i.oname || x?.devname || "未知",
             ip: Array.isArray(i.ip) ? (i.ip[0]?.ip || i.ip[0] || "") : (i.ip || "")
@@ -293,8 +305,8 @@ async function rSD() {
         window.gegeForceUIRedraw = !1;
       }
       let gDt = (S.lt !== 0) ? (n - S.lt) * 0.001 : 0;
-      if (S.wLT === undefined) { S.wLT = n; }
-      else if (cWU !== S.wInstUp || cWD !== S.wInstDn) {
+      if (wanRateValid && S.wLT === undefined) { S.wLT = n; }
+      else if (wanRateValid && (cWU !== S.wInstUp || cWD !== S.wInstDn)) {
         let wDt = n - S.wLT;
         if (S.wInstUp > 0) { S.wTotUp += (S.wInstUp + cWU) * wDt * 0.0005; }
         else if (cWU > 0) { let wEU = cWU * 0.5 * CONFIG.wanRefreshInterval; S.wTotUp += wEU; S.wZEU = (S.wZEU || 0) + wEU; S.wZEUC = (S.wZEUC || 0) + 1; }
@@ -308,39 +320,50 @@ async function rSD() {
         let cS = S.cls[m];
         if (!cS) {
           let spD = (CONFIG.readSaveData === 2 && S.snap && S.snap.devices && S.snap.devices[m]) || null;
+          let 有累计 = 有累计MAC.has(m);
           cS = S.cls[m] = {
             upR: cC.upRate, dnR: cC.dnRate, lUT: n,
             intUp: spD ? (spD.integral_up || 0) : 0, intDn: spD ? (spD.integral_down || 0) : 0,
-            uB: CONFIG.readSaveData === 1 ? 0 : (spD ? cC.offUp - (spD.up || 0) : cC.offUp),
-            dB: CONFIG.readSaveData === 1 ? 0 : (spD ? cC.offDn - (spD.down || 0) : cC.offDn),
-            lU: cC.offUp, lD: cC.offDn, aR: !1, dpU: 0, dpD: 0,
-            oU: cC.offUp, oD: cC.offDn, hU: new Float64Array(64), hD: new Float64Array(64), hIdx: 0, ifc: cC.iface // 真实流量与环形缓冲
+            uB: 有累计 && CONFIG.readSaveData !== 1 ? (spD ? cC.offUp - (spD.up || 0) : cC.offUp) : 0,
+            dB: 有累计 && CONFIG.readSaveData !== 1 ? (spD ? cC.offDn - (spD.down || 0) : cC.offDn) : 0,
+            lU: 有累计 ? cC.offUp : undefined, lD: 有累计 ? cC.offDn : undefined, aR: !1, dpU: 0, dpD: 0,
+            oU: 有累计 ? cC.offUp : 0, oD: 有累计 ? cC.offDn : 0, name: spD?.name || cC.name || m, hU: new Float64Array(64), hD: new Float64Array(64), hIdx: 0, ifc: cC.iface // 真实流量与环形缓冲
           };
         } else {
-          let dU = cC.offUp - cS.lU, dD = cC.offDn - cS.lD;
+          let 有累计 = 有累计MAC.has(m);
           if (cS.ifc !== cC.iface) { if (CONFIG.盲漫游) cS.aR = 2; cS.ifc = cC.iface; }
-          if (dU < 0 || dD < 0) {
-            if (dU < 0) { cS.uB += dU; cS.dpU = cS.lU; cS.oU += dU; }
-            if (dD < 0) { cS.dB += dD; cS.dpD = cS.lD; }
-            cS.aR = 3;
-          } else if (cS.aR === 3) {
-            if (dU > 0 || dD > 0) {
-              if ((cS.dpD && dD >= cS.dpD) || (cS.dpU && dU >= cS.dpU)) {
-                if ((dU < cS.dpU * 2 || dU < cS.dpU + 1e8 * CONFIG.lanRefreshInterval) && (dD < cS.dpD * 2 || dD < cS.dpD + 1e9 * CONFIG.lanRefreshInterval)) {
-                  cS.uB += cS.dpU; cS.dB += cS.dpD; cS.oU += cS.dpU;
-                } else {
-                  cS.uB += dU; cS.oU += dU; cS.dB += dD;
+          if (有累计) {
+            if (cS.lU === undefined || cS.lD === undefined) {
+              cS.lU = cC.offUp; cS.lD = cC.offDn; cS.oU = cC.offUp; cS.oD = cC.offDn;
+              cS.uB = CONFIG.readSaveData === 1 ? 0 : cC.offUp; cS.dB = CONFIG.readSaveData === 1 ? 0 : cC.offDn;
+              cS.dpU = cS.dpD = 0; cS.aR = !1;
+            } else {
+              let dU = cC.offUp - cS.lU, dD = cC.offDn - cS.lD;
+              if (dU < 0 || dD < 0) {
+                if (dU < 0) { cS.uB += dU; cS.dpU = cS.lU; cS.oU += dU; }
+                if (dD < 0) { cS.dB += dD; cS.dpD = cS.lD; }
+                cS.aR = 3;
+              } else if (cS.aR === 3) {
+                if (dU > 0 || dD > 0) {
+                  if ((cS.dpD && dD >= cS.dpD) || (cS.dpU && dU >= cS.dpU)) {
+                    if ((dU < cS.dpU * 2 || dU < cS.dpU + 1e8 * CONFIG.lanRefreshInterval) && (dD < cS.dpD * 2 || dD < cS.dpD + 1e9 * CONFIG.lanRefreshInterval)) {
+                      cS.uB += cS.dpU; cS.dB += cS.dpD; cS.oU += cS.dpU;
+                    } else {
+                      cS.uB += dU; cS.oU += dU; cS.dB += dD;
+                    }
+                    cS.aR = 2; if (CONFIG.盲漫游 === undefined) CONFIG.盲漫游 = 1;
+                  } else {
+                    cS.aR = 0;
+                  }
+                  cS.dpU = 0; cS.dpD = 0;
                 }
-                cS.aR = 2; if (CONFIG.盲漫游 === undefined) CONFIG.盲漫游 = 1;
-              } else {
-                cS.aR = 0;
               }
-              cS.dpU = 0; cS.dpD = 0;
+              cS.lU = cC.offUp; cS.lD = cC.offDn;
             }
           }
           if (cC.upRate !== cS.upR || cC.dnRate !== cS.dnR) 本轮刷新接口.add(cC.iface);
-          cS.lU = cC.offUp; cS.lD = cC.offDn;
         }
+        if (cC.name && cC.name !== '未知') cS.name = cC.name;
         if (cS.lOS !== cC.onSec) { cS.onS = cC.onSec; cS.lOS = cC.onSec; }
         else { cS.onS = (cS.onS || cC.onSec || 0) + gDt; }
       }
@@ -356,8 +379,8 @@ async function rSD() {
         }
       }
       S.lt = n;
-      S.wInstUp = cWU; S.wInstDn = cWD;
-      rUI(S.dWU, S.dWD, cSU, cSD, cI);
+      if (wanRateValid) { S.wInstUp = cWU; S.wInstDn = cWD; }
+      rUI(cWU, cWD, cSU, cSD, cI);
     } catch (err) {console.warn(err)} finally {window.__gIsF = !1;}
   }
 
@@ -523,8 +546,8 @@ S.cSnap = {
         acc[k] = {
           up: Math.max(0, (s.lU || 0) - (s.uB || 0)), down: Math.max(0, (s.lD || 0) - (s.dB || 0)),
           integral_up: s.intUp || 0, integral_down: s.intDn || 0,
-          status: s.aR ? "off" : (CONFIG.portMap[cC?.iface] || cC?.iface || "未知接口"),
-          name: cC?.name || k, ip: cC?.ip || "", raw_up: cC?.offUp || 0, raw_down: cC?.offDn || 0
+          status: cC ? (CONFIG.portMap[cC.iface] || cC.iface || "未知接口") : "off",
+          name: cC?.name || s.name || k, ip: cC?.ip || "", raw_up: cC?.offUp || 0, raw_down: cC?.offDn || 0
         };
         return acc;
       }, {})
