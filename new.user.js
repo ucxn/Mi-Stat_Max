@@ -105,7 +105,7 @@ const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&q
   function fB(bps) {
 		if (bps > 1e9) return `${(bps * 1e-6).toFixed(1)} Mbit/s`;
         if (bps > 1e6) return `${(bps * 1e-6).toFixed(2)} Mbps`;
-        if (bps > 1e3) return `${(bps * 1e-3).toFixed(1)} Kbps`;
+        if (bps > 1e3) return `${(bps * 1e-3).toFixed(1)} kbps`;
         return `${Math.round(bps)} bps`;
     }
 const F_ARR = ['0', '[1/16]', '[2/16]', '[3/16]', '[1/4]', '[5/16]', '[6/16]', '[7/16]', '[4/8]', '[9/16]', '[10/16]', '[11/16]', '[3/4]', '[13/16]', '[14/16]', '[15/16]', '[1]'];
@@ -114,9 +114,9 @@ function fBy(bps) {
         if (bps > 8388608) return `${(bps * 1.1920928955078125e-7).toFixed(2)} MiB/s`;
         return bps < 8602
             ? ((bps * 0.002 | 0) === bps * 0.002 && bps < 8001
-                ? `${F_ARR[bps * 0.002]} KB/s`
-                : `${(bps * 0.000125).toFixed(2)} KB/s`)
-            : `${(bps * 0.0001220703125).toFixed(1)} KB/s`;
+                ? `${F_ARR[bps * 0.002]} kB/s`
+                : `${(bps * 0.000125).toFixed(2)} kB/s`)
+            : `${(bps * 0.0001220703125).toFixed(1)} K/s`;
     }
 
   function fV(bits) {
