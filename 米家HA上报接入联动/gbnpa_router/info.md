@@ -40,7 +40,7 @@
 * **配置流接入 (Config Flow) 🖥️**：原生支持 HA 现代化的图形界面安装，无需手动修改 `configuration.yaml`，即插即用。
 
 ## 🚀 数据采集端部署
-1. 确保有某台常亮主机（Home Server）的浏览器上已安装 **[脚本猫 (ScriptCat)](https://scriptcat.org/zh-CN/script-show-page/6194)** 插件。
+1. 确保有某台常亮主机（Home Server）的浏览器上已安装 **[脚本猫 (ScriptCat)](https://scriptcat.org/zh-CN/script-show-page/6676)** 插件。
 2. 导入本项目提供的采集端 JS 脚本。
 3. 在脚本代码顶部的配置区，将 Webhook URL 指向你的 HA 地址：
 ```javascript
