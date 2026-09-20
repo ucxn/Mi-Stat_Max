@@ -127,10 +127,6 @@ const CONFIG = {
 * 本脚本仅在前端对获取到的 API 数据进行重新排版与计算，不会修改路由器底层的核心配置。
 * 本脚本属于纯前端数据重组工具，不涉及对小米路由器底层固件的修改。
 
-## 📄 协议 (License)
-
-[GNU-Affero GPL 3.0](https://www.gnu.org/licenses/agpl-3.0.html)
-
 ---
 *Authored by 哥哥科技*
 [![Star History](https://api.star-history.com/svg?repos=ucxn/Mi-Stat_Max&type=Date)](https://star-history.com/#ucxn/Mi-Stat_Max&Date)

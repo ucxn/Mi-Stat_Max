@@ -135,10 +135,6 @@ const CONFIG = {
 
 Running under Tampermonkey, the script deriving precise, real-time traffic figures. All UI changes are applied via DOM Mutation on top of the original CSS framework — native feel, no compatibility compromises.
 
-## 📄 License
-
-[GNU-Affero-GPL 3.0](https://www.gnu.org/licenses/agpl-3.0.html)
-
 ---
 *Authored by Brother Tech*
 
