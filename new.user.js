@@ -3,8 +3,8 @@
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
 // @version         5.9.9.Turbo
-// @description     哥哥科技 space.bilibili.com/501430041
-// @description:en  https://github.com/ucxn/Mi-Stat_Max
+// @description     小米路由器增强组件 - 设备网速一键查看、WAN网速计算，设备流量统计与大屏查看
+// @description:en  Xiaomi Router Enhancement Module—One-click device speed check, WAN speed calculation, device traffic statistics, and large-screen viewing
 // @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT 刷机 OP 红米 高等数学 微积分 导数 WAN 网速 MiRD
 // @author          哥哥科技 QQ群 680464365
 // @contributor     https://github.com/1-Reality
@@ -17,7 +17,7 @@
 // @grant           GM_setValue
 // @grant           GM_getValue
 // @storageName     GBNPA_Storage
-// @homepageURL     https://github.com/ucxn/Mi-Stat_Max
+// @website         https://github.com/ucxn/Mi-Stat_Max
 // @supportURL      https://www.bilibili.com/video/BV1SeEb67Ep1
 // @license         SUL-1.0
 // @downloadURL     https://github.com/ucxn/Bro-Stat/raw/refs/heads/main/Mi-WiFi_RD.user.js

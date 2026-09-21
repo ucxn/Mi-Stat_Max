@@ -24,9 +24,9 @@ this GPG-signed text in any documentation and, each time the resulting
 executable program or a program dependent thereon is launched, a
 prominent display (e.g., splash screen or banner text) of the Author's
 attribution information, which includes:
-(a) Name ("Hillel Coren"),
-(b) Professional identification ("Invoice Ninja"), and
-(c) URL ("https://www.invoiceninja.com").
+(a) Name ("哥哥科技"),
+(b) Professional identification ("长兄天工"), and
+(c) URL ("https://github.com/ucxn/BroTech").
 3. Neither the name nor any trademark of the Author may be used to
 endorse or promote products derived from this software without specific
 prior written permission.
