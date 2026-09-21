@@ -138,4 +138,4 @@ Running under Tampermonkey, the script deriving precise, real-time traffic figur
 ---
 *Authored by Brother Tech*
 
-[![Star History](https://api.star-history.com/svg?repos=ucxn/ZTE-Stat_Max&type=Date)](https://star-history.com/#ucxn/Mi-Stat_Max&Date)
+[![Star History](https://api.star-history.com/svg?repos=ucxn/Mi-Stat_Max&type=Date)](https://star-history.com/#ucxn/Mi-Stat_Max&Date)

@@ -1,3 +1,5 @@
+哥哥科技 2026 © Bro-Tech 版权所有
+
 ## Sustainable Use License
 
 Version 1.0
