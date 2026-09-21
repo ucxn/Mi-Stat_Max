@@ -1,15 +1,20 @@
-Copyright (c) 2026 by 哥哥科技
-Invoice Ninja * https://www.invoiceninja.com
-"CREATE. SEND. GET PAID"
+Copyright (c) 2026 by Bro-Tech<br>
+哥哥科技 * https://space.bilibili.com/501430041<br>
 
+"爱哥哥，也有个可爱的弟弟。"<br>
 All Rights Reserved
+
 ATTRIBUTION ASSURANCE LICENSE (adapted from the original BSD license)
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the conditions below are met.
-These conditions require a modest attribution to InvoiceNinja.com (the
-"Author"), who hopes that its promotional value may help justify the
-thousands of dollars in otherwise billable time invested in writing
-this and other freely available, open-source software.
+
+These conditions require a modest attribution to 哥哥科技 (the
+"Author"), who hopes that 在任何商业使用中，必须完整地按照品牌使用政策以及
+https://github.com/ucxn/UCXN 进行署名；在个人、朋友间普通使用中，遵循“不作恶”
+原则，尽量不要修改版权声明所实现的代码。即使修改，署名强度也不得有任何减弱。除
+非是使用其它语言重构，或者说参考了大量核心思路，但是进行了重写，那么此时应当以
+和原先显著相似的形式重新实现署名 in writing this and other freely
+available, open-source software.
 
 1. Redistributions of source code, in whole or part and with or without
 modification (the "Code"), must prominently display this GPG-signed
@@ -45,3 +50,7 @@ AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+–End of License
+
+Originally written by Edwin A. Suominen for licensing his PRIVARIA secure networking software (see www.privaria.org). The author, who is not an attorney, places this license template into the public domain along with a complete disclaimer of any warranty or responsibility for its content or legal efficacy. You may use or modify the language freely, but entirely at your own risk.
