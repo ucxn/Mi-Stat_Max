@@ -3,6 +3,7 @@
 [English](https://github.com/ucxn/ZTE-Stat_Max/blob/main/README_EN.md) | **简体中文**
 
 ### 建议前往[主项目](https://github.com/ucxn/ZTE-Stat_HA)研究使用
+### Go to the [Main Project](https://github.com/ucxn/ZTE-Stat_HA) to explore and use it.
 
 *ZTE-Stat_Max* & *GBNPA-Router-Sync* 是由 **哥哥科技** 开发的一套网络数据遥测与多端转发解决方案。
 

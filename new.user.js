@@ -19,7 +19,7 @@
 // @storageName     GBNPA_Storage
 // @website         https://github.com/ucxn/Mi-Stat_Max
 // @supportURL      https://www.bilibili.com/video/BV1SeEb67Ep1
-// @license         SUL-1.0
+// @license         SUL-1.0 AND LicenseRef-BroTech-Additional-Terms
 // @downloadURL     https://github.com/ucxn/Bro-Stat/raw/refs/heads/main/Mi-WiFi_RD.user.js
 // @updateURL       https://github.com/ucxn/Mi-Stat_Max/raw/refs/heads/main/new.user.js
 
