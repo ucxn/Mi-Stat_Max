@@ -1,17 +1,15 @@
 # GBNPA Router Sync by 哥哥科技
 
-[English](https://github.com/ucxn/ZTE-Stat_Max/blob/main/README_EN.md) | **简体中文**
-
 ### 建议前往[主项目](https://github.com/ucxn/ZTE-Stat_HA)研究使用
 ### Go to the [Main Project](https://github.com/ucxn/ZTE-Stat_HA) to learn more and get started.
 
-*ZTE-Stat_Max* & *GBNPA-Router-Sync* 是由 **哥哥科技** 开发的一套网络数据遥测与多端转发解决方案。
+*Mi-Stat_Max* & *GBNPA-Router-Sync* 是由 **哥哥科技** 开发的一套网络数据遥测与多端转发解决方案。
 
 中兴路由器 × 全屋智能家居平台联动接入插件：Home Assistant 极客集成、UI增强，硬路由NPU最佳伴侣、无需刷机，支持全系ZTE！设备列表平铺化，大屏可视化一点通，你所要的，都在这里，无需频繁切换页面…
 
 本自定义集成通过“油猴脚本截留 + Webhook 异步推送”的组合架构，在不破坏官方原有拓扑、不触发中兴路由器“Web 后台单会话互踢”机制的前提下，将路由器底层的高精度流量数据与设备状态无缝接入 Home Assistant。为网络工程人员提供长周期的流量统计与全局态势观测能力。
 
-配合前端插件 [ZTE-Stat_Max](https://github.com/ucxn/ZTE-Stat_Max)，将浏览器端抓取到的高精度网络流量数据，通过 Webhook 单向推送到 Home Assistant 中枢进行持久化存储与展示。
+配合前端插件 [Mi-Stat_Max](https://github.com/ucxn/Mi-Stat_Max)，将浏览器端抓取到的高精度网络流量数据，通过 Webhook 单向推送到 Home Assistant 中枢进行持久化存储与展示。
 
 无论是全屋大盘的上下行总流量，还是单台设备的实时吞吐状态，都已被解耦并整合至 HA 的标准设备卡片中。无需频繁登录路由器后台，即可在任意移动端或桌面端实时掌控局域网网络状态。
 
@@ -19,9 +17,9 @@
 
 该项目包含两个相互配合的子组件：
 
-**主项目**&emsp;&nbsp;[![主项目](https://img.shields.io/badge/Network-ZTE--Stat__Max-FF4C00?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ucxn/ZTE-Stat_Max)
+**主项目**&emsp;&nbsp;[![主项目](https://img.shields.io/badge/Network-ZTE--Stat__Max-FF4C00?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)
 
-1. **ZTE-Stat_Max（双 JS 脚本）**：运行于浏览器前端，负责接管中兴路由器后台的数据流并优化本地 UI 展示。
+1. **Mi-Stat_Max（双 JS 脚本）**：运行于浏览器前端，负责接管中兴路由器后台的数据流并优化本地 UI 展示。
 2. **GBNPA-Router-Sync（HA 集成）**：运行于 Home Assistant 服务器，实现状态的多端无限转发与图表记录。
 
 ## 📖 设计初衷与痛点解决
