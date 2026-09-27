@@ -14,7 +14,7 @@ Covers the full MiRD router lineup, including the Xiaomi BE3600, BE6500 (includi
 
 Theoretically supports all Wi-Fi 5/6/7 routers running Xiaomi's stock firmware. Nearly all AX-series and newer models deliver comprehensive data. ISP-customized models may only return partial data, but broad compatibility is maintained throughout.
 
-This is far more than a UI enhancement plugin. Driven by *Brother Tech*'s carefully crafted algorithms, it thoroughly processes the raw, dynamic, discrete data the router exposes — producing values as close to ground truth as possible. It corrects the firmware's fake/misleading WAN speed figures (which are actually aggregated from LAN-side MAC statistics rather than measured at the WAN port directly — and the public network always matters more than the internal one), accurately attributes per-device traffic share, and weaves calculus and signal processing directly into the script's logic. Only by reading the source code can you truly appreciate the ingenuity. For a broader and more accessible overview, see the [Design Blueprint](https://github.com/ucxn/BroTech/blob/main/README_EN.md).
+This is far more than a UI enhancement plugin. Driven by *Brother Tech*'s carefully crafted algorithms, it thoroughly processes the raw, dynamic, discrete data the router exposes — producing values as close to ground truth as possible. It corrects the firmware's fake/misleading WAN speed figures (which are actually aggregated from LAN-side MAC statistics rather than measured at the WAN port directly — and the public network always matters more than the internal one), accurately attributes per-device traffic share, and weaves calculus and signal processing directly into the script's logic. Only by reading the source code can you truly appreciate the ingenuity. For a broader and more accessible overview, see the [Design Blueprint](https://github.com/ucxn/BroTech/blob/Brother/README_EN.md).
 
 ![logo](/logo.png)
 
@@ -22,7 +22,7 @@ This is far more than a UI enhancement plugin. Driven by *Brother Tech*'s carefu
 
 [**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/582042)**
 
-![Preview](./.GitHub/me.png)
+![Preview](./.github/me.png)
 
 **Real-time Monitoring**: Total WAN traffic (3s refresh), per-device speeds (3s interval), and official per-device traffic subtotals since boot — with historical records accessible at any time. *Note: Dual-WAN mode defaults to an aggregated sum, a current limitation rather than a deliberate design choice.*</br>
 **Calculus Engine**: True WAN throughput (derived via differentiation) and per-device traffic (via ∫ integration), shown in a dual-track display alongside official router stats — works right when you open the page, no setup needed.</br>
@@ -58,7 +58,7 @@ Router Web UI Enhancement × Mi Home integration linkage (by *Bro-Tech / 哥哥�
 
 ## 🚀 Installation Guide
 
-<a href="https://www.bilibili.com/video/BV1PtR7B8ECC" target="_blank">
+<a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank">
   <img src="https://img.shields.io/badge/Bilibili-Video-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white" height="72">
 </a>
 
@@ -92,18 +92,18 @@ Before using this script, make sure your browser has a userscript manager extens
 > <br>Due to limitations in Via Browser's rendering engine, the default `document-idle` injection timing may fail to trigger correctly.<br>
 > <br>Open Via's script management page and change the execution timing to either `document-start` or `document-end`.<br>
 >
-> ![Screenshot](./.GitHub/Via.png)
+> ![Screenshot](./.github/Via.png)
 > </details>
  
 > [!TIP]
 > If the script still isn't taking effect, refer to the graphic tutorial below:
-> ![Graphic Tutorial](./.GitHub/Install.png)
+> ![Graphic Tutorial](./.github/Install.png)
 
 ## 📸 Screenshots
 
 | Normal Xiaomi Plugin | ZTE Plugin Reference | This Plugin |
 | :---: | :---: | :---: |
-| ![小米插件](./.GitHub/Mi.png) | ![原生界面](./.GitHub/ZTE.png) | ![增强界面](./.GitHub/me.png) |
+| ![小米插件](./.github/Mi.png) | ![原生界面](./.github/ZTE.png) | ![增强界面](./.github/me.png) |
 
 ## ⚙️ Configuration
 

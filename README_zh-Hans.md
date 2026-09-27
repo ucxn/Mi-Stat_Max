@@ -15,7 +15,7 @@
 
 这不仅是一个 UI 增强插件，它通过*哥哥科技* 的精妙算法，对原始的动态、离散分立数据进行全面的处理，并尽量使用最逼近真值的数据，校正原厂的伪 WAN 口速率（因为公网永远比内网重要），正确分析各设备占比，将微积分和信号处理融入到脚本当中，唯有阅读源码，才能感受到其精妙；若想大致有趣一览，[可看架构](https://github.com/UCXN/BroTech)。
 
-![预览](./.GitHub/me.png)
+![预览](./.github/me.png)
 **支持检测**：WAN口总流量（3s刷新）、各设备速率（3s）、各设备开机以来官方流量小计，随时读档。双网默认为加和，并非有意设计。</br>
 **支持计算**：WAN口速率（从流量微分求导）、各设备流量（∫积分）+官方统计双轨制对比！即开即用！</br>
 **统计口径**：同时支持对比：官方值（只含本次接入）、当前在线、网页打开以来的总计。</br>
@@ -53,7 +53,7 @@
 
 | 小米普通插件|中兴插件参考 | 本插件 |
 | :---: | :---: | :---: |
-| ![小米插件](./.GitHub/Mi.png) | ![原生界面](./.GitHub/ZTE.png) | ![增强界面](./.GitHub/me.png) |
+| ![小米插件](./.github/Mi.png) | ![原生界面](./.github/ZTE.png) | ![增强界面](./.github/me.png) |
 
 
 ## 🚀 安装指南 (Installation)
@@ -71,7 +71,7 @@
 
     [通过 ScriptCat 脚本猫 安装（直连推荐：**无需科学上网**）](https://scriptcat.org/zh-CN/script-show-page/6592)更新推送
 
-全面更新兄弟项目，接入智能集成&nbsp;⇨&nbsp;<a href="https://github.com/ucxn/ZTE-Stat_HA" target="_blank"><img src="https://img.shields.io/badge/HACS-ZTE--Stat__Home%20Assistant-41BDF5?style=for-the-badge&logo=homeassistant&logoColor=white" alt="ZTE HACS"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.bilibili.com/video/BV1PtR7B8ECC" target="_blank"><img src="https://img.shields.io/badge/Bilibili-%E8%A7%82%E7%9C%8B%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white" alt="Bilibili Video"></a>
+全面更新兄弟项目，接入智能集成&nbsp;⇨&nbsp;<a href="https://github.com/ucxn/ZTE-Stat_HA" target="_blank"><img src="https://img.shields.io/badge/HACS-ZTE--Stat__Home%20Assistant-41BDF5?style=for-the-badge&logo=homeassistant&logoColor=white" alt="ZTE HACS"></a>&nbsp;&nbsp;&nbsp;<a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank"><img src="https://img.shields.io/badge/Bilibili-%E8%A7%82%E7%9C%8B%E6%BC%94%E7%A4%BA%E8%A7%86%E9%A2%91-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white" alt="Bilibili Video"></a>
     
 2.  在弹出的安装界面中点击 **“安装”** 或 **“更新”**。
 3.  登录您的小米路由器 Web 管理后台，*输入管理员密码*，登录成功后 *刷新网页* ,进入“哥哥科技面板”界面，脚本将自动生效。
@@ -86,12 +86,12 @@
 > <br>由于 Via 浏览器的内核机制限制，默认的 `document-idle` 无法成功注入。<br>
 > <br>请进入 Via 的脚本管理界面，将运行时期修改为 `document-start`或`document-end` 均可。<br>
 > 
-> ![操作截图](./.GitHub/Via.png)
+> ![操作截图](./.github/Via.png)
 > </details>
 
 > [!TIP]
 > 若脚本仍未生效，请使用如下教程：
-![图文教程](./.GitHub/Install.png)
+![图文教程](./.github/Install.png)
 
 #### 🔗 Symlinks 友情链接
 
