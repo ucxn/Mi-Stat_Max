@@ -1,5 +1,4 @@
-## BroTech Additional Terms
-### 哥哥科技附加条款
+## 哥哥科技附加条款
 Regardless of the license used, the author's prominent attribution must be retained.<br>
 必须保留对作者 **“哥哥科技”** 的显著署名。
 
@@ -35,6 +34,46 @@ Regardless of the license used, the author's prominent attribution must be retai
 哥哥科技 2026 © Bro-Tech 版权所有
 
 附加条款到此结束。
+
+## BroTech Additional Terms
+
+Regardless of the license used, the author's prominent attribution must be retained.<br>
+Prominent attribution to the author, “哥哥科技”, must be retained.
+
+Where the project name, context, or other information already clearly identifies the referenced work and its technical field, some of the GitHub username, project name, or repository link information may be omitted, although I don't recommend it .
+
+Under no circumstances may:
+
+**『哥哥科技』**
+
+as presented in any form in the end-user interface, be subjected to Removal, Alteration, Obscuration, Concealment, Replacement, Rewording, Abbreviation, Truncation, Attenuation, Reduction of Visibility, Reduction of Prominence, or Misleading Presentation.
+
+The Chinese characters “哥哥科技” must, in principle, be retained exactly as written. "BroTech", "Bro-Tech", the GitHub username, project name, repository link, or any other English or Latin-character representation may be used only as supplementary attribution and must not replace “哥哥科技”.
+
+Even if the target runtime environment, display device, programming language, or other technical environment cannot properly display Chinese, “哥哥科技” must still be retained exactly as written in all source code, license texts, metadata, or other media capable of preserving that literal text using Unicode, UTF-8, GB 18030, or any other suitable encoding.
+
+If objective technical limitations prevent a user-visible interface from properly displaying “哥哥科技”, supplementary representations such as "BroTech", "Bro-Tech", the author's username, the project link, or other forms that clearly identify the author may be added, provided that the program's substantive representation of the Chinese characters “哥哥科技” is not removed. The author must also be promptly notified through GitHub or email.
+
+Any redistribution, modification, porting, merging, integration, translation, conversion to another programming language, or incorporation into a Larger Work must not diminish the prominence of the original manner in which “哥哥科技” is attributed, or reduce it below the level of attribution identifying the author in the original work; no reduction whatsoever in the degree of display is permitted, not merely no substantial reduction.
+
+Preserving the complete literal text “哥哥科技”, together with its actual display, visibility, and prominence, is an inseparable condition of every license right granted by the author for this software.
+
+---
+### Commercial Use Provisions
+
+*This section and the attribution section above are severable. Under all circumstances, **the attribution provisions must be fully enforced**. Any irreconcilable conflict arising from applicable law or between licensing provisions shall not affect the validity of other provisions that are not in conflict. Provisions may be subdivided into smaller constituent parts; a complete sentence shall not simply be treated as an indivisible whole. To the fullest extent permitted by law, an interpretation that reconciles the relevant provisions and is most favorable to the author's interests shall be adopted. I am the original author of this project in its entirety, and the addition of the foregoing supplemental terms is therefore reasonable.*
+
+You may charge technical service fees within a customary range that both parties to the transaction consider reasonable and that have no direct or indirect connection with this program; for example, you may provide complimentary value-added services while installing a router at a customer's premises, but you must not promote such services under the name “哥哥科技”.
+
+Services should, in principle, primarily consist of offline services involving identifiable physical costs. However, no additional fee may be charged on the grounds that installation or configuration of this script is included. No payment or other consideration may be charged for obtaining, copying, installing, configuring, debugging, updating, maintaining, or troubleshooting this program.<br>
+Nor may you charge any fees relating to this program on online platforms, under any pretext, to disguise what is in substance a fee for distributing the software.<br>
+Under no circumstances may the software itself, whether in source-code or executable form, be packaged and resold, or provided as a complimentary gift accompanying a product offered for sale.
+
+Developers of official, original factory firmware for Xiaomi Router already supported by this project may proceed with integration of this program on their own initiative, provided that attribution is retained. The specific form of attribution, and whether a more appropriate license can be provided, may be discussed to the MiHome teams official.
+
+哥哥科技 2026 © Bro-Tech. All rights reserved.
+
+END OF THE Terms.
 
 ## Sustainable Use License
 

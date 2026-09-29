@@ -1,5 +1,5 @@
 Copyright (c) 2026 by Bro-Tech<br>
-哥哥科技 * https://space.bilibili.com/501430041<br>
+**哥哥科技** https://space.bilibili.com/501430041<br>
 
 "爱哥哥，也有个可爱的弟弟。"<br>
 All Rights Reserved
