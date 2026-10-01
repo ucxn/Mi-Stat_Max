@@ -206,7 +206,7 @@ async function rSD() {
           counterWs = primaryWs && ('upload' in primaryWs) && ('download' in primaryWs) ? primaryWs : null,
           rateWs = primaryWs && ('upspeed' in primaryWs) && ('downspeed' in primaryWs) ? primaryWs : null;
 
-      // 小米大部分固件提供所谓的WAN速率实质为逐设备速率加和，偏差不超过+12bit.因此不作为首选数据测量源。
+      // 小米大部分固件提供所谓的WAN速率实质为逐设备速率加和，偏差不超过+12bit（一般(-1)~(+8)bits以内）.因此不作为首选数据测量源。
       if (!counterWs) {
         try {
           let xR = await fetch(`/cgi-bin/luci/;stok=${stk}/api/xqsystem/status?_=${ts}`);
@@ -215,7 +215,7 @@ async function rSD() {
             if (xWs && ('upload' in xWs) && ('download' in xWs)) counterWs = xWs;
             if (!rateWs && xWs && ('upspeed' in xWs) && ('downspeed' in xWs)) rateWs = xWs;
           }
-        } catch (err) { console.warn(err);}
+        } catch (err) { console.warn(err); }
       }
       n = performance.now(); // devicelist 与 status 并发且设备统计混用两者，统一以整批数据就绪时间为本轮时间
       let wanCounterValid = !!counterWs;
@@ -376,8 +376,10 @@ async function rSD() {
         let cS = S.cls[m];
         if (cC.upRate !== cS.upR || cC.dnRate !== cS.dnR || 本轮刷新接口.has(cC.iface)) {
           const ms = n - cS.lUT;
-                    if (cS.upR > 0) { cS.intUp += (cS.upR + cC.upRate) * ms * 0.0005; }
-          else if (cC.upRate > 0) { const eU = cC.upRate * CONFIG.lanRefreshInterval * 0.5; cS.intUp += eU; cS.zEU = (cS.zEU || 0) + eU; cS.zUC = (cS.zUC || 0) + 1; }
+                    if (cS.upR > 0) {
+          cS.intUp += (cS.upR + cC.upRate) * ms * 0.0005; }
+          else if (cC.upRate > 0) {
+            const eU = cC.upRate * CONFIG.lanRefreshInterval * 0.5; cS.intUp += eU; cS.zEU = (cS.zEU || 0) + eU; cS.zUC = (cS.zUC || 0) + 1; }
           if (cS.dnR > 0) { cS.intDn += (cS.dnR + cC.dnRate) * ms * 0.0005; }
           else if (cC.dnRate > 0) { const eD = cC.dnRate * CONFIG.lanRefreshInterval * 0.5; cS.intDn += eD; cS.zED = (cS.zED || 0) + eD; cS.zDC = (cS.zDC || 0) + 1; }
           cS.upR = cC.upRate; cS.dnR = cC.dnRate; cS.lUT = n;
@@ -409,7 +411,7 @@ async function rSD() {
       csvRow(['设备名称','MAC地址','IP地址','状态/接口','高精上行','高精下行','积分上行','积分下行','官方上行','官方下行']),
       ...Object.entries(sp.devices || {}).map(d => csvRow([d[1].name,d[0],d[1].ip,d[1].status,Math.round(d[1].up||0),Math.round(d[1].down||0),Math.round(d[1].integral_up||0),Math.round(d[1].integral_down||0),Math.round(d[1].raw_up||0),Math.round(d[1].raw_down||0)])),
             '',
-      csvRow(['Bro-Stat@哥哥科技 https://space.bilibili.com/501430041']),
+      csvRow(['Mi-Stat@哥哥科技 https://space.bilibili.com/501430041']),
       csvRow(['项目主页: https://github.com/ucxn/Bro-Stat']),
       csvRow(['脚本下载: https://scriptcat.org/users/203510'])
     ].join('\r\n'))(
@@ -860,8 +862,8 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
       requestAnimationFrame(() => {
         ol.innerHTML = `<div style="padding: 20px; width: 96%; max-width: 1600px; margin: 0 auto; min-height: 100%;"><div id="gege-board-anchor"></div><div id="config-list" class="config-list gege-list-container">${hMesh.length ? `<div class="gege-section"><div class="config-title">Mesh 组网设备</div>${hMesh.join('')}</div>` : ''}<div class="gege-section"><div class="config-title">有线设备${(window.gegeHiddenDevices && Object.keys(window.gegeHiddenDevices).length > 0) ? '<span style="color: #ff4c00; font-size: 13px; font-weight: normal; margin-left: 10px; font-family: Consolas;">(哥哥科技：智能Mesh适配)</span>' : ''}</div>${hW.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.8GHz':'5.2GHz'}）</div>${h52.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.2GHz':'5.8GHz'}）</div>${h58.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（2.4GHz）</div>${h2.join('')||'<div class="gege-empty-state">没有连接设备</div>'}
         </div>
-        </div><div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #eee; text-align: center; font-family: Consolas, 'Microsoft YaHei', sans-serif;"><div style="font-size: 11.5px; color: #777; font-style: italic; margin-bottom: 8px;">“在一个文明社会，干净的、不被监视与吸血的网络，是我们每个人的基本权利。”</div><div style="font-size: 10.5px; color: #999; line-height: 1.3; margin-bottom: 8px;">本交互式程序属“哥哥软件”，需遵守署名许可证方可获得SUL授权；按“原样 (AS IS)”且免费提供，不对其适用性、稳定性、精密度或任何商业场景合规性作任何明示或暗示的担保。<a href="https://github.com/ucxn/Mi-Stat_Max/blob/main/%E2%9D%97%EF%B8%8F品牌使用政策.md" target="_blank" style="color: #777; text-decoration: underline;">许可证</a><br>基于本程序的任何修改、使用代码、再发布或相关衍生版本的合法性的前置条件是：在提供最终用户界面时，均应显著保留保留所有“哥哥科技”与法律声明，不得删除、隐藏或降低其可见性。
-        </div><div style="font-size: 12px; color: #555;"><a href="https://github.com/ucxn/Mi-Stat_Max" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">Mi-Stat_Max 增强组件</a><span title="构建日期：2026-08.19 22时&#10;架构设计：哥哥科技 BroTech&#10;Bilibili UID：501430041&#10;QQ群：680464365" style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px; cursor: help; margin: 0 4px;">${(typeof GM_info !== 'undefined' && GM_info.script?.version) || '环境不支持获取版本号'}</span> Copyright &copy; 2026 <a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">哥哥科技</a> (BroTech)<span style="color: #888; font-weight: normal;"> | All Rights Reserved</span>&emsp;&nbsp;<a href="https://scriptcat.org/zh-CN/script-show-page/6592" target="_blank" style="color: #666; text-decoration: none;">点此分享</a>
+        </div><div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #eee; text-align: center; font-family: Consolas, 'Microsoft YaHei', sans-serif;"><div style="font-size: 11.5px; color: #777; font-style: italic; margin-bottom: 8px;">“在一个文明社会，干净的、不被监视与吸血的网络，是我们每个人的基本权利。”</div><div style="font-size: 10.5px; color: #999; line-height: 1.3; margin-bottom: 8px;">本交互式程序属“哥哥软件”，需遵守署名许可证方可获得SUL授权；按“原样 (AS IS)”且免费提供，不对其适用性、稳定性、精密度或任何商业场景合规性作任何明示或暗示的担保。<a href="https://github.com/ucxn/Mi-Stat_Max/blob/main/%E2%9D%97%EF%B8%8F品牌使用政策.md" target="_blank" style="color: #777; text-decoration: underline;">许可证</a><br>基于本程序的任何修改、使用代码、再发布或相关衍生版本的合法性的前置条件是：在提供最终用户界面时，均应显著保留哥哥科技署名与本法律声明，不得删除、隐藏或降低其可见性。
+        <div style="font-size:12px;color:#555;"><svg xmlns="http://www.w3.org/2000/svg" width="131" height="18" viewBox="0 0 145 20" role="img" aria-label="Broware Attribution" style="vertical-align:middle;margin-right:6px"><defs><linearGradient id="bg1" x2="0" y2="1"><stop stop-color="#4b4b4b"/><stop offset=".5" stop-color="#333"/><stop offset="1" stop-color="#1f1f1f"/></linearGradient><linearGradient id="bg2" x2="0" y2="1"><stop stop-color="#52d58c"/><stop offset=".52" stop-color="#31bc71"/><stop offset="1" stop-color="#218b50"/></linearGradient><linearGradient id="sh" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".32"/><stop offset=".45" stop-color="#fff" stop-opacity=".08"/><stop offset=".46" stop-opacity="0"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="c"><rect width="145" height="20" rx="4"/></clipPath></defs><g clip-path="url(#c)"><path fill="url(#bg1)" d="M0 0h24v20H0z"/><path fill="url(#bg2)" d="M24 0h121v20H24z"/><path fill="url(#sh)" d="M0 0h145v20H0z"/></g><g transform="translate(4 2)"><rect width="15" height="15" rx=".6" fill="#fff"/><rect x="1" y="1" width="13" height="13" fill="#58d18d"/><path fill="#fff" d="M1 1h7v7z"/><path fill="#32bf70" d="M8 1h6v13H8z"/><path fill="#1ba856" d="M1 14h7V8l6 6z"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11"><text x="84" y="15" fill="#000" fill-opacity=".28">Broware Attribution</text><text x="84" y="14">Broware Attribution</text></g></svg><a href="https://github.com/ucxn/Mi-Stat_Max" target="_blank" style="color:#0059fa;text-decoration:none;font-weight:bold;">Mi-Stat_Max 增强组件</a><span title="构建日期：2026-10.01 21时30&#10;架构设计：哥哥科技 BroTech&#10;Bilibili UID：501430041&#10;QQ群：680464365" style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px; cursor: help; margin: 0 4px;">${(typeof GM_info !== 'undefined' && GM_info.script?.version) || '环境不支持获取版本号'}</span> Copyright &copy; 2026 <a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">哥哥科技</a> (BroTech)<span style="color: #888; font-weight: normal;"> | All Rights Reserved</span>&emsp;&nbsp;<a href="https://scriptcat.org/zh-CN/script-show-page/6592" target="_blank" style="color: #666; text-decoration: none;">点此分享</a>
         <div style="font-size: 10.5px; color: #aaa; margin-top: 6px; font-weight: normal;">小米设计适配参考了 MIT 开源项目 <a href="https://greasyfork.org/zh-CN/scripts/525238-小米路由器增强脚本" target="_blank" style="color:#999; text-decoration:none;">小米路由器增强脚本@kirin</a> 和 <a href="https://github.com/tiejiang29/miwifi_router" target="_blank" style="color:#999; text-decoration:none;">miwifi_router@tiejiang29</a> 的接口思路，特此致谢。</div>
         </div></div></div></div>`;
       S._domRebuilt = true;});}
