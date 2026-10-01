@@ -199,7 +199,7 @@ async function rSD() {
       if (dD.code !== 0 || !dD.list) return;
 
       let sD = null;
-      if (sR && sR.ok) { try { sD = await sR.json(); } catch(e){console.warn(e)} }
+      if (sR && sR.ok) { try { sD = await sR.json(); } catch(e){console.warn(e);} }
 
       let cWU = S.wInstUp, cWD = S.wInstDn, wanRateValid = !1;
       let primaryWs = sD?.wan || sD?.wanStatistics || null,
@@ -215,7 +215,7 @@ async function rSD() {
             if (xWs && ('upload' in xWs) && ('download' in xWs)) counterWs = xWs;
             if (!rateWs && xWs && ('upspeed' in xWs) && ('downspeed' in xWs)) rateWs = xWs;
           }
-        } catch (err) { console.warn(err) }
+        } catch (err) { console.warn(err);}
       }
       n = performance.now(); // devicelist 与 status 并发且设备统计混用两者，统一以整批数据就绪时间为本轮时间
       let wanCounterValid = !!counterWs;
@@ -317,7 +317,7 @@ async function rSD() {
         else if (cWD > 0) { const wED = cWD * 0.5 * CONFIG.wanRefreshInterval; S.wTotDn += wED; S.wZED = (S.wZED || 0) + wED; S.wZEDC = (S.wZEDC || 0) + 1; }
         S.wLT = n;
       }
-      if (CONFIG.readSaveData === 2 && !S.snapLoaded) { try { let sp = typeof GM_getValue !== 'undefined' ? GM_getValue('ha_snapshot') : null; S.snap = sp && sp.timestamp > (typeof GM_getValue !== 'undefined' ? (GM_getValue('gege_reset_ms', 0) || 0) : 0) ? sp : {}; if(S.snap.global) { S.wTotUp = S.wTotUp === 0 ? S.snap.global.wan_up || 0 : S.wTotUp; S.wTotDn = S.wTotDn === 0 ? S.snap.global.wan_down || 0 : S.wTotDn; } } catch(e){console.warn(e)} S.snapLoaded = !0; }
+      if (CONFIG.readSaveData === 2 && !S.snapLoaded) { try { let sp = typeof GM_getValue !== 'undefined' ? GM_getValue('ha_snapshot') : null; S.snap = sp && sp.timestamp > (typeof GM_getValue !== 'undefined' ? (GM_getValue('gege_reset_ms', 0) || 0) : 0) ? sp : {}; if(S.snap.global) { S.wTotUp = S.wTotUp === 0 ? S.snap.global.wan_up || 0 : S.wTotUp; S.wTotDn = S.wTotDn === 0 ? S.snap.global.wan_down || 0 : S.wTotDn; } } catch(e){console.warn(e);} S.snapLoaded = !0; }
       const 本轮刷新接口 = new Set();
       for (const m in cI) {
         const cC = cI[m];
@@ -386,7 +386,7 @@ async function rSD() {
       S.lt = n;
       if (wanRateValid) { S.wInstUp = cWU; S.wInstDn = cWD; }
       rUI(cWU, cWD, cSU, cSD, cI);
-    } catch (err) {console.warn(err)} finally {window.__gIsF = !1;}
+    } catch (err) {console.warn(err);} finally {window.__gIsF = !1;}
   }
 
   function buildCSV() {
@@ -567,7 +567,7 @@ for (let k in S.cls) {
 if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
   S.haTick = ((S.haTick || 0) + 1) & 31;
       if (S.haTick === 1) {
-        try { GM_setValue('ha_snapshot', S.cSnap); } catch(e) {console.warn(e)}
+        try { GM_setValue('ha_snapshot', S.cSnap); } catch(e) {console.warn(e);}
     }}
     let state_fault = S._qosAdj || 0; 
     let mird_qos_delay = 1 - state_fault;
@@ -780,7 +780,7 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
                         cache.rBox = rB;
           }
           
-          let bR = (hqU + hqD) > 0 ? (hqU * 100 / (hqU + hqD)) : 0, tC = "", tCol = "#0059fa";
+          let bR = (hqU + hqD) > 0 ? (hqU * 100 / (hqU + hqD)) : 0, tC = "", tCol;
           if (CONFIG.calcMode === 1) {
             let rt = hqD > 0 ? (hqU / hqD) : (hqU > 0 ? Infinity : 0);
             if (rt > CONFIG.ratioExtremeUp) { tCol = '#ff4c00'; tC = (rt === Infinity ? '∞' : rt.toFixed(2)) + '⚠️'; }
