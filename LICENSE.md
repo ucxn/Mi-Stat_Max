@@ -1,4 +1,4 @@
-## 哥哥科技附加条款
+# 哥哥科技许可证
 Regardless of the license used, the author's prominent attribution must be retained.<br>
 必须保留对作者 **“哥哥科技”** 的显著署名。
 
@@ -40,9 +40,9 @@ Regardless of the license used, the author's prominent attribution must be retai
 Regardless of the license used, the author's prominent attribution must be retained.<br>
 Prominent attribution to the author, “哥哥科技”, must be retained.
 
-Where the project name, context, or other information already clearly identifies the referenced work and its technical field, some of the GitHub username, project name, or repository link information may be omitted, although I don't recommend it .
+Where the project name, context, or other information already clearly identifies the referenced work and its technical field, some of the GitHub username, project name, or repository link information may be omitted, I'd personally prefer you keep them, but it's up to you.
 
-Under no circumstances may:
+BUT, Under no circumstances may:
 
 **『哥哥科技』**
 
