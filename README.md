@@ -37,18 +37,19 @@ Router Web UI Enhancement × Mi Home integration linkage (by *Bro-Tech / 哥哥�
 ## ✨ Features
 
 * **🏠 Home Assistant Integration**: Works with the dedicated Brother Tech hub integration to push real-time status updates via Webhooks — cleanly sidestepping the web UI's single-session constraint and enabling stable concurrent monitoring across multiple endpoints. See the brother project (universal): [Mi-Stat_HA](https://github.com/ucxn/ZTE-Stat_HA).
-* **Traffic & Ratio Statistics**: Independently tracks uplink and downlink traffic per device, with live traffic ratios, up/down proportions, and LAN/WAN comparisons.
-* **Abnormal Upload Monitoring**: Monitors upload/download ratios and visually flags anomalies, actively combating PCDN/P2P upstream leeching.
-* **Precise Unit Conversion**: Strictly separates network transmission rates from storage capacity. Supports both base-1000 and base-1024 systems with Mbps/GiB display.
-* **Global Data Comparison**: Aggregate statistics and intuitive side-by-side comparison between the internal network (combined LAN totals) and the public network (WAN port).
-* **High-Precision Integral Traffic Tracking ⏱️ & UI Grid Refactor 🖥️**: Fully mobile-friendly.
-* **Dual-Track Traffic Comparison**: Alongside the router's native historical throughput figures, the script independently runs high-frequency data sampling in the browser to track actual traffic consumed while the page is open. Both figures are displayed side by side for cross-reference, with units normalized to the current session for cleaner change tracking.
-* **Customization Support**: Built with network engineering conventions in mind — script-level `CONFIG` variables let you fine-tune the display logic for base-1000 (Mbps) and base-1024 (MiB/s).
+* **Traffic & Ratio Statistics**: Tracks the uplink and downlink traffic of individual devices separately, allowing you to view real-time traffic ratio rates and up/down proportions. Adding LAN/WAN Ratio, etc.
+* **Abnormal Upload Monitoring**: Detects unusual upload/download ratios and visually flags abnormal uploads, helping pinpoint devices potentially involved in PCDN/P2P upload bandwidth theft.
+* **Precise Unit Conversion**: Strictly differentiates between transfer rates and data volumes. Supports both decimal (1000-based) and binary (1024-based) units, including Mbps and GiB.
+* **Global Data Comparison**: Supports aggregate statistics and intuitive comparison between the internal network (LAN algebraic sum) and the public network (WAN port).
+* **High-Precision Traffic Counting ⏱️ & UI Grid Refactoring 🖥️**：Fully mobile-friendly
+* **Dual-Track Traffic Comparison**: In addition to displaying the cumulative traffic totals reported by the router, the frontend independently samples transfer rates at high frequency to estimate traffic usage while the page is open. Both metrics are displayed side-by-side for reference. Units are unified to the current session, focusing on the observability of changes. Special Note: The “high-precision” traffic data here is derived from the official per-MAC cumulative counter, which tracks traffic for each device. However, it has been calibrated to account for issues such as official data rollover and reset, and—unlike the app’s weekly reports—distinguishes between upload and download traffic. The front-end sampling serves as an independent reference to ensure that even during system glitches, users can still view approximate traffic data; the sampling frequency itself does not affect the “high-precision” values.
+
+* **Event-Driven and Group Time**: A new sample is recorded whenever a change is detected in either upload or download speed, so cached readings aren't mistaken for fresh samples. This approach effectively mitigates the issue of varying refresh times across different interfaces and resolves the fallacy that higher polling frequencies lead to less accurate readings when the polling frequency exceeds the refresh frequency. Additionally, the Group Time mechanism significantly reduces the chance of overlap between upload and download sampling frames.
+* **Customization Support**: Supports configurable 1000-based Mbps and 1024-based MiB/s displays through script variables, in line with common networking conventions.
 * **🛡️ Privacy Protection & UI Optimization**:
-  * Automatically masks sensitive MAC addresses and temporary IPv6 addresses during in-place DOM mutation rendering, keeping things safe during screen recording, screenshots, or sharing.
-  * Forced bottom-alignment via Flexbox, fixing height inconsistencies introduced by CSS grid layouts.
-  * Traceless injection — doesn't disturb the native Vue state machine, keeping browser rendering performance intact.
-* **:rainbow: Event-Driven Sampling**: Refines the integration algorithm to prevent miscalculated traffic areas caused by sampling time misalignment or phase offset. Uses network speed change events as the basis for sampling interval boundaries.
+  * Automatically masks sensitive MAC addresses and temporary IPv6 addresses during in-place DOM mutation rendering, ensuring safety when screen recording, capturing, or sharing network status.
+  * Trace-less injection. Does not break the native Vue state machine, ensuring browser rendering performance.
+* **:rainbow: Event-driven**: Optimizes the integration algorithm to prevent miscalculations of flow area caused by misaligned sampling times or phase differences. Uses changes in network speed as the basis for the sampling interval.
 
 ## 🔗 Symlinks
 
@@ -111,20 +112,27 @@ The script exposes a global `CONFIG` object at the top for fine-tuning based on 
 
 ```javascript
 const CONFIG = {
-    calcMode: 1,            // 1: Absolute multiplier mode (Upload/Download ratio), 0: Traditional percentage mode
+    readSaveData: 3, // [History] 1: load from router backend (inherit baseline) | 0: fresh start | 2: load from local long-term history [auto-saved!] | 3: on startup, use the backend's temporary value as the initial accumulated total
+    calcMode: 1, // 1: Absolute multiplier mode (Upload/Download ratio), 0: Traditional percentage mode
     ratioExtremeUp: 10,     // Extreme upload threshold (default > 1000% — triggers red ⚠️ alert)
     ratioWarnUp: 0.07,      // Heavy upload threshold (default > 7% — triggers red highlight)
     ratioExtremeDown: 0.01, // Extreme download threshold (default < 1% — triggers blue download multiplier display)
-    
-    // Physical port and wireless band label map (customize for your router model)
+    lanRefreshInterval: 6, // LAN refresh interval (seconds). Also used in some cases to compensate for traffic between the evaluation point (0) and wake-up
+    wanRefreshInterval: 3, // [WAN] refresh interval (seconds). Usually the program's main clock cycle
+    周期类型: 'W', // （cycleType）'M' (monthly), 'W' (weekly), 'D' (every N days). Any other value disables periodic reset + auto export
+    周_天设置: 6, //（cycleDay/Date） M: day of month (1-31); W: day of week (0-6, Sun-Sat); D: interval in days (e.g. 7)
+    基准日期: '2026-09-30', // Anchor date (D mode only): midnight of any past cycle start
+    报告时间: -720, // Reminder time: offset in minutes from the cycle start (e.g. -4320 = 3 days early). Relative to the next cycle start after the given date
+    自动导出: -180, // Forced export: offset in minutes from the cycle start (e.g. W mode + day 6 (Sat) + -180 = force export and reset on Friday 21:00)
+    时区补偿: 28800000, // Timezone offset in ms. Defaults to UTC+8
     portMap: {
         "eth1": "Port 1",
         "eth2": "Port 2",
         "eth3": "Port 3",
         "eth4": "Port 4",
-        "wl0":  "Wi-Fi 2.4G",
-        "wl1":  "Wi-Fi 5.2G",
-        "wl2":  "Wi-Fi 5.8G"
+        "wl0":  "Wi-Fi 2.4 GHz",
+        "wl1":  "Wi-Fi 5.2 GHz",
+        "wl2":  "Wi-Fi 5.8 GHz"
     }
 };
 ```

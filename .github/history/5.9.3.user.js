@@ -15,7 +15,6 @@
 // @run-at          document-end
 // @grant           GM_setValue
 // @storageName     GBNPA_Storage
-// @license         AGPL-3.0
 // ==/UserScript==
 
 (function () {
