@@ -1,4 +1,30 @@
+## License
+Copyright © 2026 哥哥科技 (Bro-Tech)</br>
+This project is available under either of the following licensing options:
+
+Regardless of the licensing path chosen, it is subject to the **BroTech Prominent Attribution Terms** set forth in this document.</br>
+无论选择何种授权路径，均同时受本文件所载 **哥哥科技显著署名附加条款** 约束。
+1. Broware Attribution–Noncommercial License（**Bro-BY-NC**）1.0</br>[（已经包含额外的署名要求条件）](https://github.com/ucxn/ZTE-Stat_Max/blob/main/LICENSE/BR-BY-NC-1.0.md) ; or
+2. BroTech Additional License **AND** Sustainable Use License 1.0 (SUL-1.0).
+
+可以根据自己的使用场景自行抉择，第二种看似对商用更严格，但是针对个人使用，条款相对较简练通俗，方便非英语母语者理解。
+
+You may choose either licensing option.
+
+In SPDX notation:</br>
+`LicenseRef-BR-BY-NC-1.0 OR (SUL-1.0 + BroTech Additional License)`
+
+许可证名称、SPDX 标识及其他简写仅用于识别。实际授权范围、条件及义务，以本仓库随软件发布的实际许可证文本、补充文件以及本文件中明确纳入的实际许可文本为准。
+
+无论使用何种许可证，都应当保留作者的显著署名。<br>
+Regardless of the license used, the 哥哥科技's prominent attribution must be retained.
+
+绝对、一定、必须保留哥哥科技这几个字，并且不得以任何形式降低“原有的署名方式的显著程度”，而不仅仅是显著降低。
+
+无论何种原因，哪怕是技术困难导致在更大的作品中或其他编程语言中无法原样显示“哥哥科技”，“您” 也必须保留字面量，仅追加其他可以显著表达哥哥科技的方式，并及时通过 GitHub 或者邮件联系告知。保留“哥哥科技”的完整可见性是我许可的任何权利所不可分割的部分。
+
 # 哥哥科技许可证
+## 哥哥科技显著署名附加条款
 Regardless of the license used, the author's prominent attribution must be retained.<br>
 必须保留对作者 **“哥哥科技”** 的显著署名。
 
@@ -24,6 +50,8 @@ Regardless of the license used, the author's prominent attribution must be retai
 ### 商用说明条款
 *本部分和上述的署名部分是可以分割的，无论在任何情况下*，**署名条款必须完全得到执行**。*如果因为法律规定或许可条款之间产生不可调和的冲突，不得影响其他未发生冲突的条款之效力。条款的最小单位是可细分的，不应简单地以完整句子作为不可分割的整体。应当在法律允许的最大范围内，作出与作者利益最为有利且能够兼容的解释。本人系该项目的完整原作者，因此增加上述附加条款具有合理性。*
 
+*这些条款构成对SUL的合理使用的补充和解释说明。*
+
 您可以收取通常范围内交易双方认为合理的、与本程序没有直接或间接关联的技术服务费；例如：帮助用户上门安装路由器时附赠增值服务，但不得以哥哥科技的字号宣传；
 
 服务原则上应当以含有明确物理成本的线下服务为主，但不得以附带安装调试该脚本为由收取任何附加费用；不得以本程序的取得、复制、安装、配置、调试、更新、维护或者排错为对价；<br>也不得在在线平台以任何理由收取关于本程序的任何费用，来掩盖实质上为分发该软件所收取的任何费用。<br>
@@ -33,9 +61,10 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 哥哥科技 2026 © Bro-Tech 版权所有
 
-附加条款到此结束。
+哥哥科技许可证到此结束。
 
-## BroTech Additional Terms
+## BroTech Additional License
+### BroTech Prominent Attribution Terms
 
 Regardless of the license used, the author's prominent attribution must be retained.<br>
 Prominent attribution to the author, “哥哥科技”, must be retained.
@@ -73,7 +102,7 @@ Developers of official, original factory firmware for Xiaomi Router already supp
 
 哥哥科技 2026 © Bro-Tech. All rights reserved.
 
-END OF THE Terms.
+END OF THE License.
 
 ## Sustainable Use License
 
@@ -93,7 +122,7 @@ to the limitations below.
 
 You may use or modify the software only for your own internal business purposes or for non-commercial or
 personal use. You may distribute the software or provide it to others only if you do so free of charge for
-non-commercial purposes. You may not alter, remove, or obscure any licensing, copyright, or other notices of
+non-commercial purposes. You may not alter, remove, or obscure any licensing (See above for the definition), copyright, or other notices of
 the licensor in the software. Any use of the licensor’s trademarks is subject to applicable law.
 
 ### Patents
