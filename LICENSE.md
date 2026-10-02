@@ -34,7 +34,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 **『哥哥科技』**
 
-实施删除、篡改、遮蔽、隐藏、替换、改写、缩写、截断、弱化、降低可见性、降低显著性或误导性呈现（Removal, Alteration, Obscuration, Concealment, Replacement, Rewording, Abbreviation, Truncation, Attenuation, Reduction of Visibility, Reduction of Prominence, Misleading Presentation）。
+实施删除、篡改、遮蔽、隐藏、替换、改写、缩写、截断、弱化、降低可见性、降低显著性或误导性呈现。
 
 “哥哥科技”四个汉字原则上必须原样保留。`BroTech`、`Bro-Tech`、GitHub 用户名、项目名称、仓库链接或其他英文、拉丁字符形式，仅可作为补充署名，不得用于替代“哥哥科技”。
 
