@@ -2,8 +2,9 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.9.Turbo
+// @version         5.9.9.T
 // @description     小米路由器增强组件 - 设备网速一键查看、WAN网速计算，设备流量统计与大屏查看
+// @copyright       2026, 哥哥科技. All Rights Reserved. 使用不要条件之一：不得删除源码、用户界面、文本中的任何“哥哥”。
 // @description:en  Xiaomi Router Enhancement Module—One-click device speed check, WAN speed calculation, device traffic statistics, and large-screen viewing
 // @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT 刷机 OP 红米 高等数学 微积分 导数 WAN 网速 MiRD
 // @author          哥哥科技 QQ群 680464365
@@ -19,7 +20,7 @@
 // @storageName     GBNPA_Storage
 // @website         https://github.com/ucxn/Mi-Stat_Max
 // @supportURL      https://www.bilibili.com/video/BV1SeEb67Ep1
-// @license         LicenseRef-BroTech-Additional-Terms AND SUL-1.0
+// @license         LicenseRef-BR-BY-NC-1.0 OR (SUL-1.0 + BroTech Additional License)
 // @downloadURL     https://github.com/ucxn/Bro-Stat/raw/refs/heads/main/Mi-WiFi_RD.user.js
 // @updateURL       https://github.com/ucxn/Mi-Stat_Max/raw/refs/heads/main/new.user.js
 
@@ -37,14 +38,14 @@
     injectMode: 3, // 【UI注入模式】 0: 原生侧边栏(1min)| 1: 仅悬浮舱 | 2: 智能选一 | 3：默认模式
     calcMode: 1, // 1: 上行/下行倍数模式, 0: 上行占总和比例模式
     ratioExtremeUp: 10, // 极端上传判定阈值 (> 1000%)
-    ratioWarnUp: 0.12, // 重度上传警告阈值 (> 7%)
+    ratioWarnUp: 0.12, // 重度上传警告阈值 (> 12%)
     ratioExtremeDown: 0.01, // 极端下载判定阈值 (< 1%)
     ratioThreshold: 7, // (仅calcMode=0时有效) 上传占比报警阈值(%)
     lanRefreshInterval: 3, // LAN口刷新时间(秒)，用于精准补偿0到唤醒时的瞬时流量
     wanRefreshInterval: 3, // 【新增】WAN口刷新时间(秒)，用于精准补偿0到唤醒时的瞬时流量
     周期类型: 'W', // 'M'(每月), 'W'(每周), 'D'(固定天数), 其它任意字符：不开启周期重置+自动导出功能
     周_天设置: 5, // M: 1~31号; W: 0~6(周日~周六); D: 间隔天数(如 7)
-    基准日期: '2026-06-20', // 原点时间(仅 D 模式有效) 任意一个历史周期的零点
+    基准日期: '2026-09-30', // 原点时间(仅 D 模式有效) 任意一个历史周期的零点
     报告时间: 720, // 提示时间：相对周期0点的偏移分钟数。(如 -4320 代表提前 3 天) 设置相对指定日期的下个周期起点的时间偏移量
     自动导出: +1020, // 强制导出：相对周期0点的偏移分钟数。(如 W模式+锚点6(周六)+偏移-180 = 周五 21:00 强制导出清零)
     时区补偿: 28800000, // 默认 UTC+8 时区补偿量。
@@ -551,6 +552,40 @@ for (let k in S.cls) {
       s.hIdx = (s.hIdx + 1) & 63;
       s.hU[s.hIdx] = cC ? cC.upRate : 0;
       s.hD[s.hIdx] = cC ? cC.dnRate : 0;
+      /* ⚠️ 需要使用 HA 快速上线下线报告的用户，请删除该注释以启用该功能。
+      try {
+        if (S.cSnap) {
+          if (CONFIG.盲漫游 === 1) {
+            if (cC) {
+              if (s.haOff === 0 || (s.haOff === undefined && !S.cSnap.devices?.[k])) {
+                GM_setValue('ha_presence', { timestamp: Date.now(), devices: { [k]: { name: cC.name || s.name || k, status: "上线" } } });
+                s.haOff = undefined;
+              } else if (s.haOff > 0) s.haOff = undefined;
+            } else if (s.haOff > 0) {
+              if (Date.now() >= s.haOff) {
+                GM_setValue('ha_presence', { timestamp: Date.now(), devices: { [k]: { name: s.name || k, status: "下线" } } });
+                s.haOff = 0;
+              }
+            } else if (s.haOff === undefined) {
+              GM_setValue('ha_presence', { timestamp: Date.now(), devices: { [k]: { name: s.name || k, status: "下线" } } });
+              s.haOff = 0;
+            }
+          } else {
+            if (cC) {
+              if (s.haOff === 0 || (s.haOff === undefined && !S.cSnap.devices?.[k])) {
+                GM_setValue('ha_presence', { timestamp: Date.now(), devices: { [k]: { name: cC.name || s.name || k, status: "上线" } } });
+                s.haOff = undefined;
+              } else if (s.haOff > 0) s.haOff = undefined;
+            } else if (s.haOff === undefined) {
+              s.haOff = Date.now() + 300000;
+            } else if (s.haOff > 0 && Date.now() >= s.haOff) {
+              GM_setValue('ha_presence', { timestamp: Date.now(), devices: { [k]: { name: s.name || k, status: "下线" } } });
+              s.haOff = 0;
+            }
+          }
+        }
+      } catch(e) { console.warn("[哥哥科技] HA上下线事件写入失败:", e); }
+      ⚠️ 需要使用 HA 快速上线下线报告的用户，请删除该注释以启用该功能。*/
     }
     S.cSnap = {
       timestamp: Date.now(),

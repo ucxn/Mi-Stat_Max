@@ -112,18 +112,18 @@ The script exposes a global `CONFIG` object at the top for fine-tuning based on 
 
 ```javascript
 const CONFIG = {
-    readSaveData: 3, // [History] 1: load from router backend (inherit baseline) | 0: fresh start | 2: load from local long-term history [auto-saved!] | 3: on startup, use the backend's temporary value as the initial accumulated total
+    readSaveData: 1, // [History] 1: load from router backend (inherit baseline) | 0: fresh start | 2: load from local long-term history [auto-saved!] 
     calcMode: 1, // 1: Absolute multiplier mode (Upload/Download ratio), 0: Traditional percentage mode
     ratioExtremeUp: 10,     // Extreme upload threshold (default > 1000% — triggers red ⚠️ alert)
-    ratioWarnUp: 0.07,      // Heavy upload threshold (default > 7% — triggers red highlight)
+    ratioWarnUp: 0.12,      // Heavy upload threshold (default > 12% — triggers red highlight)
     ratioExtremeDown: 0.01, // Extreme download threshold (default < 1% — triggers blue download multiplier display)
-    lanRefreshInterval: 6, // LAN refresh interval (seconds). Also used in some cases to compensate for traffic between the evaluation point (0) and wake-up
+    lanRefreshInterval: 3, // LAN refresh interval (seconds). Also used in some cases to compensate for traffic between the evaluation point (0) and wake-up
     wanRefreshInterval: 3, // [WAN] refresh interval (seconds). Usually the program's main clock cycle
     周期类型: 'W', // （cycleType）'M' (monthly), 'W' (weekly), 'D' (every N days). Any other value disables periodic reset + auto export
-    周_天设置: 6, //（cycleDay/Date） M: day of month (1-31); W: day of week (0-6, Sun-Sat); D: interval in days (e.g. 7)
+    周_天设置: 5, //（cycleDay/Date） M: day of month (1-31); W: day of week (0-6, Sun-Sat); D: interval in days (e.g. 7)
     基准日期: '2026-09-30', // Anchor date (D mode only): midnight of any past cycle start
-    报告时间: -720, // Reminder time: offset in minutes from the cycle start (e.g. -4320 = 3 days early). Relative to the next cycle start after the given date
-    自动导出: -180, // Forced export: offset in minutes from the cycle start (e.g. W mode + day 6 (Sat) + -180 = force export and reset on Friday 21:00)
+    报告时间: 720, // Reminder time: offset in minutes from the cycle start (e.g. -4320 = 3 days early). Relative to the next cycle start after the given date
+    自动导出: +1020, // Forced export: offset in minutes from the cycle start (e.g. W mode + day 6 (Sat) + -180 = force export and reset on Friday 21:00)
     时区补偿: 28800000, // Timezone offset in ms. Defaults to UTC+8
     portMap: {
         "eth1": "Port 1",
