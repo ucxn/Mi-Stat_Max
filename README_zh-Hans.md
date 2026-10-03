@@ -1,6 +1,6 @@
 # Mi-Stat_Max @ 哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.9-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.9.T-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: SUL-1.0](https://img.shields.io/badge/License-SUL--1.0+哥哥科技署名-EA4B71.svg?logo=n8n&logoColor=white&labelColor=040506)](https://github.com/ucxn/Mi-Stat_Max/blob/main/LICENSE.md)</br>
 [![Platform](https://img.shields.io/badge/平台-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/集成-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)&nbsp;&emsp;[![BroWare](.github/哥哥软件.svg)](https://github.com/ucxn/Brotech)
@@ -28,7 +28,7 @@
 
 ## [点击一键安装](https://github.com/ucxn/Mi-Stat_Max/blob/main/README_zh-Hans.md#%E8%84%9A%E6%9C%AC%E5%AE%89%E8%A3%85)&emsp;&nbsp;&emsp;[![Bilibili](https://img.shields.io/badge/Bilibili-观看演示视频-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1LZ6yBXESq)
 ![logo](/logo.png)
-[**国内用户**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[国际用户](https://greasyfork.org/zh-CN/scripts/582042)**
+[**国内用户**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[国际用户](https://greasyfork.org/zh-CN/scripts/598324)**
 
 官方 Web 后台虽然稳定，但在数据展示的交互设计上存在一些不便。例如，实时的网速数据和设备历史累积流量被隐藏在了二级菜单中，需要频繁点击具体设备才能查看，无法在全局列表形成直观的对比。本插件的核心目的就是“拍平”这些层级。将单台设备的上下行网速、本次在线期间的积分流量，以及底层的累积总吞吐量，全部提取并前置到主设备列表中，无需任何多余的操作，所有设备的网络吞吐状态一目了然。
 
@@ -67,7 +67,8 @@
 ### 脚本安装
 1.  点击此处安装全面版Mi-Stat_Max：
 
-    [从GitHub安装](https://github.com/ucxn/Mi-Stat_Max/releases/latest)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[从GreasyFork安装](https://greasyfork.org/zh-CN/scripts/582042)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[从OpenUserJS自动更新](https://openuserjs.org/scripts/%E5%93%A5%E5%93%A5%E7%A7%91%E6%8A%80)
+    [从GitHub安装](https://github.com/ucxn/Mi-Stat_Max/releases/latest)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[从GreasyFork安装](https://greasyfork.org/zh-CN/scripts/598324)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    [直接安装测试版](https://github.com/ucxn/Bro-Stat/raw/main/Mi-WiFi_RD.user.js)
 
     [通过 ScriptCat 脚本猫 安装（直连推荐：**无需科学上网**）](https://scriptcat.org/zh-CN/script-show-page/6592)更新推送
 
