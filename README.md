@@ -3,8 +3,8 @@
 [![Version](https://img.shields.io/badge/version-5.9.9-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: SUL-1.0](https://img.shields.io/badge/License-SUL--1.0+哥哥科技_Attribution-EA4B71.svg?logo=n8n&logoColor=white&labelColor=040506)](https://github.com/ucxn/Mi-Stat_Max/blob/main/LICENSE.md)
 
-[![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
-[![Integration](https://img.shields.io/badge/Integration-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
+[![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;
+[![Integration](https://img.shields.io/badge/Integration-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)&emsp;[![BroWare](.github/哥哥软件.svg)](https://github.com/ucxn/Brotech)
 
 **English** | [简体中文](README_zh-Hans.md)
 

@@ -5,6 +5,8 @@
 // @description  后台静默运行，每10分钟定点旁路接收路由数据并送往HA
 // @author       哥哥科技
 // @background
+// @source       https://github.com/ucxn/ZTE-Stat_HA
+// @supportURL   https://space.bilibili.com/501430041
 // @crontab      */10 * * * *
 // @include      http*://192.168.*.1/*
 // @include      http*://192.168.*.254/*
@@ -23,6 +25,8 @@
 // @storageName  GBNPA_Storage
 // @grant        GM_getValue
 // @grant        GM_xmlhttpRequest
+// @updateURL    https://github.com/ucxn/ZTE-Stat_HA/raw/refs/heads/main/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E6%8E%A2%E9%92%88(HA%20Webhook).user.js
+// @downloadURL  https://github.com/ucxn/ZTE-Stat_HA/raw/refs/heads/main/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E6%8E%A2%E9%92%88(HA%20Webhook).user.js
 
 // ==/UserScript==
 
