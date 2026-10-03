@@ -5,7 +5,7 @@ This project is available under either of the following licensing options:
 Regardless of the licensing path chosen, it is subject to the **BroTech Prominent Attribution Terms** set forth in this document.</br>
 无论选择何种授权路径，均同时受本文件所载 **哥哥科技显著署名附加条款** 约束。
 1. Broware Attribution–Noncommercial License（**Bro-BY-NC**）1.0或更高</br>[（已经包含额外的署名要求条件）](https://github.com/ucxn/ZTE-Stat_Max/blob/main/LICENSE/BR-BY-NC-1.0.md) ; or
-2. [BroTech Additional License](#哥哥科技许可证) 发版时或更新(or-later) **AND** [Sustainable Use License 1.0](#sustainable-use-license) (SUL-1.0).
+2. [BroTech Additional License](#哥哥科技许可证) 每版提交时或更新(or-later) **AND** [Sustainable Use License 1.0](#sustainable-use-license) (SUL-1.0).
 
 可以根据自己的使用场景自行抉择，第二种看似对商用更严格，但是针对个人使用，条款相对较简练通俗，方便非英语母语者理解。
 

@@ -1,6 +1,6 @@
 # Mi-Stat_Max@Bro-Tech|哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.9-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.9.T-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: SUL-1.0](https://img.shields.io/badge/License-SUL--1.0+哥哥科技_Attribution-EA4B71.svg?logo=n8n&logoColor=white&labelColor=040506)](https://github.com/ucxn/Mi-Stat_Max/blob/main/LICENSE.md)
 
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;
@@ -20,7 +20,7 @@ This is far more than a UI enhancement plugin. Driven by *Brother Tech*'s carefu
 
 ### [点击一键安装 Quick Install OnLine (Click)](https://github.com/ucxn/Mi-Stat_Max/#script-installation)&nbsp;&emsp;&nbsp;[![Bilibili](https://img.shields.io/badge/Bilibili-VIDEO-FF8EB3?style=for-the-badge&logo=bilibili&logoColor=white)](https://www.bilibili.com/video/BV1LZ6yBXESq)
 
-[**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/582042)**
+[**Domestic**](https://scriptcat.org/zh-CN/script-show-page/6592)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[International](https://greasyfork.org/zh-CN/scripts/598324)**
 
 ![Preview](./.github/me.png)
 
@@ -72,7 +72,7 @@ Before using this script, make sure your browser has a userscript manager extens
 ### Script Installation
 1.  Click here to install the full version of *Mi-Stat_Max*:
    
-    **[Install from GitHub](https://github.com/ucxn/Mi-Stat_Max/releases/latest)**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[Install via Greasy Fork](https://greasyfork.org/zh-CN/scripts/582042)**
+    **[Install from GitHub](https://github.com/ucxn/Mi-Stat_Max/releases/latest)**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**[Install via Greasy Fork](https://greasyfork.org/zh-CN/scripts/598324)**
 
     [*Install from **ScriptCat** (recommended for China — no VPN required)*](https://scriptcat.org/zh-CN/script-show-page/6592)
  
@@ -98,7 +98,7 @@ Before using this script, make sure your browser has a userscript manager extens
  
 > [!TIP]
 > If the script still isn't taking effect, refer to the graphic tutorial below:
-> ![Graphic Tutorial](./.github/Install.png)
+> ![Graphic Tutorial](https://github.com/ucxn/Bro-Stat/raw/main/.github/Installation.jpg)
 
 ## 📸 Screenshots
 
@@ -144,6 +144,6 @@ const CONFIG = {
 Running under Tampermonkey, the script deriving precise, real-time traffic figures. All UI changes are applied via DOM Mutation on top of the original CSS framework — native feel, no compatibility compromises.
 
 ---
-*Authored by Brother Tech*
+*Authored by Bro-Tech*
 
 [![Star History](https://api.star-history.com/svg?repos=ucxn/Mi-Stat_Max&type=Date)](https://star-history.com/#ucxn/Mi-Stat_Max&Date)
