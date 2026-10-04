@@ -61,18 +61,20 @@
 
 ### 阶段二：数据采集端部署
 
-1. 确保有某台 7×24 主机（Home Server）的浏览器上已安装 **[脚本猫 (ScriptCat)](https://scriptcat.org/zh-CN/script-show-page/6194)** 插件。
+1. 确保有某台 7×24 主机（Home Server）的浏览器上已安装 **[脚本猫 (ScriptCat)](https://scriptcat.org/zh-CN/script-show-page/6314)** 插件。
 2. 导入本项目提供的采集端 JS 脚本。
-3. 在脚本代码顶部的配置区，将 Webhook URL 指向你的 HA 地址：
+3. 添加集成时，在 Config Flow 中设置一个 Webhook 鉴权密钥，并记住它。
+4. 在脚本代码顶部，将 Webhook URL 指向你的 HA 地址，并把 `webhookSecret` 设置成与 HA 中完全相同的密钥：
 ```javascript
-const WEBHOOK_URL = "http://[家庭HA可访问IP]:8123/api/webhook/gbnpa_router_webhook";
+const webhookUrl = "http://[HA可访问IP]:8123/api/webhook/gbnpa_router_webhook";
+const webhookSecret = "你的鉴权密钥";
 ```
-4. 登录路由器 Web 后台并保持该页面在后台运行，数据即可开始实时推送。
+5. 登录路由器 Web 后台并保持该页面在后台运行，数据即可开始实时推送。
 
 ## ⚙️ 架构说明与目录结构 (Architecture)
 
 项目包含以下核心组件：
-* `Mi-Stat_Max.js`：运行于浏览器前端，负责高频采样、数据清洗与 JSON 打包。
+* `new.user.js`：小米专版插件，运行于浏览器前端，负责高频采样、数据清洗与 JSON 打包。
 * `__init__.py`：HA 集成入口，负责注册 Webhook、管理全局内存字典与分发更新信号。
 * `sensor.py`：实体生成引擎，负责动态发现内网新节点、创建流量传感器并定义数据保护策略。
 

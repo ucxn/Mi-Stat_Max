@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         态势感知探针 (HA Webhook)
 // @namespace    ucxn
-// @version      1.0.8
+// @version      1.0.5
 // @description  后台静默运行，每10分钟定点旁路接收路由数据并送往HA
 // @author       哥哥科技
 // @background
@@ -25,7 +25,7 @@
 // @storageName  GBNPA_Storage
 // @grant        GM_getValue
 // @grant        GM_xmlhttpRequest
-// @updateURL    https://github.com/ucxn/ZTE-Stat_HA/raw/refs/heads/main/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E6%8E%A2%E9%92%88(HA%20Webhook).user.js
+// @updateURL    https://github.com/ucxn/ZTE-Stat_HA/raw/refs/heads/main/态势感知探针(HA Webhook).user.js
 // @downloadURL  https://github.com/ucxn/ZTE-Stat_HA/raw/refs/heads/main/%E6%80%81%E5%8A%BF%E6%84%9F%E7%9F%A5%E6%8E%A2%E9%92%88(HA%20Webhook).user.js
 
 // ==/UserScript==

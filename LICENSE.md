@@ -44,8 +44,18 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 任何再分发、修改、移植、合并、集成、翻译、转换编程语言或形成更大作品的行为，均不得弱化“哥哥科技”的“原有的署名方式的显著程度”，不得使其低于原作品中与作者身份相对应的署名程度；**不能降低“显示的程度”，而不仅仅是显著降低。**
 
-保留“哥哥科技”的完整字面量和实质显示、可见性与显著性，是作者授予本软件任何许可权利所不可分割的条件。
+仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
+若您无法理解何为“显著署名”，则您必须选择不使用本软件的任何代码。在此情况下，除分享官方原始链接及下载至本地仅供个人自用外，严禁对本软件进行任何其他操作或分发行为。
+<details>
+<summary>开发者必读说明</summary></br>
+以下指南仅严格适用于一种极其特定的情形：即您将本软件代码实质性地集成至一个更大的整体作品中，且由于系统结构或技术原因，导致实质上已无法原封不动地保留原汁原味的原版最终用户界面（GUI）及其署名设计。</br>请特别注意（权利之保留）： 本指南仅出于指导合规之目的而提供。本指南该指南并不代表作者向您授予了额外的权利，也不意味着您只需遵守另外的义务。您对本指南的参考或执行，绝不意味着您可以免除对前述所有累加式法定前置条件的严格遵守，其无法表示任何豁免、替代或削弱。</br></br>
+若您作为开发者将本程序集成至更大的作品或项目中，您必须严格履行以下界面展示规则：署名的物理|逻辑显著程度（包括但不限于排版样式、字体字号、颜色及对比度等）绝对不得发生任何改变或削弱。</br></br>
+基于本程序进行二次开发时，署名在用户界面（GUI）上的绝对深度层级不得被更改；将其集成至更大作品时，其在界面交互架构中的“相对深度层级”亦不得发生任何降级。</br></br>
+例如：当最终用户进入主要由本软件构建的模块或功能页面时，必须在该特定模块/目录的最终用户界面内、且在本软件原设计的固定位置，原样且显著地呈现“哥哥科技”字样。严禁将其折叠、收纳或移至任何隐藏菜单。
+</details>
+
+保留“哥哥科技”的完整字面量和实质显示、可见性与显著性，是作者授予本软件任何许可权利所不可分割的条件。
 ---
 ### 商用说明条款
 *本部分和上述的署名部分是可以分割的，无论在任何情况下*，**署名条款必须完全得到执行**。*如果因为法律规定或许可条款之间产生不可调和的冲突，不得影响其他未发生冲突的条款之效力。条款的最小单位是可细分的，不应简单地以完整句子作为不可分割的整体。应当在法律允许的最大范围内，作出与作者利益最为有利且能够兼容的解释。本人系该项目的完整原作者，因此增加上述附加条款具有合理性。*
@@ -61,7 +71,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 哥哥科技 2026 © Bro-Tech 版权所有
 
-哥哥科技许可证到此结束。
+哥哥科技许可证到此结束，严格遵守该协议是使用本库任意部分或完整代码合法性的前置条件。
 
 ## BroTech Additional License
 ### BroTech Prominent Attribution Terms
@@ -85,7 +95,18 @@ If objective technical limitations prevent a user-visible interface from properl
 
 Any redistribution, modification, porting, merging, integration, translation, conversion to another programming language, or incorporation into a Larger Work must not diminish the prominence of the original manner in which “哥哥科技” is attributed, or reduce it below the level of attribution identifying the author in the original work; no reduction whatsoever in the degree of display is permitted, not merely no substantial reduction.
 
-Preserving the complete literal text “哥哥科技”, together with its actual display, visibility, and prominence, is an inseparable condition of every license right granted by the author for this software.
+The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
+
+Should you fail to understand what constitutes "prominent attribution," you MUST elect NOT to use the source code of this software. In such an event, you are permitted solely to share the official original link or download the software exclusively for personal, local use; any and all other operations or distributions are strictly prohibited.
+<details>
+<summary>For Developers</summary>
+The following guidelines apply strictly and exclusively to the specific scenario where you integrate this software into a larger, overarching work, rendering it structurally or technically impossible to preserve the original unmodified Graphical User Interface (GUI) and its attribution design in their exact original form.</br>EXPRESS RESERVATION OF RIGHTS AND OBLIGATIONS: This guide is provided solely for instructional compliance purposes. It does NOT, under any circumstances, operate as an implicit or explicit grant of any additional rights or licenses beyond the primary agreement. Furthermore, it does NOT waive, substitute, or dilute any of your strict obligations under the primary licenses and the BroTech Prominent Attribution Terms. Adherence to this guide is merely a compliant implementation method for integration scenarios, and shall by no means exempt you from the absolute and simultaneous satisfaction of all conditions precedent set forth above.</br></br>
+Should you, as a developer, integrate this software into a larger work or project, you must strictly adhere to the following display protocols: The physical prominence of the attribution (including but not limited to layout style, font size, color, and contrast) shall absolutely NOT be altered or diminished in any manner.
+</br></br>
+When developing based on this program, the absolute depth level of the attribution within the Graphical User Interface (GUI) hierarchy must remain unchanged; furthermore, upon integration into a larger work, its "relative depth level" within the navigation and interaction architecture shall suffer no degradation.</br></br>
+For instance, when an end-user navigates into a module or feature primarily powered by this software, the text "哥哥科技" (Brother Tech) MUST be prominently and unaltered displayed in the exact original position designed by the Author on the GUI of that specific directory/module. Any attempt to fold, collapse, or relocate the attribution into secondary or hidden menus is strictly forbidden.
+</details>
+</br>Preserving the complete literal text “哥哥科技”, together with its actual display, visibility, and prominence, is an inseparable condition of every license right granted by the author for this software.
 
 ---
 ### Commercial Use Provisions
@@ -102,7 +123,7 @@ Developers of official, original factory firmware for Xiaomi Router already supp
 
 哥哥科技 2026 © Bro-Tech. All rights reserved.
 
-END OF THE License.
+END OF THE License. Strict compliance with this Agreement constitutes an absolute condition precedent to the legality of using any code from this Repository.
 
 ## Sustainable Use License
 
