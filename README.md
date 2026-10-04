@@ -143,6 +143,28 @@ const CONFIG = {
 
 Running under Tampermonkey, the script deriving precise, real-time traffic figures. All UI changes are applied via DOM Mutation on top of the original CSS framework — native feel, no compatibility compromises.
 
+## © Copyright 哥哥科技
+1. 始终保留完整的“哥哥科技”字样，并显著地显示在最终用户界面当中，源码里面署名并不构成完成有效署名义务。
+Always retain the complete text “哥哥科技”. Even if it is prominently displayed in the end-user interface, an attribution in the source code does not fulfill the obligation to provide a valid attribution.
+2. “哥哥科技”是本项目的核心作者署名，BroTech、GitHub 用户名、项目名称或链接只能作为补充，不能替代。
+“哥哥科技” is the core author attribution of this project. BroTech, GitHub usernames, project names, or links may supplement it, but may not replace it.
+3. 源码、许可证、元数据及其他能够保存文字的载体中，不得删除、改写或替换“哥哥科技”。
+In source code, license files, metadata, and other media capable of preserving text, “哥哥科技” must not be removed, rewritten, or replaced.
+4. 在原项目中，署名必须保持在作者设计的原有界面位置和层级。任何二次开发均不得将其移动至更深的功能层级，亦不得以任何方式降低其原有的显示、可见性或显著程度。
+In the original project, the attribution must remain at the original interface position and depth designed by the Author. No derivative work may move it to a deeper functional level or in any way reduce its original degree of display, visibility, or prominence.
+5. 集成到更大作品时，可以增加宿主自身的外层页面或导航层级，但署名相对于本软件所对应的功能，其界面层级不得下降。
+When integrated into a larger work, the host may add outer pages, modules, or navigation levels around the function provided by this software, but may not add further attribution depth within the interface corresponding to that function. The attribution's relative position to the function provided by this software must not be reduced in any respect.
+6. 当最终用户进入由本软件提供或主要由本软件构成的功能或模块时，“哥哥科技”必须直接显示在该功能或模块的用户界面中，并保持原有的显示位置、显示方式及显著程度。
+When an end user enters a function or module provided by or primarily built upon this software, “哥哥科技” must be directly displayed within that function or module's user interface, while retaining its original position, presentation, and prominence.
+7. 不得将署名从其对应功能界面移入与该功能无直接对应关系的“关于”“许可证”“第三方组件”或其他次级页面；不得通过折叠、隐藏、额外点击、二级菜单或其他信息架构方式使用户必须离开该功能界面后才能看到署名。
+The attribution should not be moved away from the function it identifies or placed in unrelated “About,” “Licenses,” or “Third-Party Components” pages, nor should it be made less visible through collapsing, hiding, or deliberate visual weakening.
+8. 集成或改造时，应优先保持原有的显示方式；宿主界面确实需要适配时，可以调整布局，但不得降低原有的显著程度或相对层级。
+During integration or adaptation, the original presentation should be preserved whenever practical. Where host-interface adaptation is necessary, the layout may change, but the original prominence and relative depth must not be reduced.
+9. 署名要求具有最高优先级；任何违反署名要求的行为都会立即终止本项目授予的相关授权，不受其他期限、宽限期或补救安排影响。
+The attribution requirements have the highest priority. Any violation immediately terminates the applicable rights granted under this project, regardless of any other period, cure period, or remedial arrangement.
+10. 本总览用于快速理解与实施；完整权利、义务及授权条件以随项目发布的完整许可证文本为准。
+This summary is intended for quick understanding and implementation. The complete license texts published with the project govern the full rights, obligations, and licensing conditions.
+
 ---
 *Authored by Bro-Tech*
 
