@@ -139,11 +139,27 @@ const CONFIG = {
 
 ## ⚠️ Notes
 
-* This is a pure frontend data reorganization tool — it does not touch the Xiaomi router's underlying firmware or core configuration.
+This is a pure frontend data reorganization tool — it does not touch the Xiaomi router's underlying firmware or core configuration.
 
 Running under Tampermonkey, the script deriving precise, real-time traffic figures. All UI changes are applied via DOM Mutation on top of the original CSS framework — native feel, no compatibility compromises.
 
 ## © Copyright 哥哥科技
+**Statement:** “Bro Software” and badgeware share certain similarities, **but they are not the same thing.** Badgeware generally requires an appropriate attribution mark to be added prominently when the software is integrated, often with that mark appearing throughout every interface of the resulting work.
+
+“Bro Software” is not necessarily more restrictive. It is closer in nature to a complete, standalone piece of free software than to underlying infrastructure, a framework, an open-source project, or a reusable library. This distinction allows the relevant portion of the work to be identified much more clearly: within interfaces substantially built from or primarily powered by my work, all references to my name must be fully retained, regardless of whether any particular reference technically constitutes “attribution” in the legal sense, and no such reference may be altered or tampered with in any manner. That said, I have no interest in hijacking your project or plastering my name across every page.  
+
+For the avoidance of doubt, the intended implementation may be understood as follows:
+
+1. Where the overall framework remains substantially the same and the original page design can reasonably be preserved, the **attribution must be retained in its original form.**
+
+2. Where preserving the original presentation is genuinely impracticable, the attribution should not be subjected to unnecessary or excessive redesign. It should be retained in an equivalent manner to the greatest extent reasonably possible, and its ***prominence must not be reduced in any respect***.
+
+3. Once my code is used, the number of appearances of “哥哥科技” in the end-user interface of your work must NOT be lower than the number of appearances in my original complete work. In all cases, *at least one page of the resulting work must contain the attribution.*
+
+4. Where my code is used in multiple distinct areas that are substantially powered by or built upon my work, the corresponding attribution should be retained or added in multiple locations as appropriate. There is no upper limit on how many times attribution may be required.
+
+5. ***Attribution must not be hidden away solely in deep or secondary menus that users rarely visit.*** It must be placed near the relevant interface, framework, module, or area that primarily uses my code, in a location that is readily visible to users, or at minimum no less readily visible than in my original design.
+
 1. 始终保留完整的“哥哥科技”字样，并显著地显示在最终用户界面当中，源码里面署名并不构成完成有效署名义务。
 Always retain the complete text “哥哥科技”. Even if it is prominently displayed in the end-user interface, an attribution in the source code does not fulfill the obligation to provide a valid attribution.
 2. “哥哥科技”是本项目的核心作者署名，BroTech、GitHub 用户名、项目名称或链接只能作为补充，不能替代。

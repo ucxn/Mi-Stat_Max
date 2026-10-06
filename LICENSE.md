@@ -47,6 +47,8 @@ Regardless of the license used, the author's prominent attribution must be retai
 仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
 若您无法理解何为“显著署名”，则您必须选择不使用本软件的任何代码。在此情况下，除分享官方原始链接及下载至本地仅供个人自用外，严禁对本软件进行任何其他操作或分发行为。
+
+为免疑义，本款项下的任何终止均为立即、绝对且不可补救的，且严格不受任何宽限期、通知要求、时间流逝或任何其它条件的限制。
 <details>
 <summary>开发者必读说明</summary></br>
 以下指南仅严格适用于一种极其特定的情形：即您将本软件代码实质性地集成至一个更大的整体作品中，且由于系统结构或技术原因，导致实质上已无法原封不动地保留原汁原味的原版最终用户界面（GUI）及其署名设计。</br>请特别注意（权利之保留）： 本指南仅出于指导合规之目的而提供。本指南该指南并不代表作者向您授予了额外的权利，也不意味着您只需遵守另外的义务。您对本指南的参考或执行，绝不意味着您可以免除对前述所有累加式法定前置条件的严格遵守，其无法表示任何豁免、替代或削弱。</br></br>
@@ -71,7 +73,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 哥哥科技 2026 © Bro-Tech 版权所有
 
-哥哥科技许可证到此结束，严格遵守该协议是使用本库任意部分或完整代码合法性的前置条件。
+本项目主协议：哥哥科技许可证到此结束，严格遵守该协议是使用本库任意部分或完整代码合法性的前置条件。
 
 ## BroTech Additional License
 ### BroTech Prominent Attribution Terms
@@ -98,6 +100,8 @@ Any redistribution, modification, porting, merging, integration, translation, co
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
 
 Should you fail to understand what constitutes "prominent attribution," you MUST elect NOT to use the source code of this software. In such an event, you are permitted solely to share the official original link or download the software exclusively for personal, local use; any and all other operations or distributions are strictly prohibited.
+
+For the avoidance of doubt, any termination under this paragraph is immediate, absolute, and non-curable, and shall operate strictly without regard to any cure period, notice requirement, lapse of time, or any other condition whatsoever.
 <details>
 <summary>For Developers</summary>
 The following guidelines apply strictly and exclusively to the specific scenario where you integrate this software into a larger, overarching work, rendering it structurally or technically impossible to preserve the original unmodified Graphical User Interface (GUI) and its attribution design in their exact original form.</br>EXPRESS RESERVATION OF RIGHTS AND OBLIGATIONS: This guide is provided solely for instructional compliance purposes. It does NOT, under any circumstances, operate as an implicit or explicit grant of any additional rights or licenses beyond the primary agreement. Furthermore, it does NOT waive, substitute, or dilute any of your strict obligations under the primary licenses and the BroTech Prominent Attribution Terms. Adherence to this guide is merely a compliant implementation method for integration scenarios, and shall by no means exempt you from the absolute and simultaneous satisfaction of all conditions precedent set forth above.</br></br>
