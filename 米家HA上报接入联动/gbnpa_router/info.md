@@ -17,7 +17,7 @@
 
 该项目包含两个相互配合的子组件：
 
-**辅助项目**&emsp;&nbsp;[![项目](https://img.shields.io/badge/Network-Stat--HA-FF4C00?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
+**HA 项目**&emsp;&nbsp;[![项目](https://img.shields.io/badge/Network-Stat--HA-FF4C00?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)
 
 1. **Mi-Stat_Max（双 JS 脚本）**：运行于浏览器前端，负责接管小米路由器后台的数据流并优化本地 UI 展示。
 2. **GBNPA-Router-Sync（HA 集成）**：运行于 Home Assistant 服务器，实现状态的多端无限转发与图表记录。

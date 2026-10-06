@@ -1,7 +1,7 @@
 # Bro-Stat_HA by 哥哥科技（GBNPA Router Sync）
 
 ### ⚠️ 建议前往[主项目](https://github.com/ucxn/ZTE-Stat_HA)研究使用
-### ℹ️ Go to the [Main Project](https://github.com/ucxn/ZTE-Stat_HA) to explore and use it.
+### ℹ️ Go to the [Main Project](https://github.com/ucxn/ZTE-Stat_HA/blob/main/custom_components/gbnpa_router/Readme.md) to explore and use it.
 
 ---
 
