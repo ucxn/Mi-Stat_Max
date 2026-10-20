@@ -47,8 +47,8 @@ return new Promise((resolve, reject) => {
 
     if (snapshot.timestamp) snapshot.timestamp = Math.floor(snapshot.timestamp / 1000);
 
-    // 2. 将快照推向 HA Webhook ⚠️【请自行修改匹配】
-    const webhookUrl = "http://【27.10.8.52/21:240e:520:1008:1314::/48～Reality】:8123/api/webhook/gbnpa_router_webhook"; // 占位符：公网地址优先于一切内网地址，哥哥科技拥有最终解释权。
+    // 2. 将快照推向 HA Webhook ⚠️【请自行修改匹配，IP地址必改，端口号选改】
+    const webhookUrl = "http://【27.10.8.52/21:240e:520:1008:1314::/48～Reality】:8123/api/webhook/gbnpa_router_webhook"; // 占位符：公网地址优先于一切局域网至上主义，哥哥科技拥有最终解释权。
 
     GM_xmlhttpRequest({
         method: "POST",
@@ -61,12 +61,12 @@ return new Promise((resolve, reject) => {
                 resolve("上报成功");
             } else {
                 console.error("[态势感知] HA 拒绝了请求", response.status);
-                reject(new CATRetryError("HA 服务端异常", 10)); // 10秒后系统底层自动重试！
+                reject(new CATRetryError("HA 服务端异常", 10)); // 10秒后自动重试！
             }
         },
         onerror: function(err) {
             console.error("[态势感知] 网络断联，无法访问 HA", err);
-            reject(new CATRetryError("内网瘫痪", 10)); 
+            reject(new CATRetryError("连接瘫痪", 10)); 
         }
     });
 });

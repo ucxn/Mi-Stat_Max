@@ -10,6 +10,8 @@
 
 **Mi-Stat_Max** (Author: *Brother Tech* / *哥哥科技*) is one of the most important branches of the Bro-Stat_Max series — a xMonkey Script enhancement plugin built specifically for the Xiaomi router Web management dashboard, paired with a dedicated **Home Assistant integration** for smart home connectivity.
 
+Now it's also avaliable in a [Mobile Phone App](https://github.com/ucxn/Bro-Stat/blob/main/.github/Install.md#app)!
+
 Covers the full MiRD router lineup, including the Xiaomi BE3600, BE6500 (including Pro), 10 Gigabit, BE5000, BE7000, AX6000, and more!
 
 Theoretically supports all Wi-Fi 5/6/7 routers running Xiaomi's stock firmware. Nearly all AX-series and newer models deliver comprehensive data. ISP-customized models may only return partial data, but broad compatibility is maintained throughout.
@@ -146,7 +148,7 @@ Running under Tampermonkey, the script deriving precise, real-time traffic figur
 ## © Copyright 哥哥科技
 **Statement:** “Bro Software” and badgeware share certain similarities, **but they are not the same thing.** Badgeware generally requires an appropriate attribution mark to be added prominently when the software is integrated, often with that mark appearing throughout every interface of the resulting work.
 
-“Bro Software” is not necessarily more restrictive. He is closer in nature to a complete, standalone piece of free software than to underlying infrastructure, a framework, an open-source project, or a reusable library. This distinction allows the relevant portion of the work to be identified much more clearly: within interfaces substantially built from or primarily powered by my work, all references to my name must be fully retained, regardless of whether any particular reference technically constitutes “attribution” in the legal sense, and no such reference may be altered or tampered with in any manner. That said, I have no interest in hijacking your project or plastering my name across every page.  
+“Bro Software” is not necessarily more restrictive. He is closer in nature to a complete, standalone piece of free software than to underlying infrastructure, a framework, an open-source project, or a reusable library. This distinction allows the relevant portion of the work to be identified much more clearly: within interfaces substantially built from or primarily powered by my work, all references to my name must be fully retained, regardless of whether any particular reference technically constitutes “attribution” in the legal sense, and no such reference may be altered or tampered with in any manner. That said, I have no interest in hijacking your project or plastering my name across every page — strong as these requirements are, they do not bleed into every corner of a larger work. However, once a given page is primarily built on my code, I am effectively its principal author: attribution must appear there no fewer times than it does in the original work, and must be present in every page where my work is the predominant substance.
 
 For the avoidance of doubt, the intended implementation may be understood as follows:
 
