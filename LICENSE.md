@@ -59,6 +59,16 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 保留“哥哥科技”的完整字面量和实质显示、可见性与显著性，是作者授予本软件任何许可权利所不可分割的条件。
 ---
+### 署名条款始终第一
+无论本许可证其他条款如何规定，**哥哥科技显著署名要求——包括对“哥哥科技”字样的强制保留及显著显示义务——均必须严格且排他性地按照最有利于作者的方式解释。** 任何一般解释规则、技术例外或本许可证的其他条款，均不得削弱该署名要求、使其从属于其他要求，或取代该署名要求。
+
+根据本软件的实际源代码及其技术特性，不存在一种能够使软件的普通功能正常运行、同时又使必要署名在技术上自动消失的运行方式。只要软件的主要功能能够正常运行，且软件能够在该功能中正常显示中文文本（源代码中功能描述的中文被侵权者故意删除掉情形的除外），即视为软件运行正常。
+
+**软件正常运行时，不存在任何正当理由可以不按照哥哥科技显著署名要求显示“哥哥科技”字样。**
+
+**在任何极端情形下，如果本许可证的某些条款能够得到履行，而其他条款无法同时得到履行，包括不同条款之间存在矛盾、不相容或直接对立的情形，哥哥科技显著署名要求——包括对“哥哥科技”字样的强制保留及显著显示义务——均对本许可证的其他一切条款享有绝对且无条件的优先地位。**
+
+***在上述情形下，履行哥哥科技显著署名要求是第一位且具有支配效力的义务。任何其他条款，包括但不限于限制商业使用的条款以及有关费用或收费的条款，均不得被视为优先于哥哥科技显著署名要求、或以牺牲该署名要求为代价而必须履行的义务。***
 ### 商用说明条款
 *本部分和上述的署名部分是可以分割的，无论在任何情况下*，**署名条款必须完全得到执行**。*如果因为法律规定或许可条款之间产生不可调和的冲突，不得影响其他未发生冲突的条款之效力。条款的最小单位是可细分的，不应简单地以完整句子作为不可分割的整体。应当在法律允许的最大范围内，作出与作者利益最为有利且能够兼容的解释。本人系该项目的完整原作者，因此增加上述附加条款具有合理性。*
 
@@ -113,6 +123,18 @@ For instance, when an end-user navigates into a module or feature primarily powe
 </br>Preserving the complete literal text “哥哥科技”, together with its actual display, visibility, and prominence, is an inseparable condition of every license right granted by the author for this software.
 
 ---
+### Name is ALWAYS THE FIRST
+**Notwithstanding anything to the contrary in this License, the Attribution Requirements shall be interpreted strictly and exclusively in the manner most favorable to the Author.** This rule applies in particular to any provision concerning attribution, identification of the Author, or preservation of the Author’s name and attribution notices.
+
+Based on the actual source code of the Software and its technical characteristics, there is no technically possible mode of operation in which the Software’s ordinary functionality operates normally while the required attribution automatically disappears.
+
+Once the Software’s principal functionality operates normally, and the Software is capable of displaying Chinese text normally as part of that functionality—except where Chinese descriptions of functionality in the source code have themselves been deleted—the Software shall be deemed to be operating normally.
+
+**Whenever the Software is operating normally, there is no legitimate basis whatsoever for failing to display the name “哥哥科技” as required by the Attribution Requirements.**
+
+**In any extreme case in which certain provisions of this License can be satisfied but other provisions cannot, including any case in which provisions are contradictory, incompatible, or opposed to one another, the BroTech Prominent Attribution Requirements—including the mandatory preservation and prominent display of the name “哥哥科技”—shall take absolute and unconditional priority over all other provisions of this License.**
+
+***In such a case, compliance with the BroTech Prominent Attribution Requirements is the first and overriding obligation. No other provision—including any provision imposing commercial-use restrictions or requirements concerning fees or charges—shall be treated as a mandatory obligation in preference to, or at the expense of, the BroTech Prominent Attribution Requirements.***
 ### Commercial Use Provisions
 
 *This section and the attribution section above are severable. Under all circumstances, **the attribution provisions must be fully enforced**. Any irreconcilable conflict arising from applicable law or between licensing provisions shall not affect the validity of other provisions that are not in conflict. Provisions may be subdivided into smaller constituent parts; a complete sentence shall not simply be treated as an indivisible whole. To the fullest extent permitted by law, an interpretation that reconciles the relevant provisions and is most favorable to the author's interests shall be adopted. I am the original author of this project in its entirety, and the addition of the foregoing supplemental terms is therefore reasonable.*
@@ -198,7 +220,6 @@ organization. Control means ownership of substantially all the assets of an enti
 management and policies by vote, contract, or otherwise. Control can be direct or indirect.
 
 “Your license” is the license granted to you for the software under these terms.
-
 “Use” means anything you do with the software requiring your license.
 
 “Trademark” means trademarks, service marks, and similar rights.
