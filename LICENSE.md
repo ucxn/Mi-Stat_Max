@@ -62,7 +62,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 ### 署名条款始终第一
 无论本许可证其他条款如何规定，**哥哥科技显著署名要求——包括对“哥哥科技”字样的强制保留及显著显示义务——均必须严格且排他性地按照最有利于作者的方式解释。** 任何一般解释规则、技术例外或本许可证的其他条款，均不得削弱该署名要求、使其从属于其他要求，或取代该署名要求。
 
-根据本软件的实际源代码及其技术特性，不存在一种能够使软件的普通功能正常运行、同时又使必要署名在技术上自动消失的运行方式。只要软件的主要功能能够正常运行，且软件能够在该功能中正常显示中文文本，即视为软件运行正常；但源代码中有关功能描述的中文内容本身已被删除的情形除外。
+根据本软件的实际源代码及其技术特性，不存在一种能够使软件的普通功能正常运行、同时又使必要署名在技术上自动消失的运行方式。只要软件的主要功能能够正常运行，且软件能够在该功能中正常显示中文文本（源代码中功能描述的中文被侵权者故意删除掉情形的除外），即视为软件运行正常。
 
 **软件正常运行时，不存在任何正当理由可以不按照哥哥科技显著署名要求显示“哥哥科技”字样。**
 
@@ -220,7 +220,6 @@ organization. Control means ownership of substantially all the assets of an enti
 management and policies by vote, contract, or otherwise. Control can be direct or indirect.
 
 “Your license” is the license granted to you for the software under these terms.
-
 “Use” means anything you do with the software requiring your license.
 
 “Trademark” means trademarks, service marks, and similar rights.
