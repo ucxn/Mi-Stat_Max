@@ -1,6 +1,6 @@
 # Mi-Stat_Max@Bro-Tech|哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.9.T-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.9.X-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: SUL-1.0](https://img.shields.io/badge/License-SUL--1.0+哥哥科技_Attribution-EA4B71.svg?logo=n8n&logoColor=white&labelColor=040506)](https://github.com/ucxn/Mi-Stat_Max/blob/main/LICENSE.md)
 
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;
@@ -8,7 +8,7 @@
 
 **English** | [简体中文](README_zh-Hans.md)
 
-**Mi-Stat_Max** (Author: *Brother Tech* / *哥哥科技*) is one of the most important branches of the Bro-Stat_Max series — a xMonkey Script enhancement plugin built specifically for the Xiaomi router Web management dashboard, paired with a dedicated **Home Assistant integration** for smart home connectivity.
+**Mi-Stat_Max** (Author: *Brother Tech* / *哥哥科技*) is one of the most important branches of the Bro-Stat series — a xMonkey Script enhancement plugin built specifically for the Xiaomi router Web management dashboard, paired with a dedicated **Home Assistant integration** for smart home connectivity.
 
 Now it's also avaliable in a [Mobile Phone App](https://github.com/ucxn/Bro-Stat/blob/main/.github/Install.md#app)!
 

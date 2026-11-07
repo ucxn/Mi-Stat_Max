@@ -1,13 +1,13 @@
 # Mi-Stat_Max @ 哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.9.T-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.9.X-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: SUL-1.0](https://img.shields.io/badge/License-SUL--1.0+哥哥科技署名-EA4B71.svg?logo=n8n&logoColor=white&labelColor=040506)](https://github.com/ucxn/Mi-Stat_Max/blob/main/LICENSE.md)</br>
 [![Platform](https://img.shields.io/badge/平台-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;&emsp;
 [![Integration](https://img.shields.io/badge/集成-Home_Assistant-41BDF5.svg?logo=homeassistant&logoColor=white)](https://github.com/ucxn/ZTE-Stat_HA)&nbsp;&emsp;[![BroWare](.github/哥哥软件.svg)](https://github.com/ucxn/Brotech)
 
 [English](README.md) | **简体中文**
 
-**Mi-Stat_Max**是 **Bro-Stat_Max 系列**最重要的分支之一，一款专为小米路由器 Web 管理后台定制的 “油猴” 增强脚本插件 + HA 全屋智能家居接入集成，作者：*哥哥科技* ！
+**Mi-Stat_Max**是 **Bro-Stat 系列**最重要的分支之一，一款专为小米路由器 Web 管理后台定制的 “油猴” 增强脚本插件 + HA 全屋智能家居接入集成，作者：*哥哥科技* ！
 
 目前已经有集成入[安卓APP（点我下载）](https://github.com/ucxn/Bro-Stat/blob/main/.github/Install.md#安卓客户端)，使用起来非常方便，无需配置复杂的脚本环境！
 
@@ -15,7 +15,7 @@
 
 理论上支持所有 Wi-Fi 5/6/7 系列和小米原厂固件，AX 以上几乎都能获得全面数据，ISP 定制机可能只能获得部分数据，但依然具有广泛的兼容性。
 
-这不仅是一个 UI 增强插件，它通过*哥哥科技* 的精妙算法，对原始的动态、离散分立数据进行全面的处理，并尽量使用最逼近真值的数据，校正原厂的伪 WAN 口速率（因为公网永远比内网重要），正确分析各设备占比，将微积分和信号处理融入到脚本当中，唯有阅读源码，才能感受到其精妙；若想大致有趣一览，[可看架构](https://github.com/UCXN/BroTech)。
+这不仅是一个 UI 增强插件，通过*哥哥科技* 的精妙算法，对原始的动态、离散分立数据进行全面的处理，并尽量使用最逼近真值的数据，校正原厂的伪 WAN 口速率（因为公网永远比内网重要），正确分析各设备占比，将微积分和信号处理融入到脚本当中，唯有阅读源码，才能感受到其精妙；若想大致有趣一览，[可看架构](https://github.com/UCXN/BroTech)。
 
 ![预览](./.github/me.png)
 **支持检测**：WAN口总流量（3s刷新）、各设备速率（3s）、各设备开机以来官方流量小计，随时读档。双网默认为加和，并非有意设计。</br>
@@ -134,11 +134,12 @@ const CONFIG = {
 
 ## ⚠️ 注意事项 (Notes)
 
-* 本脚本仅在前端对获取到的 API 数据进行重新排版与计算，不会修改路由器底层的核心配置。
-* 本脚本属于纯前端数据重组工具，不涉及对小米路由器底层固件的修改。
+* 本脚本仅在前端对获取到的 API 数据进行重新排版与计算，不会修改路由器的核心配置。
+* 本脚本属于纯前端数据重组工具，不涉及对小米路由器固件的修改。
 
 ## © 哥哥科技 版权所有
-**声明**：“哥哥软件”和勋章软件有一定的相似之处，*但并非完全相同*：“徽章软件”通常要求在集成时显著追加相应的标识，且显示在作品的每一个界面；“哥哥软件”并不一定更严格：他更类似于一个完整的免费软件，而非“底层基础设施”、“框架”、“开源项目”或“库”，因此代码界限可以非常明晰：在主要使用我的作品构成的界面当中，所有的我的名字，无论是否为法律意义上的署名必须要完全得以保留，不能有任何篡改。但是我并不要求在您更大的作品中依然，要在每个页面中显示或喧宾夺主。
+**声明**：“哥哥软件”和勋章软件有一定的相似之处，*但并非完全相同*：“徽章软件”通常要求在集成时显著追加相应的标识，且显示在作品的每一个界面；“哥哥软件”并不一定更严格：他更类似于一个完整的免费软件，而非“底层基础设施”、“框架”、“开源项目”或“库”，因此代码界限可以非常明晰：在主要使用我的作品构成的界面当中，所有的我的名字，无论是否为法律意义上的署名必须要完全得以保留，不能有任何篡改。这在技术上也是最自然的选择。
+我不要求在更大的作品中依然要在每个页面中显示或喧宾夺主。
 
 为免歧义，可以理解为：
 1. 如果框架大体相同，页面设计能够得以保留，**则必须原样保留署名**；

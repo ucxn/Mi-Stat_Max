@@ -2,7 +2,7 @@
 // @name            小米路由器增强 Mi-Stat_Max
 // @name:en         MiWiFi-Stat_Max
 // @namespace       ucxn
-// @version         5.9.9.U
+// @version         5.9.9.X
 // @description     小米路由器增强组件 - 设备网速一键查看、WAN网速计算，设备流量统计与大屏查看
 // @copyright       哥哥科技. All Rights Reserved. 使用必要条件之一：不得删除源码、用户界面、文本中的任何“哥哥”；传播官方链接不限；除安装自用外任何使用传输均需查看许可证。
 // @description:en  Xiaomi Router Enhancement Module—One-click device speed check, WAN speed calculation, device traffic statistics, and large-screen viewing
@@ -20,7 +20,7 @@
 // @storageName     GBNPA_Storage
 // @website         https://github.com/ucxn/Mi-Stat_Max
 // @supportURL      https://www.bilibili.com/video/BV1SeEb67Ep1
-// @license         LicenseRef-BR-BY-NC-1.0+ OR (SUL-1.0 AND BroTech Additional License+)
+// @license         LicenseRef-BR-BY-NC-1.0 + OR (SUL-1.0 AND BroTech Additional License+)
 // @updateURL       https://raw.githubusercontent.com/ucxn/Mi-Stat_Max/refs/heads/main/new.user.js
 // @downloadURL     https://github.com/ucxn/Bro-Stat/raw/refs/heads/main/Mi-WiFi_RD.user.js
 
@@ -102,7 +102,11 @@ const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&q
     aWu: 0, aWd: 0, lwTU: 0, lwTD: 0, cSnap: null,
     lTotUp: 0, lTotDn: 0, lInstU: 0, lInstD: 0, lLT: undefined,
     总上行图: new Float64Array(8192), 总下行图: new Float64Array(8192), 总图点数: 0,
-    wMaxU: 0, wMaxD: 0, wMinU: Infinity, wMinD: Infinity, 图表拖: null, 图表待画: 0
+    wMaxU: 0, wMaxD: 0, wMinU: Infinity, wMinD: Infinity, 图表拖: null, 图表待画: 0,
+    // 以下原本运行中才陆续追加；一次写全，S 的形状从头到尾不变。靠 ??= 或 === undefined 判断的给 undefined，会写小数的给 0
+    wLT: undefined, wZEU: 0, wZED: 0, wZEUC: 0, wZEDC: 0, oWD: 0, bWU: undefined, bWD: undefined, lRU: undefined, lRD: undefined,
+    lTU: undefined, lTD: undefined, dWU: 0, dWD: 0, dTU: 0, dTD: 0, zCU: 0, zCD: 0, _qosAdj: 0,
+    rTick: 0, haTick: 0, cRT: '', oDC: null, _domRebuilt: !1, snap: undefined, snapLoaded: !1
   };
   window.__gIsF = !1;
   const 版本号 = (typeof GM_info !== 'undefined' && GM_info.script?.version) || '环境不支持获取版本号';
@@ -178,7 +182,7 @@ function fBy(bps) {
     .zte-bar-wrap{position:relative;width:100%;border-radius:4px;border:1px solid;font-size:13px;font-weight:bold;overflow:hidden;padding:3px 8px;display:flex;justify-content:space-between;align-items:center;z-index:1;box-sizing:border-box;}.zte-bar-wrap span{font-size:inherit;font-weight:inherit;}.zte-bar-up{color:#ff4c00;border-color:rgba(255,76,0,0.3);}.zte-bar-down{color:#0059fa;border-color:rgba(0,89,250,0.3);}.zte-bar-up::before{content:'';position:absolute;left:0;top:0;bottom:0;z-index:-1;background:rgba(255,76,0,0.12);width:var(--p-up,0%);transition:width 0.5s;}.zte-bar-down::before{content:'';position:absolute;left:0;top:0;bottom:0;z-index:-1;background:rgba(0,89,250,0.12);width:var(--p-down,0%);transition:width 0.5s;}#config-list.gege-list-container{contain:content!important;background-color:#ffffff!important;border-radius:8px!important;border:1px solid #e0e0e0!important;padding:20px 30px!important;box-shadow:0 2px 10px rgba(0,0,0,0.02)!important;margin-top:10px!important;}.gege-section{margin-bottom:10px;}
     .gege-section:last-child{margin-bottom:0;}.gege-list-container .config-title{font-size:16px!important;font-weight:bold!important;color:#333!important;margin:15px 0 10px 0!important;padding-bottom:5px!important;}.gege-list-container .gege-section:first-child .config-title{margin-top:0!important;}.gege-empty-state{color:#999!important;font-size:14px!important;padding:0 0 15px 5px!important;border-bottom:1px solid #f0f0f0!important;margin-bottom:5px!important;}.gege-list-item{background-color:transparent!important;border-bottom:1px solid #f0f0f0!important;padding:15px 10px!important;margin-bottom:0!important;border-radius:0!important;}
     .gege-list-item:last-child{border-bottom:none!important;}#zte-geek-board{contain:layout style;background-color:transparent!important;border-left:4px solid #0059fa!important;border-radius:0!important;padding:5px 0 5px 15px!important;margin:10px 0 15px 0!important;box-shadow:none!important;border-bottom:1px solid #f0f0f0!important;font-size:14px;display:flex;flex-direction:column;gap:6px;padding-bottom:15px!important;}#gege-global-overlay #zte-geek-board.geek-frozen-pane{position:sticky!important;top:0px!important;z-index:100!important;background-color:#f3f4f5!important;margin-top:0!important;padding-top:15px!important;box-shadow:0 10px 15px -3px rgba(0,0,0,0.05)!important;border-radius:0 0 8px 8px!important;}.gege-pin{cursor:pointer;font-size:11px;filter:grayscale(100%);opacity:0.5;transition:transform 0.2s;margin-left:2px;}
-    .gege-pin.active{filter:none;opacity:1;transform:scale(1.1);}#gege-global-overlay{position:fixed;top:7.5%;right:0;bottom:0;background:#f3f4f5;z-index:9999;overflow-y:auto;padding-bottom:50px;left:0!important;border-radius:16px 16px 0 0;box-shadow:0 -5px 25px rgba(0,0,0,0.15);transition:top 0.3s ease;}@media (max-width: 768px){.geek-right-box:has(#gb-wan-zero-up),.geek-right-box:has(#gb-cur-up-vol){display:none!important}.gege-list-item{padding:12px 10px!important;position:relative!important}.config-item-box{flex-direction:column!important;padding-bottom:0!important}.config-item .info,.config-item .logo,.config-item .speed{width:100%!important;border:none!important;padding:0!important;position:static!important}.config-item .dev-intro{min-height:auto!important;justify-content:center!important;padding-right:90px!important}.config-item .logo{padding-bottom:4px!important}.config-item .info{flex-direction:column!important;margin:0 0 6px 0!important;gap:2px!important}.dev-ip{position:absolute!important;top:12px!important;right:10px!important;font-size:11px!important;background:rgba(0,89,250,0.08);color:#0059fa!important;padding:2px 6px!important;border-radius:4px;font-weight:bold;line-height:1.2;z-index:10;width:auto!important}.dev-number{width:auto!important;margin:0!important;font-size:11px!important}.gege-ratio-box{width:100%!important;margin-top:2px!important;margin-bottom:0!important}.gege-down-box{width:100%!important;margin-top:2px!important}#zte-geek-board{padding:8px!important;gap:0!important;font-size:11.5px!important}.geek-row{height:auto!important;flex-wrap:wrap!important;margin-bottom:4px!important;justify-content:flex-start!important;gap:2px 6px!important;line-height:1.3!important}.geek-label{width:auto!important;min-width:60px!important;font-size:11.5px!important;flex:0 0 auto!important}.geek-val-box{width:auto!important;flex:1 1 0%!important;display:flex!important;flex-wrap:wrap!important;margin-left:0!important;gap:2px 6px!important}.geek-fixed-width{width:auto!important}.geek-right-box{width:100%!important;flex:0 0 100%!important;text-align:left!important;font-size:11.5px!important;margin-top:2px!important;margin-left:0!important}.gege-list-container{padding:8px!important}.zte-enhance-speed{gap:4px!important}}#zte-geek-board{position:relative!important;overflow:visible!important;}#gege-speed-chart{position:absolute;z-index:25;box-sizing:border-box;cursor:move;user-select:none;touch-action:none;container-type:inline-size;}#gege-speed-chart canvas{display:block;width:100%;height:100%;}.gege-chart-head,.gege-chart-foot{position:absolute;left:clamp(28px,8%,36px);right:8px;display:flex;align-items:center;pointer-events:none;font:bold clamp(9px,2.1cqw,11px) system-ui,sans-serif;white-space:nowrap;overflow:hidden;}.gege-chart-head{top:2px;color:#111;gap:8px;}.gege-chart-head [data-gc="range"]{color:#666;font-weight:normal;overflow:hidden;text-overflow:ellipsis;margin-left:auto;}.gege-chart-foot{bottom:4px;justify-content:flex-start;gap:clamp(3px,1.1cqw,12px);}.gege-chart-foot span{min-width:0;overflow:hidden;text-overflow:ellipsis;}.gc-up{color:#ff4c00;flex:0 1 auto;}.gc-down{color:#0b5;flex:0 1 auto;}.gc-extra{color:#666;text-align:right;margin-left:auto;flex:1 1 0;min-width:0;}#gege-speed-chart .gege-chart-resize{position:absolute;right:-4px;bottom:-4px;width:13px;height:13px;border-right:3px solid #0059fa;border-bottom:3px solid #0059fa;cursor:nwse-resize;border-radius:2px;}
+    .gege-pin.active{filter:none;opacity:1;transform:scale(1.1);}#gege-global-overlay{position:fixed;top:7.5%;right:0;bottom:0;background:#f3f4f5;z-index:9999;overflow-y:auto;padding-bottom:50px;left:0!important;border-radius:16px 16px 0 0;box-shadow:0 -5px 25px rgba(0,0,0,0.15);transition:top 0.3s ease;}@media (max-width: 768px){.geek-right-box:has(#gb-wan-zero-up),.geek-right-box:has(#gb-cur-up-vol){display:none!important}.gege-list-item{padding:12px 10px!important;position:relative!important}.config-item-box{flex-direction:column!important;padding-bottom:0!important}.config-item .info,.config-item .logo,.config-item .speed{width:100%!important;border:none!important;padding:0!important;position:static!important}.config-item .dev-intro{min-height:auto!important;justify-content:center!important;padding-right:90px!important}.config-item .logo{padding-bottom:4px!important}.config-item .info{flex-direction:column!important;margin:0 0 6px 0!important;gap:2px!important}.dev-ip{position:absolute!important;top:12px!important;right:10px!important;font-size:11px!important;background:rgba(0,89,250,0.08);color:#0059fa!important;padding:2px 6px!important;border-radius:4px;font-weight:bold;line-height:1.2;z-index:10;width:auto!important}.dev-number{width:auto!important;margin:0!important;font-size:11px!important}.gege-ratio-box{width:100%!important;margin-top:2px!important;margin-bottom:0!important}.gege-down-box{width:100%!important;margin-top:2px!important}#zte-geek-board{padding:8px!important;gap:0!important;font-size:11.5px!important}.geek-row{height:auto!important;flex-wrap:wrap!important;margin-bottom:4px!important;justify-content:flex-start!important;gap:2px 6px!important;line-height:1.3!important}.geek-label{width:auto!important;min-width:60px!important;font-size:11.5px!important;flex:0 0 auto!important}.geek-val-box{width:auto!important;flex:1 1 0%!important;display:flex!important;flex-wrap:wrap!important;margin-left:0!important;gap:2px 6px!important}.geek-fixed-width{width:auto!important}.geek-right-box{width:100%!important;flex:0 0 100%!important;text-align:left!important;font-size:11.5px!important;margin-top:2px!important;margin-left:0!important}.gege-list-container{padding:8px!important}.zte-enhance-speed{gap:4px!important}}#zte-geek-board{position:relative!important;overflow:visible!important;}#gege-speed-chart{position:absolute;z-index:25;box-sizing:border-box;cursor:move;user-select:none;touch-action:none;container-type:inline-size;left:max(520px,52%);top:2px;width:clamp(320px,30%,650px);height:112px;}@media (max-width:768px){#gege-speed-chart{left:210px;width:calc(100% - 220px);height:96px}}#gege-speed-chart canvas{display:block;width:100%;height:100%;}.gege-chart-head,.gege-chart-foot{position:absolute;left:clamp(28px,8%,36px);right:8px;display:flex;align-items:center;pointer-events:none;font:bold clamp(9px,2.1cqw,11px) system-ui,sans-serif;white-space:nowrap;overflow:hidden;}.gege-chart-head{top:2px;color:#111;gap:8px;}.gege-chart-head [data-gc="range"]{color:#666;font-weight:normal;overflow:hidden;text-overflow:ellipsis;margin-left:auto;}.gege-chart-foot{bottom:4px;justify-content:flex-start;gap:clamp(3px,1.1cqw,12px);}.gege-chart-foot span{min-width:0;overflow:hidden;text-overflow:ellipsis;}.gc-up{color:#ff4c00;flex:0 1 auto;}.gc-down{color:#0b5;flex:0 1 auto;}.gc-extra{color:#666;text-align:right;margin-left:auto;flex:1 1 0;min-width:0;}#gege-speed-chart .gege-chart-resize{position:absolute;right:-4px;bottom:-4px;width:13px;height:13px;border-right:3px solid #0059fa;border-bottom:3px solid #0059fa;cursor:nwse-resize;border-radius:2px;}
     .t-row,.zte-enhance-speed{font-family:Consolas;}
     @media (max-width:768px){.config-item-box{position:relative!important}.dev-ip{top:0!important;right:0!important}}
     #zte-geek-board{transition:color 0s cubic-bezier(0.21733,0.21733,0.31185,0.25216);}
@@ -336,7 +340,8 @@ async function rSD() {
             uB: 有累计 && !(CONFIG.readSaveData & 1) ? (spD ? cC.offUp - (spD.up || 0) : cC.offUp) : 0,
             dB: 有累计 && !(CONFIG.readSaveData & 1) ? (spD ? cC.offDn - (spD.down || 0) : cC.offDn) : 0,
             lU: 有累计 ? cC.offUp : undefined, lD: 有累计 ? cC.offDn : undefined, aR: !1, dpU: 0, dpD: 0,
-            oU: 有累计 ? cC.offUp : 0, oD: 有累计 ? cC.offDn : 0, name: spD?.name || cC.name || m, hU: new Float64Array(64), hD: new Float64Array(64), hIdx: 0, ifc: cC.iface // 真实流量与环形缓冲
+            oU: 有累计 ? cC.offUp : 0, oD: 有累计 ? cC.offDn : 0, name: spD?.name || cC.name || m, hU: new Float64Array(64), hD: new Float64Array(64), hIdx: 0, ifc: cC.iface,
+            onS: 0, lOS: undefined, zEU: 0, zED: 0, zUC: 0, zDC: 0, haOff: undefined // 真实流量与环形缓冲
           };
         } else {
           let 有累计 = 有累计MAC.has(m);
@@ -449,7 +454,7 @@ function doSettle(nowMs) {
     window.gegeForceUIRedraw = !0; // 重绘 UI
     setTimeout(() => { S._RST = !1; }, 2000); // 解开安全锁
     GM_setValue('ha_snapshot', { timestamp: nowMs, global: {}, devices: {} }); S.snap = {}; S.cSnap = null;
-    S.wTotUp = S.wTotDn = S.w2TotUp = S.w2TotDn = S.lTotUp = S.lTotDn = 0; S.lLT = performance.now(); // 内存原地清零
+    S.wTotUp = S.wTotDn = S.w2TotUp = S.w2TotDn = S.lTotUp = S.lTotDn  = S.wZEU = S.wZED = S.wZEUC = S.wZEDC = S.lwTU = S.lwTD = 0; S.lLT = performance.now(); // 内存原地清零
     for (let k in S.cls) { let s = S.cls[k]; s.intUp = s.intDn = 0; s.uB = s.oU = s.lU; s.dB = s.oD = s.lD; s.hU.fill(0); s.hD.fill(0); } // 内存原地清零底表
   }
 
@@ -467,18 +472,21 @@ function doSettle(nowMs) {
     }
   };
   const SPRK = [' ', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
+  // 设备卡片缓存（it._gege）的模板：每张卡片从它复制，所有卡片共用一个隐藏类；数值键给 -1、字符串键给 undefined，保证第一帧的比较一定成立
+  const GC = { bD: undefined, bDPct: undefined, bDSpk: undefined, bDVal: undefined, bU: undefined, bUPct: undefined, bUSpk: undefined, bUVal: undefined, dBox: undefined, dBoxBar: undefined, dBoxPct: undefined, dBoxVol: undefined, devIntro: undefined, enh: undefined, info: undefined, ipNode: undefined, rBox: undefined, rBoxBar: undefined, rBoxDn: undefined, rBoxPort: undefined, rBoxUp: undefined, rtPct: undefined, speed: undefined, timeNode: undefined, upBar: undefined, upBox: undefined, upPct: undefined, upVol: undefined, zBadge: undefined,
+    kU: -1, kB: -1, kD: -1, kPU: -1, kPD: -1, rU: -1, rD: -1, kC: undefined, kCol: undefined, pt: undefined };
   function getSpark(ringArr, headIdx, maxVal, minVal = 0) {
-    let s = "";
+    let s = "", k = 7 / maxVal;
     for (let i = 27; i--; ) {
       let v = ringArr[(headIdx - i) & 63];
-      s += SPRK[v < minVal ? 0 : Math.min(7, Math.max(1, ((v / maxVal) * 7) | 0))];
+      s += SPRK[v < minVal ? 0 : Math.min(7, Math.max(1, (v * k) | 0))];
     }
     return s;
   }
       function 记总速率图(u, d) {
         u = u || 0; d = d || 0;
-        const i = S.总图点数 & 8191;
-        S.总上行图[i] = u; S.总下行图[i] = d; S.总图点数++;
+        const c = S.总图点数, i = c & 8191;
+        S.总上行图[i] = u; S.总下行图[i] = d; S.总图点数 = c + 1;
         if (u > S.wMaxU) S.wMaxU = u; if (d > S.wMaxD) S.wMaxD = d;
         if (u > 0 && u < S.wMinU) S.wMinU = u; if (d > 0 && d < S.wMinD) S.wMinD = d;
       }
@@ -488,51 +496,52 @@ function doSettle(nowMs) {
         box = document.createElement('div'); box.id = 'gege-speed-chart';
         box.innerHTML = '<canvas></canvas><div class="gege-chart-head"><b data-gc="meta"></b><span data-gc="range"></span></div><div class="gege-chart-foot"><span class="gc-up" data-gc="up"></span><span class="gc-down" data-gc="down"></span><span class="gc-extra" data-gc="extra"></span></div><div class="gege-chart-resize" title="缩放"></div>';
         bd.appendChild(box);
-        const bw = bd.clientWidth || 1800, isMobileChart = window.matchMedia?.('(max-width:768px)').matches, w = isMobileChart ? Math.max(1, bw - 220) : Math.max(320, Math.min(650, bw * .30));
-        box.style.left = (isMobileChart ? 210 : Math.max(520, bw * .52)) + 'px'; box.style.top = '2px'; box.style.width = w + 'px'; box.style.height = (isMobileChart ? 96 : 112) + 'px';
         const 起手 = (e, 模式) => { e.preventDefault(); S.图表拖 = { 模式, x: e.clientX, y: e.clientY, l: box.offsetLeft, t: box.offsetTop, w: box.offsetWidth, h: box.offsetHeight }; box.setPointerCapture?.(e.pointerId); };
         box.addEventListener('pointerdown', e => { if (!e.target.classList.contains('gege-chart-resize')) 起手(e, '拖'); });
         box.querySelector('.gege-chart-resize').addEventListener('pointerdown', e => 起手(e, '缩'));
         box.addEventListener('pointermove', e => {
           const g = S.图表拖; if (!g) return;
           if (g.模式 === '拖') { box.style.left = (g.l + e.clientX - g.x) + 'px'; box.style.top = (g.t + e.clientY - g.y) + 'px'; }
-          else { box.style.width = Math.max(260, g.w + e.clientX - g.x) + 'px'; box.style.height = Math.max(88, g.h + e.clientY - g.y) + 'px'; }
-          if (!S.图表待画) { S.图表待画 = 1; requestAnimationFrame(() => { S.图表待画 = 0; 画总速率图(bd); }); }
+          else { box.style.width = Math.max(260, g.w + e.clientX - g.x) + 'px'; box.style.height = Math.max(88, g.h + e.clientY - g.y) + 'px';
+            if (!S.图表待画) { S.图表待画 = 1; requestAnimationFrame(() => { S.图表待画 = 0; 画总速率图(bd); }); } }
         });
         box.addEventListener('pointerup', () => S.图表拖 = null); box.addEventListener('pointercancel', () => S.图表拖 = null); box.addEventListener('lostpointercapture', () => S.图表拖 = null);
         return box;
       }
       function 画总速率图(bd) {
-        const box = 初始化总速率图(bd), cv = box.querySelector('canvas'), W = box.clientWidth | 0, H = box.clientHeight | 0, R = window.devicePixelRatio || 1;
+        let box = 初始化总速率图(bd), cv = box._cv ??= box.querySelector('canvas'), W = box.clientWidth | 0, H = box.clientHeight | 0, R = window.devicePixelRatio || 1;
         if (W < 40 || H < 40) return;
         if (cv.width !== (W * R | 0) || cv.height !== (H * R | 0)) { cv.width = W * R | 0; cv.height = H * R | 0; cv.style.width = '100%'; cv.style.height = '100%'; }
-        const x = cv.getContext('2d'); x.setTransform(R,0,0,R,0,0); x.clearRect(0,0,W,H);
+        const x = box._cx ??= cv.getContext('2d'); x.setTransform(R,0,0,R,0,0); x.clearRect(0,0,W,H);
         let l = 34, r = 8, t = 20, b = 25, gw = W - l - r, gh = H - t - b, n = Math.min(S.总图点数, 8000), st = S.总图点数 - n, ym = 1, su = 0, sd = 0;
-        for (let k = 0; k < n; k++) { const j = (st + k) & 8191, u = S.总上行图[j], d = S.总下行图[j]; if (u > ym) ym = u; if (d > ym) ym = d; su += u; sd += d; }
+        const AU = S.总上行图, AD = S.总下行图;
+        for (let k = 0; k < n; k++) { const j = (st + k) & 8191, u = AU[j], d = AD[j]; if (u > ym) ym = u; if (d > ym) ym = d; su += u; sd += d; }
         x.fillStyle = 'rgba(255,255,255,.58)'; x.strokeStyle = 'rgba(0,89,250,.88)'; x.lineWidth = 1.5; x.beginPath(); x.roundRect ? x.roundRect(.5,.5,W-1,H-1,8) : x.rect(.5,.5,W-1,H-1); x.fill(); x.stroke();
         x.setLineDash([4,4]); x.strokeStyle = 'rgba(0,89,250,.45)'; x.lineWidth = 1;
-        for (let i = 5; i--; ) { const y = t + gh * i / 4; x.beginPath(); x.moveTo(l,y); x.lineTo(W-r,y); x.stroke(); }
-        for (let i = 7; i--; ) { const xx = l + gw * i / 6; x.beginPath(); x.moveTo(xx,t); x.lineTo(xx,H-b); x.stroke(); }
+        x.beginPath();
+        for (let i = 5; i--; ) { const y = t + gh * i / 4; x.moveTo(l,y); x.lineTo(W-r,y); }
+        for (let i = 7; i--; ) { const xx = l + gw * i / 6; x.moveTo(xx,t); x.lineTo(xx,H-b); }
+        x.stroke();
         x.setLineDash([]);
         const li = (S.总图点数 - 1) & 8191, au = n ? (n === 8000 ? su * .000125 : su / n) : 0, ad = n ? (n === 8000 ? sd * .000125 : sd / n) : 0;
         (box._gcMeta ??= box.querySelector('[data-gc="meta"]')).textContent = `采样:${window.gegeBActivated ? CONFIG.wanRefreshInterval : 3}s  点:${S.总图点数}`;
-        const rg = box._gcRange ??= box.querySelector('[data-gc="range"]'), rs = `峰↑${fBy(S.wMaxU)} ↓${fBy(S.wMaxD)}  谷↑${S.wMinU < Infinity ? fBy(S.wMinU) : '--'} ↓${S.wMinD < Infinity ? fBy(S.wMinD) : '--'}`; rg.textContent = rs; rg.title = rs;
+        const rs = `峰↑${fBy(S.wMaxU)} ↓${fBy(S.wMaxD)}  谷↑${S.wMinU < Infinity ? fBy(S.wMinU) : '--'} ↓${S.wMinD < Infinity ? fBy(S.wMinD) : '--'}`;
+        if (box._rs !== rs) { box._rs = rs; const rg = box._gcRange ??= box.querySelector('[data-gc="range"]'); rg.textContent = rs; rg.title = rs; }
         (box._gcUp ??= box.querySelector('[data-gc="up"]')).textContent = `发 ${n ? fBy(S.总上行图[li]) : fBy(0)}`;
         (box._gcDown ??= box.querySelector('[data-gc="down"]')).textContent = `收 ${n ? fBy(S.总下行图[li]) : fBy(0)}`;
         (box._gcExtra ??= box.querySelector('[data-gc="extra"]')).textContent = `均↑${fBy(au)} ↓${fBy(ad)}`;
         const 画线 = (arr, col) => {
           if (!n) return;
           x.strokeStyle = col; x.lineWidth = 2.4; x.beginPath();
-          const bins = Math.max(1, Math.min(n, gw | 0));
-          let first = !0;
+          const bins = Math.max(1, Math.min(n, gw | 0)), sx = n > 1 ? gw / (n - 1) : 0, x0 = n > 1 ? l : l + gw, ky = gh / ym, yb = H - b; let first = 1;
           if (bins === n) {
-            for (let k = 0; k < n; k++) { const xx = l + (n > 1 ? gw * k / (n - 1) : gw), yy = H - b - (arr[(st + k) & 8191] / ym) * gh; first ? (x.moveTo(xx, yy), first = !1) : x.lineTo(xx, yy); }
+            for (let k = 0; k < n; k++) { const xx = x0 + sx * k, yy = yb - arr[(st + k) & 8191] * ky; first ? (x.moveTo(xx, yy), first = !1) : x.lineTo(xx, yy); }
           } else {
             for (let q = 0; q < bins; q++) {
               let a = q * n / bins | 0, z = (q + 1) * n / bins | 0, mn = Infinity, mx = -Infinity, mi = a, ma = a; if (z <= a) z = a + 1;
-              for (let k = a; k < z; k++) { const v = arr[(st + k) & 8191]; if (v < mn) { mn = v; mi = k; } if (v > mx) { mx = v; ma = k; } }
-              if (mi <= ma) { let xx = l + (n > 1 ? gw * mi / (n - 1) : gw), yy = H - b - (mn / ym) * gh; first ? (x.moveTo(xx, yy), first = !1) : x.lineTo(xx, yy); if (ma !== mi) { xx = l + gw * ma / (n - 1); yy = H - b - (mx / ym) * gh; x.lineTo(xx, yy); } }
-              else { let xx = l + gw * ma / (n - 1), yy = H - b - (mx / ym) * gh; first ? (x.moveTo(xx, yy), first = !1) : x.lineTo(xx, yy); xx = l + gw * mi / (n - 1); yy = H - b - (mn / ym) * gh; x.lineTo(xx, yy); }
+              for (let k = a; k < z; k++) { let v = arr[(st + k) & 8191]; if (v < mn) { mn = v; mi = k; } if (v > mx) { mx = v; ma = k; } }
+              if (mi <= ma) { first ? (x.moveTo(x0 + sx * mi, yb - mn * ky), first = !1) : x.lineTo(x0 + sx * mi, yb - mn * ky); if (ma !== mi) x.lineTo(x0 + sx * ma, yb - mx * ky); }
+              else { first ? (x.moveTo(x0 + sx * ma, yb - mx * ky), first = !1) : x.lineTo(x0 + sx * ma, yb - mx * ky); x.lineTo(x0 + sx * mi, yb - mn * ky); }
             }
           }
           x.stroke();
@@ -787,7 +796,7 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
         const cC = cI[m] || { upRate: 0, dnRate: 0, iface: "", offUp: 0, offDn: 0 },
               cS = S.cls[m] || { intUp: 0, intDn: 0, onS: 0 };
         
-        let cache = it._gege || (it._gege = {});
+        let cache = it._gege || (it._gege = { ...GC });
         let hqU = Math.max(0, (cS.lU || 0) - (cS.uB || 0)),
         hqD = Math.max(0, (cS.lD || 0) - (cS.dB || 0));
                         let tN = cache.timeNode ??= it.querySelector('.gege-online-time');
@@ -804,8 +813,8 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
           }
           const p = hqU * inv_tot_cU;
           (cache.upVol ??= bx.querySelector('.v-vol')).textContent = fVD(cS.intUp, cC.offUp);
-          (cache.upPct ??= bx.querySelector('.v-pct')).textContent = p.toFixed(1) + '%';
-          (cache.upBar ??= bx.querySelector('.zte-thin-bar-inner')).style.width = Math.min(p, 100) + '%';
+          const kU = (p * 10 + .5) | 0;
+          if (cache.kU !== kU) { cache.kU = kU; (cache.upPct ??= bx.querySelector('.v-pct')).textContent = p.toFixed(1) + '%'; (cache.upBar ??= bx.querySelector('.zte-thin-bar-inner')).style.width = Math.min(p, 100) + '%'; }
         }
         
         const inf = cache.info ??= it.querySelector('.info');
@@ -846,12 +855,14 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
             tC = bR.toFixed(1) + '%';
           }
           
-          (cache.rBoxPort ??= rB.querySelector('.v-port')).textContent = CONFIG.portMap[cC.iface] || cC.iface || "未知";
+          const pt = CONFIG.portMap[cC.iface] || cC.iface || "未知";
+          if (cache.pt !== pt) { cache.pt = pt; (cache.rBoxPort ??= rB.querySelector('.v-port')).textContent = pt; }
                     (cache.rBoxUp ??= rB.querySelector('.v-interval .c-up')).textContent = '' + fSV(hqU);
           (cache.rBoxDn ??= rB.querySelector('.v-interval .c-down')).textContent = '' + fSV(hqD);
           const rtP = cache.rtPct ??= rB.querySelector('.v-rt-pct');
-          rtP.textContent = tC; rtP.style.color = tCol;
-          (cache.rBoxBar ??= rB.querySelector('.gege-ratio-bar-inner')).style.width = Math.min(bR, 100) + '%';
+          if (cache.kC !== tC || cache.kCol !== tCol) { cache.kC = tC; cache.kCol = tCol; rtP.textContent = tC; rtP.style.color = tCol; }
+          const kB = (bR * 10 + .5) | 0;
+          if (cache.kB !== kB) { cache.kB = kB; (cache.rBoxBar ??= rB.querySelector('.gege-ratio-bar-inner')).style.width = Math.min(bR, 100) + '%'; }
                     
           let dBx = cache.dBox ??= inf.querySelector('.gege-down-box');
           if (!dBx) {
@@ -862,8 +873,8 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
           }
           const dp = (cC.offDn || 0) * inv_tOD;
           (cache.dBoxVol ??= dBx.querySelector('.v-vol')).textContent = fVD(cS.intDn, cC.offDn);
-                    (cache.dBoxPct ??= dBx.querySelector('.v-pct')).textContent = dp.toFixed(1) + '%';
-          (cache.dBoxBar ??= dBx.querySelector('.zte-thin-bar-inner')).style.width = Math.min(dp, 100) + '%';
+          const kD = (dp * 10 + .5) | 0;
+          if (cache.kD !== kD) { cache.kD = kD; (cache.dBoxPct ??= dBx.querySelector('.v-pct')).textContent = dp.toFixed(1) + '%'; (cache.dBoxBar ??= dBx.querySelector('.zte-thin-bar-inner')).style.width = Math.min(dp, 100) + '%'; }
         }
         
         const sp = cache.speed ??= it.querySelector('.speed');
@@ -881,13 +892,11 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
               bU = cache.bU ??= enh.querySelector('.zte-bar-up'),
               bD = cache.bD ??= enh.querySelector('.zte-bar-down');
           
-          bU.style.setProperty('--p-up', Math.min(pu, 100) + '%');
-          (cache.bUVal ??= bU.querySelector('.v-val')).textContent = `🔼 ${fBy(cC.upRate)}`;
-          (cache.bUPct ??= bU.querySelector('.v-pct')).textContent = pu.toFixed(1) + '%';
-          
-          bD.style.setProperty('--p-down', Math.min(pd, 100) + '%');
-          (cache.bDVal ??= bD.querySelector('.v-val')).textContent = `🔽 ${fBy(cC.dnRate)}`;
-          (cache.bDPct ??= bD.querySelector('.v-pct')).textContent = pd.toFixed(1) + '%';
+          const kPU = (pu * 10 + .5) | 0, kPD = (pd * 10 + .5) | 0;
+          if (cache.kPU !== kPU) { cache.kPU = kPU; bU.style.setProperty('--p-up', Math.min(pu, 100) + '%'); (cache.bUPct ??= bU.querySelector('.v-pct')).textContent = pu.toFixed(1) + '%'; }
+          if (cache.rU !== cC.upRate) { cache.rU = cC.upRate; (cache.bUVal ??= bU.querySelector('.v-val')).textContent = `🔼 ${fBy(cC.upRate)}`; }
+          if (cache.kPD !== kPD) { cache.kPD = kPD; bD.style.setProperty('--p-down', Math.min(pd, 100) + '%'); (cache.bDPct ??= bD.querySelector('.v-pct')).textContent = pd.toFixed(1) + '%'; }
+          if (cache.rD !== cC.dnRate) { cache.rD = cC.dnRate; (cache.bDVal ??= bD.querySelector('.v-val')).textContent = `🔽 ${fBy(cC.dnRate)}`; }
           let clU = (S.aWu * 0.1) || 0; if (clU < 512000) clU = 512000;
           let clD = (S.aWd * 0.125) || 0;
           for (let i = 0; i < 64; i++) { if (cS.hU[i] > clU) clU = cS.hU[i]; if (cS.hD[i] > clD) clD = cS.hD[i]; }
@@ -914,7 +923,7 @@ if (typeof GM_setValue !== 'undefined' && S.rTick === 1) {
         ol.innerHTML = `<div style="padding: 20px; width: 96%; max-width: 1600px; margin: 0 auto; min-height: 100%;"><div id="gege-board-anchor"></div><div id="config-list" class="config-list gege-list-container">${hMesh.length ? `<div class="gege-section"><div class="config-title">Mesh 组网设备</div>${hMesh.join('')}</div>` : ''}<div class="gege-section"><div class="config-title">有线设备${(window.gegeHiddenDevices && Object.keys(window.gegeHiddenDevices).length > 0) ? '<span style="color: #ff4c00; font-size: 13px; font-weight: normal; margin-left: 10px; font-family: Consolas;">(哥哥科技：智能Mesh适配)</span>' : ''}</div>${hW.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.8GHz':'5.2GHz'}）</div>${h52.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（${S.is5G_149?'5.2GHz':'5.8GHz'}）</div>${h58.join('')||'<div class="gege-empty-state">没有连接设备</div>'}</div><div class="gege-section"><div class="config-title">无线设备（2.4GHz）</div>${h2.join('')||'<div class="gege-empty-state">没有连接设备</div>'}
         </div>
         </div><div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #eee; text-align: center; font-family: Consolas, 'Microsoft YaHei', sans-serif;"><div style="font-size: 11.5px; color: #777; font-style: italic; margin-bottom: 8px;">“在一个文明社会，干净的、不被监视与吸血的网络，是我们每个人的基本权利。”</div><div style="font-size: 10.5px; color: #999; line-height: 1.3; margin-bottom: 8px;">本交互式程序属“哥哥软件”，需遵守署名许可证方可获得Bro复合定制授权；按“原样且免费”提供，不对其适用性、稳定性、精密度或任何商业场景合规性作任何担保。<a href="https://github.com/ucxn/Mi-Stat_Max/blob/main/%E2%9D%97%EF%B8%8F品牌使用政策.md" target="_blank" style="color: #777; text-decoration: underline;">查看许可证/分享软件</a><br>基于本程序的任何修改、使用代码、再发布或相关衍生版本的合法性的前置条件是：提供最终用户界面时，均应保留所有“哥哥”、署名与本法律声明的显著性不变，禁止隐藏或降低其可见性。
-        <div style="font-size:12px;color:#555;"><svg xmlns="http://www.w3.org/2000/svg" width="131" height="18" viewBox="0 0 145 20" role="img" aria-label="Broware Attribution" style="vertical-align:middle;margin-right:6px"><defs><linearGradient id="bg1" x2="0" y2="1"><stop stop-color="#4b4b4b"/><stop offset=".5" stop-color="#333"/><stop offset="1" stop-color="#1f1f1f"/></linearGradient><linearGradient id="bg2" x2="0" y2="1"><stop stop-color="#52d58c"/><stop offset=".52" stop-color="#31bc71"/><stop offset="1" stop-color="#218b50"/></linearGradient><linearGradient id="sh" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".32"/><stop offset=".45" stop-color="#fff" stop-opacity=".08"/><stop offset=".46" stop-opacity="0"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="c"><rect width="145" height="20" rx="4"/></clipPath></defs><g clip-path="url(#c)"><path fill="url(#bg1)" d="M0 0h24v20H0z"/><path fill="url(#bg2)" d="M24 0h121v20H24z"/><path fill="url(#sh)" d="M0 0h145v20H0z"/></g><g transform="translate(4 2)"><rect width="15" height="15" rx=".6" fill="#fff"/><rect x="1" y="1" width="13" height="13" fill="#58d18d"/><path fill="#fff" d="M1 1h7v7z"/><path fill="#32bf70" d="M8 1h6v13H8z"/><path fill="#1ba856" d="M1 14h7V8l6 6z"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11"><text x="84" y="15" fill="#000" fill-opacity=".28">Broware Attribution</text><text x="84" y="14">Broware Attribution</text></g></svg><a href="https://github.com/ucxn/Mi-Stat_Max" target="_blank" style="color:#0059fa;text-decoration:none;font-weight:bold;">Mi-Stat_Max 增强组件</a><span title="构建日期：2026-10.13 17时&#36;架构设计：哥哥科技 BroTech&#10;Bilibili UID：501430041&#10;QQ群：680464365" style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px; cursor: help; margin: 0 4px;">${(typeof GM_info !== 'undefined' && GM_info.script?.version) || '环境不支持获取版本号'}</span> Copyright &copy; 2026 <a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">哥哥科技</a> (BroTech)<span style="color: #888; font-weight: normal;"> | All Rights Reserved</span><span style="color: #888; font-weight: normal;"> | 合著者： <a href="https://github.com/Samuel-Knight" target="_blank" style="color: #666; text-decoration: none;">SamKnight</a>&emsp;<a href="https://www.goofish.com/personal?userId=2216485229713" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">一条鱼和Ta的鱼缸</a></span>&emsp;&nbsp;<a href="https://scriptcat.org/zh-CN/script-show-page/6592" target="_blank" style="color: #666; text-decoration: none;">点此分享</a>
+        <div style="font-size:12px;color:#555;"><svg xmlns="http://www.w3.org/2000/svg" width="131" height="18" viewBox="0 0 145 20" role="img" aria-label="Broware Attribution" style="vertical-align:middle;margin-right:6px"><defs><linearGradient id="bg1" x2="0" y2="1"><stop stop-color="#4b4b4b"/><stop offset=".5" stop-color="#333"/><stop offset="1" stop-color="#1f1f1f"/></linearGradient><linearGradient id="bg2" x2="0" y2="1"><stop stop-color="#52d58c"/><stop offset=".52" stop-color="#31bc71"/><stop offset="1" stop-color="#218b50"/></linearGradient><linearGradient id="sh" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".32"/><stop offset=".45" stop-color="#fff" stop-opacity=".08"/><stop offset=".46" stop-opacity="0"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="c"><rect width="145" height="20" rx="4"/></clipPath></defs><g clip-path="url(#c)"><path fill="url(#bg1)" d="M0 0h24v20H0z"/><path fill="url(#bg2)" d="M24 0h121v20H24z"/><path fill="url(#sh)" d="M0 0h145v20H0z"/></g><g transform="translate(4 2)"><rect width="15" height="15" rx=".6" fill="#fff"/><rect x="1" y="1" width="13" height="13" fill="#58d18d"/><path fill="#fff" d="M1 1h7v7z"/><path fill="#32bf70" d="M8 1h6v13H8z"/><path fill="#1ba856" d="M1 14h7V8l6 6z"/></g><g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="11"><text x="84" y="15" fill="#000" fill-opacity=".28">Broware Attribution</text><text x="84" y="14">Broware Attribution</text></g></svg><a href="https://github.com/ucxn/Mi-Stat_Max" target="_blank" style="color:#0059fa;text-decoration:none;font-weight:bold;">Mi-Stat_Max 增强组件</a><span title="构建日期：2026-10.13 17时&#36;架构设计：哥哥科技 BroTech&#10;Bilibili UID：501430041&#10;QQ群：680464365" style="background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 4px; cursor: help; margin: 0 4px;">${(typeof GM_info !== 'undefined' && GM_info.script?.version) || '环境不支持获取版本号'}</span> Copyright &copy; 2026 <a href="https://www.bilibili.com/video/BV1LZ6yBXESq" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">哥哥科技</a> (BroTech)<span style="color: #888; font-weight: normal;"> | All Rights Reserved</span><span style="color: #888; font-weight: normal;"> | 合著者： <a href="https://github.com/Samuel-Knight" target="_blank" style="color: #666; text-decoration: none;">SamKnight</a>&emsp;<a href="https://pages.goofish.com/sharexy?userid=2216485229713&bft=personal&bfp" target="_blank" style="color: #0059fa; text-decoration: none; font-weight: bold;">一条鱼和Ta的鱼缸</a></span>&emsp;&nbsp;<a href="https://scriptcat.org/zh-CN/script-show-page/6592" target="_blank" style="color: #666; text-decoration: none;">点此分享</a>
         <div style="font-size: 10.5px; color: #aaa; margin-top: 6px; font-weight: normal;">小米设计适配参考了 MIT 开源项目 <a href="https://greasyfork.org/zh-CN/scripts/525238-小米路由器增强脚本" target="_blank" style="color:#999; text-decoration:none;">小米路由器增强脚本@kirin</a> 和 <a href="https://github.com/tiejiang29/miwifi_router" target="_blank" style="color:#999; text-decoration:none;">miwifi_router@tiejiang29</a> 的接口思路，特此致谢。</div>
         </div></div></div></div>`;
       S._domRebuilt = true;});}
