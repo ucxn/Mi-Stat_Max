@@ -1,7 +1,7 @@
 {
   "domain": "gbnpa_router",
   "name": "哥哥科技 兄弟集成",
-  "codeowners": "@ucxn",
+  "codeowners": ["@ucxn"],
   "documentation": "https://github.com/ucxn/ZTE-Stat_Max",
   "issue_tracker": "https://www.bilibili.com/video/BV1PtR7B8ECC",
   "dependencies": ["webhook"],

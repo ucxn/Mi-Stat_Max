@@ -1,6 +1,6 @@
 # Mi-Stat_Max@Bro-Tech|哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.9.X-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-5.9.9.Y-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: SUL-1.0](https://img.shields.io/badge/License-SUL--1.0+哥哥科技_Attribution-EA4B71.svg?logo=n8n&logoColor=white&labelColor=040506)](https://github.com/ucxn/Mi-Stat_Max/blob/main/LICENSE.md)
 
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;
