@@ -182,7 +182,27 @@ During integration or adaptation, the original presentation should be preserved 
 The attribution requirements have the highest priority. Any violation immediately terminates the applicable rights granted under this project, regardless of any other period, cure period, or remedial arrangement.
 10. 本总览用于快速理解与实施；完整权利、义务及授权条件以随项目发布的完整许可证文本为准。
 This summary is intended for quick understanding and implementation. The complete license texts published with the project govern the full rights, obligations, and licensing conditions.
+### Attribution When Splitting an Integration
+If you must modify the source code, for example by adding substantial features of your own, so that my complete work ends up split into two or more parts, then:
 
+1. Every attribution in the original design must be kept exactly as it is;
+2. An additional attribution must be placed somewhere more prominent, such as the top of the screen (my original attribution sits at the bottom);
+3. Every part resulting from the split must carry attribution.
+
+#### Integration Guidance
+If you cannot understand the conditions below, please consult a qualified technical adviser or lawyer. Until you do, you may only share the official link as it is.
+
+We recommend integrating this tool the way "Tualatin Toolbox" bundles the tools it collects: include it whole, keep it in sync with the original, and give it a prominent entry point in your software for a better user experience.
+#### Attributions Per Page
+Where attribution appears 4 times on a single page, and there is no bad faith, it may ordinarily be presumed in good faith to satisfy the count requirement of this section. This presumption may not be used to reduce any attribution already present in the original work, and it does not affect any of the attribution obligations above.
+
+A "page" is defined as any continuous view navigable via single-finger dragging, a mouse, or keyboard arrow keys; this excludes parent menus, submenus, back buttons, further navigation, hyperlinks, or automatic redirects. In the context of zooming, a "page" refers to the content that fits onto a single screen when zoomed all the way out, except in cases where doing so renders the content illegible due to screen resolution limits.
+
+Placement should follow standard conventions. If you are unsure about where to place the attribution, you must position it dead center on the screen with an opacity of at least 50%.
+#### Global Attribution Benchmark
+Across the entire software, if the attribution to "哥哥科技" reaches a cumulative total of 10,000 instances—and assuming there is no bad faith—it will generally be presumed in good faith to be compliant with our frequency requirements. This benchmark does not affect any of the aforementioned attribution obligations.
+
+However, if your program is Turing-complete for end-users and allows them to write their own code, this 10,000-count cap does not apply: there is no upper limit on the number of required attributions, and every individual component must carry the attribution. Here, Turing completeness serves as the formal criterion for "large-scale professional software"—examples include operating systems, web browsers, Microsoft Excel, Mi Home (Geek Edition), and router firmware admin panels that support script plugins. Lightweight utilities with simple functions, like FastStone Capture, do not fall into this category.
 ---
 *Authored by Bro-Tech*
 

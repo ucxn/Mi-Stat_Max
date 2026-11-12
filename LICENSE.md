@@ -46,6 +46,10 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
+为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及满足表达式 `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b/i` 的，均严禁被篡改、弱化，或以非预期名称方式呈现。
+
+无论项目有何种规定，一旦违反该条，视为侵犯著作权，我任何明示、暗示、潜在、显式或任何其他方式的授权一律无效。
+
 若您无法理解何为“显著署名”，则您必须选择不使用本软件的任何代码。在此情况下，除分享官方原始链接及下载至本地仅供个人自用外，严禁对本软件进行任何其他操作或分发行为。
 
 为免疑义，本款项下的任何终止均为立即、绝对且不可补救的，且严格不受任何宽限期、通知要求、时间流逝或任何其它条件的限制。
@@ -82,6 +86,35 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 米家官方可以自行、先行、直接集成该程序，但是必须保留署名；署名具体的方式可以商榷（最不能接受的是移除“哥哥”和名字，默认情况下均不可弱化署名），我或将可对小米官方提供更加合理的许可。
 
+### 集成建议
+请注意：如果您无法理解以下条件，请咨询专业的技术顾问或律师；在理解之前，您只能原样传播官方链接。
+
+我们建议您像图吧工具箱那样集成本工具：完整收录，原样同步，并在您的软件中提供显著的入口，以提升用户的使用体验。
+
+本章节的推定不得被用于减少原作品已有的任何署名，也不影响前述任何署名义务。
+#### 拆分集成时的署名
+如果您必须修改源代码，例如加入大量自研功能，导致我的完整作品被拆分为两个或更多部分，则：
+1. 必须原样保留原设计中的全部署名；
+2. 必须在更显著的位置额外增加署名，例如屏幕顶端（我的原始署名位于屏幕底端）；
+3. 拆分后的每一个部分，都必须带有署名。
+
+#### 全局参考次数
+在整个软件范围内，“哥哥科技”的署名累计达到 10000 次，且无恶意的，通常可善意推定为在次数上合规。该参考值不影响前述任何署名义务。
+
+如果您的程序对于最终用户使用而言是图灵完备的，允许自主编写程序，则不受该一万次的限制：署名次数上不封顶，且每一个拆分部分都必须带有署名。这里以图灵完备作为“大型专业软件”的形式标准，例如操作系统、浏览器、Microsoft Excel、米家极客版、可运行脚本插件的路由器固件后台；只有简单功能的小工具，例如 FastStone Capture 之类的就不是了。
+#### 同一页面的署名次数
+
+在同一页面内，署名达到 4 次的，在无恶意的情况下，通常可善意推定为已满足本条的次数要求。
+
+页面定义为可以通过单指拖动，鼠标、键盘的导航方向键；但不包括上一级菜单、下一级菜单、返回键、进一步导航或者超链接、自动跳转等。页面的定义为，当您放大或缩放页面时。缩小的最小时能在同一屏幕内呈现出的内容。由于屏幕分辨率导致显示不清的除外。
+
+位置应当以通常的约定为准。如果您对位置设计没有把握，则您必须选择设置在屏幕正中央，且不透明度不低于 50%。
+
+### 关于英文名称与拼音
+“哥哥科技”的推荐英文名称为 BroTech。汉语拼音不能代替英文译名，请不要用 Gege Keji 这类拼音写法来指代哥哥科技；单独使用的 gege 不在此列。从审美上说，我也不希望程序里出现不必要的拼音地狱。
+
+无论是 BroTech 还是任何拉丁字母形式都只能作为“哥哥科技”的补充，不能替代任何署名要求。除主许可证中关于技术限制的规定所允许、并已按其要求履行相应义务的情形外，未以“哥哥科技”署名的，一律视为不符合署名要求。
+
 哥哥科技 2026 © Bro-Tech 版权所有
 
 本项目主协议：哥哥科技许可证到此结束，严格遵守该协议是使用本库任意部分或完整代码合法性的前置条件。
@@ -109,6 +142,10 @@ If objective technical limitations prevent a user-visible interface from properl
 Any redistribution, modification, porting, merging, integration, translation, conversion to another programming language, or incorporation into a Larger Work must not diminish the prominence of the original manner in which “哥哥科技” is attributed, or reduce it below the level of attribution identifying the author in the original work; no reduction whatsoever in the degree of display is permitted, not merely no substantial reduction.
 
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
+
+For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays “哥哥” or “哥哥科技”, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.
+
+Regardless of anything else the project provides, any breach of this clause is deemed copyright infringement, and every authorization I have granted, whether express, implied, potential, explicit, or in any other form, becomes void.
 
 Should you fail to understand what constitutes "prominent attribution," you MUST elect NOT to use the source code of this software. In such an event, you are permitted solely to share the official original link or download the software exclusively for personal, local use; any and all other operations or distributions are strictly prohibited.
 
@@ -147,6 +184,11 @@ Nor may you charge any fees relating to this program on online platforms, under 
 Under no circumstances may the software itself, whether in source-code or executable form, be packaged and resold, or provided as a complimentary gift accompanying a product offered for sale.
 
 Developers of official, original factory firmware for MiHome Router already supported by this project may proceed with integration of this program on their own initiative, provided that attribution is retained. The specific form of attribution, and whether a more appropriate license can be provided, may be discussed with Xiaomi’s official team.
+
+### On the English Name and Pinyin
+The recommended English name for "哥哥科技" is **BroTech**. Mandarin Romanization is not a valid substitute for the English translation—please do not refer to 哥哥科技 using pinyin romanizations like *Gege Keji* (though using *gege* on its own is fine). From an aesthetic standpoint, I just really don't want to see unnecessary "pinyin hell" in the program.
+
+Whether BroTech or any other spelling, a Latin-script form may only supplement “哥哥科技”; it can never replace any attribution requirement. Except where the technical-limitation provisions of the main license allow it and their accompanying obligations have been fulfilled, any attribution not given as “哥哥科技” is deemed non-compliant.
 
 哥哥科技 2026 © Bro-Tech. All rights reserved.
 
