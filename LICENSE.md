@@ -122,7 +122,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 ## BroTech Additional License
 ### BroTech Prominent Attribution Terms
 
-Regardless of the license used, the 哥哥科技r's prominent attribution must be retained.<br>
+Regardless of the license used, the 哥哥科技's prominent attribution must be retained.<br>
 Prominent attribution to the author, “哥哥科技”, must be retained.
 
 Where the project name, context, or other information already clearly identifies the referenced work and its technical field, some of the GitHub username, project name, or repository link information may be omitted, I'd personally prefer you keep them, but it's up to you.
@@ -143,7 +143,7 @@ Any redistribution, modification, porting, merging, integration, translation, co
 
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
 
-For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays "哥哥" or "哥哥科技", or that in substance serves to display the name of the developer and/or of those the developer identifies with, must never be altered, weakened, or presented under any name other than the one intended.
+For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays “哥哥” or “哥哥科技”, or that in substance serves to display the name of the developer and/or of those the developer identifies with, must never be altered, weakened, or presented under any name other than the one intended.
 
 Regardless of anything else the project provides, any breach of this clause is deemed copyright infringement, and every authorization I have granted, whether express, implied, potential, explicit, or in any other form, becomes void.
 
