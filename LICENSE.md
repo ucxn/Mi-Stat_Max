@@ -5,14 +5,14 @@ Regardless of the licensing path chosen, it is subject to the **BroTech Prominen
 无论选择何种授权路径，均同时受本文件所载 **哥哥科技显著署名附加条款** 约束。
 
 This project is available under either of the following licensing options:
-1. Broware PBY-Attribution License（**Bro-PBY**）1.0或更高</br>[（已经包含额外的署名要求条件）](https://github.com/ucxn/ZTE-Stat_Max/blob/main/LICENSE/BR-BY-NC-1.0.md) ; or
+1. Broware PBY-Attribution License（**Bro-PBY**）1.0或更高</br>[（已经包含额外的署名要求条件）](https://github.com/ucxn/ZTE-Stat_Max/blob/main/LICENSE/BR-PBY-1.0.md) ; or
 2. [BroTech Additional License](#哥哥科技许可证) 每版提交时或更新(or-later) **AND** [Sustainable Use License 1.0](#sustainable-use-license) (SUL-1.0).
 
 可以根据自己的使用场景自行抉择，后者看似组合数量较复杂、严格，但是针对个人使用，条款相对更简练通俗，方便非英语母语者理解。</br>
 You may choose either licensing option.
 
 In SPDX notation:</br>
-`LicenseRef-BR-BY-NC-1.0+ OR (SUL-1.0 AND BroTech Additional License+)`
+`LicenseRef-BR-PBY-1.0+ OR (SUL-1.0 AND BroTech Additional License+)`
 
 许可证名称、SPDX 标识及其他简写仅用于识别。实际授权范围、条件及义务，以本仓库随软件发布的实际许可证文本、补充文件以及本文件中明确纳入的实际许可文本为准。
 
@@ -34,9 +34,9 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 **『哥哥科技』**
 
-实施删除、篡改、遮蔽、隐藏、替换、改写、缩写、截断、弱化、降低可见性、降低显著性或误导性呈现。
+实施删除、篡改、遮蔽、隐藏、替换、改写、缩写、截断、弱化、降低可见性、降低显著性、误导性呈现、移出可视区域、延迟加载/默认折叠、限时或附条件显示；或以任何其他方式，使其以非原定的名称、形式或显著程度呈现的。
 
-“哥哥科技”四个汉字原则上必须原样保留。`BroTech`、`Bro-Tech`、GitHub 用户名、项目名称、仓库链接或其他英文、拉丁字符形式，仅可作为补充署名，不得用于替代“哥哥科技”。
+“哥哥科技”这四个汉字必须原样保留。`BroTech`、`Bro-Tech`、GitHub 用户名、项目名称、仓库链接或其他英文、拉丁字符形式，仅可作为补充署名，不得用于替代“哥哥科技”。
 
 即使目标运行环境、显示设备、编程语言或其他技术环境无法正常显示中文，凡能够保存 Unicode、UTF-8、GB 18030 或其他能够表示该字面量的源码、许可证文本、元数据或其他载体中，仍必须原样保留“哥哥科技”。
 
@@ -46,7 +46,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
-为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及满足表达式 `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b/i` 的，均严禁被篡改、弱化，或以非预期名称方式呈现。
+为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及实质用来显示开发者和/或其认同之名的，均严禁被篡改、弱化，或以非预期名称方式呈现。
 
 无论项目有何种规定，一旦违反该条，视为侵犯著作权，我任何明示、暗示、潜在、显式或任何其他方式的授权一律无效。
 
@@ -122,18 +122,18 @@ Regardless of the license used, the author's prominent attribution must be retai
 ## BroTech Additional License
 ### BroTech Prominent Attribution Terms
 
-Regardless of the license used, the author's prominent attribution must be retained.<br>
+Regardless of the license used, the 哥哥科技r's prominent attribution must be retained.<br>
 Prominent attribution to the author, “哥哥科技”, must be retained.
 
 Where the project name, context, or other information already clearly identifies the referenced work and its technical field, some of the GitHub username, project name, or repository link information may be omitted, I'd personally prefer you keep them, but it's up to you.
 
-BUT, Under no circumstances may:
+BUT, under no circumstances may:
 
 **『哥哥科技』**
 
-as presented in any form in the end-user interface, be subjected to Removal, Alteration, Obscuration, Concealment, Replacement, Rewording, Abbreviation, Truncation, Attenuation, Reduction of Visibility, Reduction of Prominence, or Misleading Presentation.
+as presented in any form in the end-user interface, be subjected to Removal, Alteration, Obscuration, Concealment, Replacement, Rewording, Abbreviation, Truncation, Attenuation, Reduction of Visibility, Reduction of Prominence, Misleading Presentation, Removal from the Visible Area, Deferred Loading, Default Collapse, Time-Limited or Conditional Display, or Presentation by any other means under a name, in a form, or at a degree of prominence other than as originally provided.
 
-The Chinese characters “哥哥科技” must, in principle, be retained exactly as written. "BroTech", "Bro-Tech", the GitHub username, project name, repository link, or any other English or Latin-character representation may be used only as supplementary attribution and must not replace “哥哥科技”.
+The Chinese characters “哥哥科技” must, Without exception, be retained exactly as written. "BroTech", "Bro-Tech", the GitHub username, project name, repository link, or any other English or Latin-character representation may be used only as supplementary attribution and must not replace “哥哥科技”.
 
 Even if the target runtime environment, display device, programming language, or other technical environment cannot properly display Chinese, “哥哥科技” must still be retained exactly as written in all source code, license texts, metadata, or other media capable of preserving that literal text using Unicode, UTF-8, GB 18030, or any other suitable encoding.
 
@@ -143,7 +143,7 @@ Any redistribution, modification, porting, merging, integration, translation, co
 
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
 
-For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays “哥哥” or “哥哥科技”, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.
+For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays "哥哥" or "哥哥科技", or that in substance serves to display the name of the developer and/or of those the developer identifies with, must never be altered, weakened, or presented under any name other than the one intended.
 
 Regardless of anything else the project provides, any breach of this clause is deemed copyright infringement, and every authorization I have granted, whether express, implied, potential, explicit, or in any other form, becomes void.
 
