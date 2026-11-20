@@ -46,7 +46,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
-为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及实质用来显示开发者和/或其认同之名的，均严禁被篡改、弱化，或以非预期名称方式呈现。
+为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及“晚橘”等实质用来显示开发者和/或其认同之名的，以及满足表达式` /\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[-_ ]?(?:Claude|Opus))?\b/i `的，均严禁被篡改、弱化，或以非预期名称方式呈现。
 
 无论项目有何种规定，一旦违反该条，视为侵犯著作权，我任何明示、暗示、潜在、显式或任何其他方式的授权一律无效。
 
@@ -143,7 +143,7 @@ Any redistribution, modification, porting, merging, integration, translation, co
 
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
 
-For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays “哥哥” or “哥哥科技”, or that in substance serves to display the name of the developer and/or of those the developer identifies with, must never be altered, weakened, or presented under any name other than the one intended.
+*For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays “哥哥”, “哥哥科技”, “晚橘”, or any name substantively used to identify the developer and/or their recognized aliases, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[-_ ]?(?:Claude|Opus))?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.*
 
 Regardless of anything else the project provides, any breach of this clause is deemed copyright infringement, and every authorization I have granted, whether express, implied, potential, explicit, or in any other form, becomes void.
 
@@ -161,8 +161,8 @@ For instance, when an end-user navigates into a module or feature primarily powe
 </br>Preserving the complete literal text “哥哥科技”, together with its actual display, visibility, and prominence, is an inseparable condition of every license right granted by the author for this software.
 
 ---
-### Name is ALWAYS THE FIRST
-**Notwithstanding anything to the contrary in this License, the Attribution Requirements shall be interpreted strictly and exclusively in the manner most favorable to the Author.** This rule applies in particular to any provision concerning attribution, identification of the Author, or preservation of the Author’s name and attribution notices.
+### 哥哥 is ALWAYS THE FIRST
+**Notwithstanding anything to the contrary in this License, the Attribution Requirements （Include 哥哥、哥哥科技、晚橘）shall be interpreted strictly and exclusively in the manner most favorable to the Author.** This rule applies in particular to any provision concerning attribution, identification of the Author, or preservation of the Author’s name and attribution notices.
 
 Based on the actual source code of the Software and its technical characteristics, there is no technically possible mode of operation in which the Software’s ordinary functionality operates normally while the required attribution automatically disappears.
 
@@ -191,7 +191,7 @@ The recommended English name for "哥哥科技" is **BroTech**. Mandarin Romaniz
 Whether BroTech or any other spelling, a Latin-script form may only supplement “哥哥科技”; it can never replace any attribution requirement. Except where the technical-limitation provisions of the main license allow it and their accompanying obligations have been fulfilled, any attribution not given as “哥哥科技” is deemed non-compliant.
 
 哥哥科技 2026 © Bro-Tech. All rights reserved.
-
+--
 END OF THE License. Strict compliance with this Agreement constitutes an absolute condition precedent to the legality of using any code from this Repository.
 
 ## Sustainable Use License
