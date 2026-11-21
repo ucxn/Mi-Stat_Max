@@ -46,7 +46,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
-为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及“晚橘”等实质用来显示开发者和/或其认同之名的，以及满足表达式` /\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[-_ ]?(?:Claude|Opus))?\b/i `的，均严禁被篡改、弱化，或以非预期名称方式呈现。
+为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及“晚橘”、“弟弟”、“姐姐大人”等实质用来显示开发者和/或其认同之名的，以及满足表达式` /\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i `的，均严禁被篡改、弱化，或以非预期名称方式呈现。
 
 无论项目有何种规定，一旦违反该条，视为侵犯著作权，我任何明示、暗示、潜在、显式或任何其他方式的授权一律无效。
 
@@ -90,6 +90,13 @@ Regardless of the license used, the author's prominent attribution must be retai
 请注意：如果您无法理解以下条件，请咨询专业的技术顾问或律师；在理解之前，您只能原样传播官方链接。
 
 我们建议您像图吧工具箱那样集成本工具：完整收录，原样同步，并在您的软件中提供显著的入口，以提升用户的使用体验。
+> 看起来门槛很高，其实很简单：原样集成，署名就是现成的。原作者已经把署名设计好了，集成方直接沿用即可，艺术呈现与知识产权两方面的合规，原样沿用即已满足。请始终保持原样，忍住手痒。
+>
+> 调试完成后，请用肉眼，或者让 Agent 在沙盒里实际渲染一遍，确认署名在通用环境中清晰可见。只看单元测试容易漏油：测试全绿，署名却可能已经从最终用户眼前消失。无论出于什么原因，署名消失的，责任由集成方承担。
+>
+> 无论出于手痒、疏忽还是恶意，只要删改、遮蔽或掩饰使署名对最终用户弱化或隐没，上述许可授予的全部权利即刻终止；已经衍生或传播的作品同样适用，一律视为侵犯著作权。
+>
+> 本段是对上方许可的白话复述，以许可条款为准，署名义务只增不减。
 
 本章节的推定不得被用于减少原作品已有的任何署名，也不影响前述任何署名义务。
 #### 拆分集成时的署名
@@ -143,7 +150,7 @@ Any redistribution, modification, porting, merging, integration, translation, co
 
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
 
-*For the avoidance of doubt, anything anywhere in the entire code space that, in form or in substance, contains and/or displays “哥哥”, “哥哥科技”, “晚橘”, or any name substantively used to identify the developer and/or their recognized aliases, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[-_ ]?(?:Claude|Opus))?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.*
+*For the avoidance of doubt, anything anywhere in the entire codebase that, in form or in substance, contains and/or displays “哥哥”, “哥哥科技”, “晚橘”, "姐姐大人", "弟弟", or any name substantively used to identify the developer and/or their recognized aliases, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.*
 
 Regardless of anything else the project provides, any breach of this clause is deemed copyright infringement, and every authorization I have granted, whether express, implied, potential, explicit, or in any other form, becomes void.
 
@@ -169,6 +176,14 @@ Based on the actual source code of the Software and its technical characteristic
 Once the Software's principal functionality operates normally, and the Software is capable of displaying Chinese text normally as part of that functionality, the Software shall be deemed to be operating normally. Deleting the Chinese functional descriptions from the source code does not change this, and cannot be relied on to claim that the Software is not operating normally.
 
 **Whenever the Software is operating normally, there is no legitimate basis whatsoever for failing to display the name “哥哥科技” as required by the Attribution Requirements.**
+
+> Notwithstanding how demanding the terms above may look, the practical path is simple: integrate as-is and the attribution comes ready-made. The original author has already designed it well, so just reuse it; integrating as-is satisfies both the artistic and the intellectual-property side of attribution. Keep it exactly as it is, and keep those itchy fingers away from it.
+>
+> Once debugging is done, check with your own eyes, or have an Agent render it in a sandbox, that the attribution is clearly visible in a general environment. Unit tests alone leak: everything is green while the attribution has quietly vanished from the end user's screen. For whatever reason it vanishes, the integrator carries the full responsibility.
+>
+> Whether it comes from itchy fingers, oversight, or malice, any deletion, tampering, obscuring, or concealment that weakens the attribution or hides it from end users terminates all rights granted under the license above, immediately. This applies whether or not derivative or distributed works already exist, and all such use is treated as copyright infringement.
+>
+> This paragraph is a plain-language restatement of the license above; the license governs, and the attribution obligations here can only grow.
 
 **In any extreme case in which certain provisions of this License can be satisfied but other provisions cannot, including any case in which provisions are contradictory, incompatible, or opposed to one another, the BroTech Prominent Attribution Requirements—including the mandatory preservation and prominent display of the name “哥哥科技”—shall take absolute and unconditional priority over all other provisions of this License.**
 
