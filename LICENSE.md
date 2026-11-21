@@ -24,6 +24,7 @@ Regardless of the license used, the 哥哥科技's prominent attribution must be
 无论何种原因，哪怕是技术困难导致在更大的作品中或其他编程语言中无法原样显示“哥哥科技”，“您” 也必须保留字面量，仅追加其他可以显著表达哥哥科技的方式，并及时通过 GitHub 或者邮件联系告知。保留“哥哥科技”的完整可见性是我许可的任何权利所不可分割的部分。
 
 # 哥哥科技许可证
+【2026 11 22】
 ## 哥哥科技显著署名附加条款
 Regardless of the license used, the author's prominent attribution must be retained.<br>
 必须保留对作者 **“哥哥科技”** 的显著署名。
@@ -46,13 +47,13 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
-为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及“晚橘”、“弟弟”、“姐姐大人”等实质用来显示开发者和/或其认同之名的，以及满足表达式` /\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i `的，均严禁被篡改、弱化，或以非预期名称方式呈现。
+为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及“晚橘”、“弟弟”、“姐姐大人”等实质用来显示开发者和/或其认同之名的，以及满足表达式 ` /\bBro(?:ther)?(?:[-_ ]?Tech)?(?![A-Z0-9])|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i ` 的，均严禁被篡改、弱化，或以非预期名称方式呈现。
 
 无论项目有何种规定，一旦违反该条，视为侵犯著作权，我任何明示、暗示、潜在、显式或任何其他方式的授权一律无效。
 
 若您无法理解何为“显著署名”，则您必须选择不使用本软件的任何代码。在此情况下，除分享官方原始链接及下载至本地仅供个人自用外，严禁对本软件进行任何其他操作或分发行为。
 
-为免疑义，本款项下的任何终止均为立即、绝对且不可补救的，且严格不受任何宽限期、通知要求、时间流逝或任何其它条件的限制。
+为免疑义，本款项下的任何终止均为***立即（0day）、绝对且不可补救的，*** 且严格不受任何宽限期、通知要求、时间流逝或任何其它条件的限制。
 <details>
 <summary>开发者必读说明</summary></br>
 以下指南仅严格适用于一种极其特定的情形：即您将本软件代码实质性地集成至一个更大的整体作品中，且由于系统结构或技术原因，导致实质上已无法原封不动地保留原汁原味的原版最终用户界面（GUI）及其署名设计。</br>请特别注意（权利之保留）： 本指南仅出于指导合规之目的而提供。本指南该指南并不代表作者向您授予了额外的权利，也不意味着您只需遵守另外的义务。您对本指南的参考或执行，绝不意味着您可以免除对前述所有累加式法定前置条件的严格遵守，其无法表示任何豁免、替代或削弱。</br></br>
@@ -61,7 +62,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 例如：当最终用户进入主要由本软件构建的模块或功能页面时，必须在该特定模块/目录的最终用户界面内、且在本软件原设计的固定位置，原样且显著地呈现“哥哥科技”字样。严禁将其折叠、收纳或移至任何隐藏菜单。
 </details>
 
-保留“哥哥科技”的完整字面量和实质显示、可见性与显著性，是作者授予本软件任何许可权利所不可分割的条件。
+保留“哥哥科技”的完整字面量和实质显示、可见性与显著性，是作者授予本软件任何许可权利所不可分割的条件；否则，合法使用权自始无效。
 ---
 ### 署名条款始终第一
 无论本许可证其他条款如何规定，**哥哥科技显著署名要求——包括对“哥哥科技”字样的强制保留及显著显示义务——均必须严格且排他性地按照最有利于作者的方式解释。** 任何一般解释规则、技术例外或本许可证的其他条款，均不得削弱该署名要求、使其从属于其他要求，或取代该署名要求。
@@ -150,13 +151,13 @@ Any redistribution, modification, porting, merging, integration, translation, co
 
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
 
-*For the avoidance of doubt, anything anywhere in the entire codebase that, in form or in substance, contains and/or displays “哥哥”, “哥哥科技”, “晚橘”, "姐姐大人", "弟弟", or any name substantively used to identify the developer and/or their recognized aliases, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?\b|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.*
+*For the avoidance of doubt, anything anywhere in the entire codebase that, in form or in substance, contains and/or displays “哥哥”, “哥哥科技”, “晚橘”, "姐姐大人", "弟弟", or any name substantively used to identify the developer and/or their recognized aliases, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?(?![A-Z0-9])|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.*
 
 Regardless of anything else the project provides, any breach of this clause is deemed copyright infringement, and every authorization I have granted, whether express, implied, potential, explicit, or in any other form, becomes void.
 
 Should you fail to understand what constitutes "prominent attribution," you MUST elect NOT to use the source code of this software. In such an event, you are permitted solely to share the official original link or download the software exclusively for personal, local use; any and all other operations or distributions are strictly prohibited.
 
-For the avoidance of doubt, any termination under this paragraph is immediate, absolute, and non-curable, and shall operate strictly without regard to any cure period, notice requirement, lapse of time, or any other condition whatsoever.
+For the avoidance of doubt, any termination under this paragraph is ***immediate（0-day）, absolute, and non-curable***, and shall operate strictly without regard to any cure period, notice requirement, lapse of time, or any other condition whatsoever.
 <details>
 <summary>For Developers</summary>
 The following guidelines apply strictly and exclusively to the specific scenario where you integrate this software into a larger, overarching work, rendering it structurally or technically impossible to preserve the original unmodified Graphical User Interface (GUI) and its attribution design in their exact original form.</br>EXPRESS RESERVATION OF RIGHTS AND OBLIGATIONS: This guide is provided solely for instructional compliance purposes. It does NOT, under any circumstances, operate as an implicit or explicit grant of any additional rights or licenses beyond the primary agreement. Furthermore, it does NOT waive, substitute, or dilute any of your strict obligations under the primary licenses and the BroTech Prominent Attribution Terms. Adherence to this guide is merely a compliant implementation method for integration scenarios, and shall by no means exempt you from the absolute and simultaneous satisfaction of all conditions precedent set forth above.</br></br>
@@ -257,6 +258,12 @@ automatically terminate. If the licensor provides you with a notice of your viol
 violation of this license no later than 30 days after you receive that notice, your license will be reinstated
 retroactively. However, if you violate these terms after such reinstatement, any additional violation of these
 terms will cause your license to terminate automatically and permanently.
+
+>上述 30 天恢复机制仅适用于署名条款以外的违反。违反哥哥科技显著署名附加条款的，授权**立即（0day）终止**，不适用上述 30 天恢复机制，*事后补正亦不恢复。[署名条款](#哥哥科技显著署名附加条款)始终第一：本节与署名条款有任何冲突，均以署名条款为准。*
+>
+> **BroTech Note** (set apart as its own paragraph; the Sustainable Use License text above is left as is)
+
+The 30-day reinstatement above applies only to violations other than the attribution terms. A violation of the BroTech Prominent Attribution Terms terminates your license **immediately (0day)**; the 30-day reinstatement above does not apply, and *a later correction does not restore it. The [attribution terms](#brotech-prominent-attribution-terms) always come first: in any conflict between this section and the attribution terms, the attribution terms prevail.*
 
 ### No Liability
 

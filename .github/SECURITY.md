@@ -1,7 +1,7 @@
 # 哥哥科技安全隐私策略
 # Security Policy for Mi-Stat_Max
 
-感谢您对“小米家用路由器增强组件 (MiWiFi-Stat_Max)”项目的关注！
+感谢您对“小米家用路由器增强组件（MiWiFi-Stat_Max）”项目的关注！
 
 哥哥科技始终将代码的极简性、健壮性以及用户的本地隐私放在首位。
 
