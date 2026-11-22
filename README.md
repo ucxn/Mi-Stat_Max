@@ -1,6 +1,6 @@
 # Mi-Stat_Max@Bro-Tech|哥哥科技
 
-[![Version](https://img.shields.io/badge/version-5.9.9.Y-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
+[![Version](https://img.shields.io/badge/version-6-orange.svg?logo=github&logoColor=white)](https://github.com/ucxn/Mi-Stat_Max)&emsp;&nbsp;
 [![License: SUL-1.0](https://img.shields.io/badge/License-SUL--1.0+哥哥科技_Attribution-EA4B71.svg?logo=n8n&logoColor=white&labelColor=040506)](https://github.com/ucxn/Mi-Stat_Max/blob/main/LICENSE.md)
 
 [![Platform](https://img.shields.io/badge/platform-Web-green.svg?logo=javascript&logoColor=white)](https://scriptcat.org/zh-CN)&nbsp;
@@ -203,6 +203,8 @@ Placement should follow standard conventions. If you are unsure about where to p
 Across the entire software, if the attribution to "哥哥科技" reaches a cumulative total of 10,000 instances—and assuming there is no bad faith—it will generally be presumed in good faith to be compliant with our frequency requirements. This benchmark does not affect any of the aforementioned attribution obligations.
 
 However, if your program is Turing-complete for end-users and allows them to write their own code, this 10,000-count cap does not apply: there is no upper limit on the number of required attributions, and every individual component must carry the attribution. Here, Turing completeness serves as the formal criterion for "large-scale professional software"—examples include operating systems, web browsers, Microsoft Excel, Mi Home (Geek Edition), and router firmware admin panels that support script plugins. Lightweight utilities with simple functions, like FastStone Capture, do not fall into this category.
+
+A violation of the 哥哥科技's Prominent Attribution Terms renders your license *void ab initio.*
 ---
 *Authored by Bro-Tech*
 

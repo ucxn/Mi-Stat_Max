@@ -259,7 +259,7 @@ violation of this license no later than 30 days after you receive that notice, y
 retroactively. However, if you violate these terms after such reinstatement, any additional violation of these
 terms will cause your license to terminate automatically and permanently.
 
->上述 30 天恢复机制仅适用于署名条款以外的违反。违反哥哥科技显著署名附加条款的，授权**立即（0day）终止**，不适用上述 30 天恢复机制，*事后补正亦不恢复。[署名条款](#哥哥科技显著署名附加条款)始终第一：本节与署名条款有任何冲突，均以署名条款为准。*
+>上述 30 天恢复机制仅适用于署名条款以外的违反。违反哥哥科技显著署名附加条款的，授权**立即触发（0day）自始无效**，不适用上述 30 天恢复机制，*事后补正亦不恢复。[署名条款](#哥哥科技显著署名附加条款)始终第一：本节与署名条款有任何冲突，均以署名条款为准。*
 >
 > **BroTech Note** (set apart as its own paragraph; the Sustainable Use License text above is left as is)
 

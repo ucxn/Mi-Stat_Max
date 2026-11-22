@@ -9,8 +9,8 @@
 // @tag             路由器 小米 网络 监控 统计 数据 可视化 极客 WiFi 米家 HA 智能 定时 后台 雷军 RUOK WRT 刷机 OP 红米 高等数学 微积分 导数 WAN 网速 MiRD
 // @author          哥哥科技 QQ群 680464365
 // @contributor     https://github.com/1-Reality
-// @contributor     https://github.com/Samuel-Knight   
 // @noframes
+// @contributor     https://github.com/Samuel-Knight   
 // @icon            https://scriptcat.org/api/v2/resource/image/duygQktL5QjWtkLc
 // @match           *://*/cgi-bin/luci*
 // @match           *://*/main.html*
