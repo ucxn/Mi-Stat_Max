@@ -53,7 +53,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 若您无法理解何为“显著署名”，则您必须选择不使用本软件的任何代码。在此情况下，除分享官方原始链接及下载至本地仅供个人自用外，严禁对本软件进行任何其他操作或分发行为。
 
-为免疑义，本款项下的任何终止均为***立即（0day）、绝对且不可补救的，*** 且严格不受任何宽限期、通知要求、时间流逝或任何其它条件的限制。
+为免疑义，本款项下的任何终止均为***立即（0day）、绝对且不可补救的，*** 且严格不受任何宽限期、通知要求、时间流逝或任何其它条件的限制；***授权的终止仅剥夺各项许可权利，绝不免除或消灭任何既有副本、衍生作品或已分发物上继续保留显著署名的义务。***
 <details>
 <summary>开发者必读说明</summary></br>
 以下指南仅严格适用于一种极其特定的情形：即您将本软件代码实质性地集成至一个更大的整体作品中，且由于系统结构或技术原因，导致实质上已无法原封不动地保留原汁原味的原版最终用户界面（GUI）及其署名设计。</br>请特别注意（权利之保留）： 本指南仅出于指导合规之目的而提供。本指南该指南并不代表作者向您授予了额外的权利，也不意味着您只需遵守另外的义务。您对本指南的参考或执行，绝不意味着您可以免除对前述所有累加式法定前置条件的严格遵守，其无法表示任何豁免、替代或削弱。</br></br>
@@ -62,7 +62,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 例如：当最终用户进入主要由本软件构建的模块或功能页面时，必须在该特定模块/目录的最终用户界面内、且在本软件原设计的固定位置，原样且显著地呈现“哥哥科技”字样。严禁将其折叠、收纳或移至任何隐藏菜单。
 </details>
 
-保留“哥哥科技”的完整字面量和实质显示、可见性与显著性，是作者授予本软件任何许可权利所不可分割的条件；否则，合法使用权自始无效。
+保留“哥哥科技”的完整字面量和实质显示、可见性与显著性，是作者授予本软件任何许可权利所不可分割的条件；否则，授权自违反之时起立即（0天）终止，未按要求署名的副本、传播和使用，自始不在授权范围之内。
 ---
 ### 署名条款始终第一
 无论本许可证其他条款如何规定，**哥哥科技显著署名要求——包括对“哥哥科技”字样的强制保留及显著显示义务——均必须严格且排他性地按照最有利于作者的方式解释。** 任何一般解释规则、技术例外或本许可证的其他条款，均不得削弱该署名要求、使其从属于其他要求，或取代该署名要求。
@@ -163,7 +163,9 @@ Regardless of anything else the project provides, any breach of this clause is d
 
 Should you fail to understand what constitutes "prominent attribution," you MUST elect NOT to use the source code of this software. In such an event, you are permitted solely to share the official original link or download the software exclusively for personal, local use; any and all other operations or distributions are strictly prohibited.
 
-For the avoidance of doubt, any termination under this paragraph is ***immediate（0-day）, absolute, and non-curable***, and shall operate strictly without regard to any cure period, notice requirement, lapse of time, or any other condition whatsoever.
+If your work uses my code, “哥哥科技” must appear in the end-user interface that people actually use day to day no fewer times than it does in my original complete work. The attribution must not live only in deep menus that ordinary users never open, nor be tucked away somewhere unrelated to my main features.
+
+For the avoidance of doubt, any termination under this paragraph is ***immediate（0-day）, absolute, and non-curable***, and shall operate strictly without regard to any cure period, notice requirement, lapse of time, or any other condition whatsoever; ***Termination of the license strips you of your license rights only. It in no way releases or extinguishes the obligation to keep the prominent attribution on every existing copy, derivative work, and distributed item.***
 <details>
 <summary>For Developers</summary>
 The following guidelines apply strictly and exclusively to the specific scenario where you integrate this software into a larger, overarching work, rendering it structurally or technically impossible to preserve the original unmodified Graphical User Interface (GUI) and its attribution design in their exact original form.</br>EXPRESS RESERVATION OF RIGHTS AND OBLIGATIONS: This guide is provided solely for instructional compliance purposes. It does NOT, under any circumstances, operate as an implicit or explicit grant of any additional rights or licenses beyond the primary agreement. Furthermore, it does NOT waive, substitute, or dilute any of your strict obligations under the primary licenses and the BroTech Prominent Attribution Terms. Adherence to this guide is merely a compliant implementation method for integration scenarios, and shall by no means exempt you from the absolute and simultaneous satisfaction of all conditions precedent set forth above.</br></br>
@@ -172,7 +174,7 @@ Should you, as a developer, integrate this software into a larger work or projec
 When developing based on this program, the absolute depth level of the attribution within the Graphical User Interface (GUI) hierarchy must remain unchanged; furthermore, upon integration into a larger work, its "relative depth level" within the navigation and interaction architecture shall suffer no degradation.</br></br>
 For instance, when an end-user navigates into a module or feature primarily powered by this software, the text "哥哥科技" (Brother Tech) MUST be prominently and unaltered displayed in the exact original position designed by the Author on the GUI of that specific directory/module. Any attempt to fold, collapse, or relocate the attribution into secondary or hidden menus is strictly forbidden.
 </details>
-</br>Preserving the complete literal text “哥哥科技”, together with its actual display, visibility, and prominence, is an inseparable condition of every license right granted by the author for this software.
+</br>Preserving the complete literal text “哥哥科技”, together with its actual display, visibility, and prominence, is an inseparable condition of every license right granted by the author for this software; otherwise, the license terminates immediately (0-day) as of the moment of the violation, and any copy, distribution, or use that does not carry the attribution as required never fell within the scope of the license.
 
 ---
 ### 哥哥 is ALWAYS THE FIRST
@@ -309,11 +311,11 @@ violation of this license no later than 30 days after you receive that notice, y
 retroactively. However, if you violate these terms after such reinstatement, any additional violation of these
 terms will cause your license to terminate automatically and permanently.
 
->上述 30 天恢复机制仅适用于署名条款以外的违反。违反哥哥科技显著署名附加条款的，授权**立即触发（0day）自始无效**，不适用上述 30 天恢复机制，*事后补正亦不恢复。[署名条款](#哥哥科技显著署名附加条款)始终第一：本节与署名条款有任何冲突，均以署名条款为准。*
+>上述 30 天恢复机制仅适用于署名条款以外的违反。违反哥哥科技显著署名附加条款的，授权**自违反之时起立即终止（0day），未按要求署名的副本与使用自始不在授权范围之内**，不适用上述 30 天恢复机制，*事后补正亦不恢复。[署名条款](#哥哥科技显著署名附加条款)始终第一：本节与署名条款有任何冲突，均以署名条款为准。*
 >
 > **BroTech Note** (set apart as its own paragraph; the Sustainable Use License text above is left as is)
 
-The 30-day reinstatement above applies only to violations other than the attribution terms. A violation of the BroTech Prominent Attribution Terms terminates your license **immediately (0day)**; the 30-day reinstatement above does not apply, and *a later correction does not restore it. The [attribution terms](#brotech-prominent-attribution-terms) always come first: in any conflict between this section and the attribution terms, the attribution terms prevail.*
+The 30-day reinstatement above applies only to violations other than the attribution terms. A violation of the BroTech Prominent Attribution Terms terminates your license **immediately as of the moment of the violation (0day), and all non-compliant copies and uses never fell within the scope of the license**; the 30-day reinstatement above does not apply, and *a later correction does not restore it. The [attribution terms](#brotech-prominent-attribution-terms) always come first: in any conflict between this section and the attribution terms, the attribution terms prevail.*
 
 ### No Liability
 

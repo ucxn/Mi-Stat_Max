@@ -9,4 +9,4 @@
 HA明确支持中文，因此二次开发必须原样保持哥哥科技署名的显著度，并更改为基于哥哥科技开发。
 
 使用时请务必遵守品牌使用政策，不得宣传为哥哥科技原版，必须表明修改。若文件无法打开或您认为有歧义，则在解决之前您不得修改本程序代码。
-https://github.com/ucxn/ZTE-Stat_Max/blob/main/%E6%B3%95%E5%BE%8B%E5%A3%B0%E6%98%8E%EF%BC%9A%E3%80%8C%E5%93%A5%E5%93%A5%E7%A7%91%E6%8A%80%20%E3%80%8D%E5%93%81%E7%89%8C%E4%BD%BF%E7%94%A8%E6%94%BF%E7%AD%96.md
+<https://github.com/ucxn/ZTE-Stat_Max/blob/main/assets/哥哥科技%20品牌使用须知.md>
