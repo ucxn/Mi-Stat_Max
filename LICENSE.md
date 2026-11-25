@@ -222,45 +222,9 @@ Whether BroTech or any other spelling, a Latin-script form may only supplement �
 --
 END OF THE License. Strict compliance with this Agreement constitutes an absolute condition precedent to the legality of using any code from this Repository.
 
-## Scope and Purpose (this section is explanatory, not part of the license text)
-
-This license governs the program itself: its copies, its modified versions, and works that contain it.
+## Scope and Purpose
 
 There is really only one thing I care about: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose.
-
-## Note on Compatibility with the GPL
-
-> This section is a usage guide, not part of the license text. It neither adds nor removes any rights or obligations; the actual rights and obligations are governed by the license file in the repository. Note: I am not a lawyer, and I am writing this only to save users trouble. The conclusions below are not restrictions I deliberately impose, but rules of thumb I have drawn from the license text and from actual practice.
-
-**The reason first.** The GPL requires that the entire combined work be released under the GPL, and that no further restrictions be placed on recipients beyond those of the GPL. This license has a fairly strong attribution requirement, plus terms on charging fees and on competition. From the GPL's perspective, all of these count as "additional restrictions" (similar in nature to the old BSD license with the advertising clause, which the FSF also considers incompatible with the GPL). The two sets of requirements cannot be satisfied at the same time, and the three points below all follow from this.
-
-**1. If your program is a GPL program, it may be inconvenient for you to integrate my program at the code level (the two are literally hard to reconcile).**
-
-My code is not proprietary, and your integration does not necessarily violate this license. The trouble lies on the GPL side: after merging, the GPL would require the whole work to be released under the GPL, and my attribution and other terms might, from the GPL's perspective, trigger further restrictions and the like, making the result literally "not pure".
-
-**2. One exception: you hold all the copyright.**
-In particular, suppose your GPL program has never incorporated third-party GPL code. It has been entirely your own original work from the start, or has only incorporated code under permissive licenses such as MIT, with no third-party GPL code. And suppose outside contributors all agree to your handling it this way. Then no third party can stop you. That is, every source of copyleft obligation comes entirely from you, the author, or from parts you have the right to control.
-
-You may grant an exception license for this merger yourself (similar to the common "linking exception"). This license allows combining with other code into a larger work, provided that the terms for my part continue to be satisfied. In that case, code-level merging is possible: my part falls under this license, with attribution fully preserved, and your part falls under the GPL plus the exception you grant. The whole work is then no longer "pure GPL".
-
-However, given the program's actual runtime environment (userscripts in the browser), code-level merging is also not very practical from an engineering standpoint. So this is only a theoretical possibility, not something I recommend.
-
-**3. Mere aggregation: any license is fine, including the AGPL.**
-
-The GPL calls this situation an "aggregate" (in GPLv2, "mere aggregation"): independent works placed in the same distribution package, not merged into one larger program. The GPL does not extend to the other parts because of this, and aggregation does not change the license of my part. As long as your userscript manager has no feature that erases, tampers with, or weakens attribution, and the script you integrate is byte-for-byte identical to the official version, you usually need not worry about the attribution clause:
-
-- It is byte-for-byte identical to the official version, integrated as-is, with attribution intact.
-- Your program (e.g., a userscript manager) has no feature that erases, tampers with, or weakens attribution, including rebranding, white-labeling, and the like. It also does not use compilation to impose additional restrictions on the rights users originally have in each work.
-- You do not violate the terms of this project, and in particular you do not violate the attribution clause.
-- Your program itself has no additional white-label restrictions, etc.
-- There is no deep interaction with your program's main functionality: neither is an extension of the other, they share no internal data structures, and they do not call each other within the same process. It is not a derivative work or a deep integration.
-- My prominent, mandatory, UI-level attribution and related terms still apply to my part.
-
-Even with the seemingly strict AGPL, you can still build one yourself under your own license, or integrate a userscript manager that treats this program as a shortcut entry point for users.
-
-Just like the Tualatin-Bar (图拉丁吧) Toolbox or various network diagnostic tool collections, I suggest integrating my program as-is, with no deep interaction with your program's main functionality.
-
-**On data exchange.** This program's exports (such as CSV files) may be handed to your program to read. Files, pipes, and command-line arguments are the usual ways independent programs communicate with each other. The exported data belongs to the user and contains none of this program's code. File-level data exchange is communication at arm's length, and it does not amount to "merging into a larger program" (a "combined work", i.e., a derivative work) in the GPL's sense. The boundary is the depth of the exchange: if the two sides exchange complex internal data structures and are so tightly coupled that they look like two parts of one program, they may be treated as one larger program, and then we are back at Point 1.
 
 ## Sustainable Use License
 

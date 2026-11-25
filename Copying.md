@@ -2,25 +2,26 @@
 This article is not the body of the license and has no legal effect. Rights and obligations are always governed by the terms set forth in LICENSE.md.
 
 ## 工程快速指南 / Quick Guide to Engineering
-1. 始终保留完整的“哥哥科技”字样，并显著地显示在最终用户界面当中，源码里面署名并不构成完成有效署名义务。
+1. 始终保留完整的“哥哥科技”字样，并显著地显示在最终用户界面当中，源码里面署名并不构成完成有效署名义务。\
 Always retain the complete text “哥哥科技”. Even if it is prominently displayed in the end-user interface, an attribution in the source code does not fulfill the obligation to provide a valid attribution.
-2. “哥哥科技”是本项目的核心作者署名，BroTech、GitHub 用户名、项目名称或链接只能作为补充，不能替代。
+
+2. “哥哥科技”是本项目的核心作者署名，BroTech、GitHub 用户名、项目名称或链接只能作为补充，不能替代。\
 “哥哥科技” is the core author attribution of this project. BroTech, GitHub usernames, project names, or links may supplement it, but may not replace it.
-3. 源码、许可证、元数据及其他能够保存文字的载体中，不得删除、改写或替换“哥哥科技”。
+3. 源码、许可证、元数据及其他能够保存文字的载体中，不得删除、改写或替换“哥哥科技”。\
 In source code, license files, metadata, and other media capable of preserving text, “哥哥科技” must not be removed, rewritten, or replaced.
-4. 在原项目中，署名必须保持在作者设计的原有界面位置和层级。任何二次开发均不得将其移动至更深的功能层级，亦不得以任何方式降低其原有的显示、可见性或显著程度。
+4. 在原项目中，署名必须保持在作者设计的原有界面位置和层级。任何二次开发均不得将其移动至更深的功能层级，亦不得以任何方式降低其原有的显示、可见性或显著程度。\
 In the original project, the attribution must remain at the original interface position and depth designed by the Author. No derivative work may move it to a deeper functional level or in any way reduce its original degree of display, visibility, or prominence.
-5. 集成到更大作品时，可以增加宿主自身的外层页面或导航层级，但署名相对于本软件所对应的功能，其界面层级不得下降。
+5. 集成到更大作品时，可以增加宿主自身的外层页面或导航层级，但署名相对于本软件所对应的功能，其界面层级不得下降。\
 When integrated into a larger work, the host may add outer pages, modules, or navigation levels around the function provided by this software, but may not add further attribution depth within the interface corresponding to that function. The attribution's relative position to the function provided by this software must not be reduced in any respect.
-6. 当最终用户进入由本软件提供或主要由本软件构成的功能或模块时，“哥哥科技”必须直接显示在该功能或模块的用户界面中，并保持原有的显示位置、显示方式及显著程度。
+6. 当最终用户进入由本软件提供或主要由本软件构成的功能或模块时，“哥哥科技”必须直接显示在该功能或模块的用户界面中，并保持原有的显示位置、显示方式及显著程度。\
 When an end user enters a function or module provided by or primarily built upon this software, “哥哥科技” must be directly displayed within that function or module's user interface, while retaining its original position, presentation, and prominence.
-7. 不得将署名从其对应功能界面移入与该功能无直接对应关系的“关于”“许可证”“第三方组件”或其他次级页面；不得通过折叠、隐藏、额外点击、二级菜单或其他信息架构方式使用户必须离开该功能界面后才能看到署名。
+7. 不得将署名从其对应功能界面移入与该功能无直接对应关系的“关于”“许可证”“第三方组件”或其他次级页面；不得通过折叠、隐藏、额外点击、二级菜单或其他信息架构方式使用户必须离开该功能界面后才能看到署名。\
 The attribution should not be moved away from the function it identifies or placed in unrelated “About,” “Licenses,” or “Third-Party Components” pages, nor should it be made less visible through collapsing, hiding, or deliberate visual weakening.
-8. 集成或改造时，应优先保持原有的显示方式；宿主界面确实需要适配时，可以调整布局，但不得降低原有的显著程度或相对层级。
+8. 集成或改造时，应优先保持原有的显示方式；宿主界面确实需要适配时，可以调整布局，但不得降低原有的显著程度或相对层级。\
 During integration or adaptation, the original presentation should be preserved whenever practical. Where host-interface adaptation is necessary, the layout may change, but the original prominence and relative depth must not be reduced.
-9. 署名要求具有最高优先级；任何违反署名要求的行为都会立即终止本项目授予的相关授权，不受其他期限、宽限期或补救安排影响。
+9. 署名要求具有最高优先级；任何违反署名要求的行为都会立即终止本项目授予的相关授权，不受其他期限、宽限期或补救安排影响。\
 The attribution requirements have the highest priority. Any violation immediately terminates the applicable rights granted under this project, regardless of any other period, cure period, or remedial arrangement.
-10. 本总览用于快速理解与实施；完整权利、义务及授权条件以随项目发布的完整许可证文本为准。
+10. 本总览用于快速理解与实施；完整权利、义务及授权条件以随项目发布的完整许可证文本为准。\
 This summary is intended for quick understanding and implementation. The complete license texts published with the project govern the full rights, obligations, and licensing conditions.
 ### Attribution When Splitting an Integration
 If you must modify the source code, for example by adding substantial features of your own, so that my complete work ends up split into two or more parts, then:
@@ -46,8 +47,6 @@ However, if your program is Turing-complete for end-users and allows them to wri
 
 ## 适用范围与初衷
 
-[English Version](LICENSE.md#scope-and-purpose-this-section-is-explanatory-not-part-of-the-license-text)
-
 本软件和智右软件会（它们自己也经常玩一些略显恶俗的梗，还有各种生造词，避免使用词汇表和歧视PC双标对待。一方面说Linux也要叫PC，一方面又把Windows叫做某C，我这样也没问题）无任何关联。
 
 本协议管的是本程序本身：副本、修改版，以及包含其的作品。
@@ -55,6 +54,10 @@ However, if your program is Turing-complete for end-users and allows them to wri
 我真正在意的只有一件事：市面上流通的每一个版本，都应当带着我的名字。必须要在最终页面上能够向用户呈现出极为显著的署名。
 
 我不允许公开世界里出现无名氏版本。署名条款就是为这件事设计的。
+
+This license governs the program itself: its copies, its modified versions, and works that contain it. 
+
+There is really only one thing I care about: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose. A highly prominent and conspicuous attribution must be displayed to the end user on the final rendered page.
 
 ## 与 GPL 的兼容性说明
 > 本节是使用指南，不是许可证正文，不增加也不减少任何权利与义务，实际权利义务以仓库中的许可证文件为准。注意：我不是律师，写这些只是为了让使用者少碰麻烦。下面的结论并非我有意设下的限制，而是我基于许可证文本和实际实践得出的经验总结。
@@ -90,15 +93,11 @@ GPL 把这种情形叫"聚合体"（aggregate，GPLv2 里叫 mere aggregation）
 
 **关于数据交换。** <br>本程序的导出物（如 CSV）可以交给您的程序读取。文件、管道、命令行参数是彼此独立的程序之间的通常交流方式，导出的数据属于使用者自己的数据，不含本程序的代码。文件级的数据交换属于保持距离的通信，这不构成 GPL 所说的"合并成一个更大的程序"（combined work，即衍生作品）。边界在于交流的深度：双方若交换复杂的内部数据结构，紧密到像一个程序的两个部分，就可能被视为一个更大的程序，那就回到第 1 条。
 
-## Scope and Purpose (this section is explanatory, not part of the license text)
-This license governs the program itself: its copies, its modified versions, and works that contain it. 
+### Note on Compatibility with the GPL
 
-There is really only one thing I care about: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose. A highly prominent and conspicuous attribution must be displayed to the end user on the final rendered page.
-
-## Note on Compatibility with the GPL
 > This section is a usage guide, not part of the license text. It neither adds nor removes any rights or obligations; the actual rights and obligations are governed by the license file in the repository. Note: I am not a lawyer, and I am writing this only to save users trouble. The conclusions below are not restrictions I deliberately impose, but rules of thumb I have drawn from the license text and from actual practice.
 
-**The reason first.** The GPL requires that the entire combined work be released under the GPL, and that no further restrictions be placed on recipients beyond those of the GPL. This license has a ***extremely stringent attribution*** requirement, plus terms on charging fees or on competition. From the GPL's perspective, all of these count as "additional restrictions" (similar in nature to the old BSD license with the advertising clause, which the FSF also considers incompatible with the GPL). The two sets of requirements cannot be satisfied at the same time, and the three points below all follow from this.
+**The reason first.** The GPL requires that the entire combined work be released under the GPL, and that no further restrictions be placed on recipients beyond those of the GPL. This license has a fairly strong attribution requirement, plus terms on charging fees and on competition. From the GPL's perspective, all of these count as "additional restrictions" (similar in nature to the old BSD license with the advertising clause, which the FSF also considers incompatible with the GPL). The two sets of requirements cannot be satisfied at the same time, and the three points below all follow from this.
 
 **1. If your program is a GPL program, it may be inconvenient for you to integrate my program at the code level (the two are literally hard to reconcile).**
 
@@ -107,7 +106,7 @@ My code is not proprietary, and your integration does not necessarily violate th
 **2. One exception: you hold all the copyright.**
 In particular, suppose your GPL program has never incorporated third-party GPL code. It has been entirely your own original work from the start, or has only incorporated code under permissive licenses such as MIT, with no third-party GPL code. And suppose outside contributors all agree to your handling it this way. Then no third party can stop you. That is, every source of copyleft obligation comes entirely from you, the author, or from parts you have the right to control.
 
-You may grant an exception license for this merger yourself (similar to the common "linking exception"). This license allows combining with other code into a larger work (see Section 3.7 of APL-Bro), provided that the terms for my part continue to be satisfied. In that case, code-level merging is possible: my part falls under this license, with attribution fully preserved, and your part falls under the GPL plus the exception you grant. The whole work is then no longer "pure GPL".
+You may grant an exception license for this merger yourself (similar to the common "linking exception"). This license allows combining with other code into a larger work, provided that the terms for my part continue to be satisfied. In that case, code-level merging is possible: my part falls under this license, with attribution fully preserved, and your part falls under the GPL plus the exception you grant. The whole work is then no longer "pure GPL".
 
 However, given the program's actual runtime environment (userscripts in the browser), code-level merging is also not very practical from an engineering standpoint. So this is only a theoretical possibility, not something I recommend.
 
