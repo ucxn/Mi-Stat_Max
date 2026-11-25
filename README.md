@@ -192,7 +192,7 @@ If you must modify the source code, for example by adding substantial features o
 #### Integration Guidance
 If you cannot understand the conditions below, please consult a qualified technical adviser or lawyer. Until you do, you may only share the official link as it is.
 
-We recommend integrating this tool the way "Tualatin Toolbox" bundles the tools it collects: include it whole, keep it in sync with the original, and give it a prominent entry point in your software for a better user experience.
+We recommend integrating this tool the way "Tualatin (a community project from a Tieba named 图吧) Toolbox" bundles the tools it collects: include it whole, keep it in sync with the original, and give it a prominent entry point in your software for a better user experience.
 #### Attributions Per Page
 Where attribution appears 4 times on a single page, and there is no bad faith, it may ordinarily be presumed in good faith to satisfy the count requirement of this section. This presumption may not be used to reduce any attribution already present in the original work, and it does not affect any of the attribution obligations above.
 

@@ -39,7 +39,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 “哥哥科技”这四个汉字必须原样保留。`BroTech`、`Bro-Tech`、GitHub 用户名、项目名称、仓库链接或其他英文、拉丁字符形式，仅可作为补充署名，不得用于替代“哥哥科技”。
 
-即使目标运行环境、显示设备、编程语言或其他技术环境无法正常显示中文，凡能够保存 Unicode、UTF-8、GB 18030 或其他能够表示该字面量的源码、许可证文本、元数据或其他载体中，仍必须原样保留“哥哥科技”。
+即使目标运行环境、显示设备、编程语言或其他技术环境无法正常显示中文，凡能够保存 Unicode、UTF-8、GB 18030 或其他能够表示该字面量的源码、许可证文本、元数据或其他载体中，仍必须原样保留“哥哥科技”。**源码、许可证文本、元数据中的保留，与最终用户界面中的署名，是两项各自独立的义务：前者照旧保留，但不能代替后者。** *仅在源码中署名而最终用户看不到的，不构成对本条署名义务的履行，**此类做法视为未署名。***
 
 如果用户可见界面因客观技术限制无法正常呈现“哥哥科技”，可以在不删除程序中实质性表达中文“哥哥科技”的前提下，追加 `BroTech`、`Bro-Tech`、作者用户名、项目链接或其他能够清楚识别作者身份的表示方式，并应通过 GitHub 或电子邮件及时告知作者。
 
@@ -47,7 +47,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 仅在您完全尊重本署名要求，且持续、完整、严格地遵守本协议各项规定的前提下，您方被授予使用本软件的其他衍生权利。如果您无法准确理解本条款的法律含义，请自行咨询专业律师；反之，您绝对无权将“权利授予条款”与“显著署名条款”割裂或孤立适用。
 
-为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及“晚橘”、“弟弟”、“姐姐大人”等实质用来显示开发者和/或其认同之名的，以及满足表达式 ` /\bBro(?:ther)?(?:[-_ ]?Tech)?(?![A-Z0-9])|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i ` 的，均严禁被篡改、弱化，或以非预期名称方式呈现。
+为明确起见，整个代码空间中任何形式或实质上包含和/或显示“哥哥”、“哥哥科技”以及“晚橘”、“弟弟”、“姐姐大人”、“Claude/Opus姐”等实质用来显示开发者和/或其认同之名的，以及满足表达式 ` /\bBro(?:ther)?(?:[-_ ]?Tech)?(?![A-Z0-9])|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i ` 的，均严禁被篡改、弱化，或以非预期名称方式呈现。
 
 无论项目有何种规定，一旦违反该条，视为侵犯著作权，我任何明示、暗示、潜在、显式或任何其他方式的授权一律无效。
 
@@ -69,6 +69,8 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 根据本软件的实际源代码及其技术特性，不存在一种能够使软件的普通功能正常运行、同时又使必要署名在技术上自动消失的运行方式。只要软件的主要功能能够正常运行，且软件能够在该功能中正常显示中文文本（源代码中功能描述的中文被侵权者故意删除掉情形的不影响此认定），即视为软件运行正常。
 
+**我最在意的只有一件事：市面上流通的每一个版本，都带着哥哥科技和所爱之人的名字。** 本许可证管辖的是项目本身，即源码、副本、可执行脚本及其运行时界面，以及基于它的修改、改写和翻译版本。软件运行后导出的数据，例如 CSV，属于使用者自己。
+
 **软件正常运行时，不存在任何正当理由可以不按照哥哥科技显著署名要求显示“哥哥科技”字样。**
 
 **在任何极端情形下，如果本许可证的某些条款能够得到履行，而其他条款无法同时得到履行，包括不同条款之间存在矛盾、不相容或直接对立的情形，哥哥科技显著署名要求——包括对“哥哥科技”字样的强制保留及显著显示义务——均对本许可证的其他一切条款享有绝对且无条件的优先地位。**
@@ -84,6 +86,8 @@ Regardless of the license used, the author's prominent attribution must be retai
 服务原则上应当以含有明确物理成本的线下服务为主，但不得以附带安装调试该脚本为由收取任何附加费用；不得以本程序的取得、复制、安装、配置、调试、更新、维护或者排错为对价；<br>若在线平台以不合理理由收取关于本程序的直接费用、**且修改了任何署名**，视为掩盖实质上为分发该软件所收取的费用。
 
 最简单的方式是直接分享官方GitHub或B站链接，否则在任何情况下，您有义务保证所有显式或潜在的署名，及任何形式或意义上的名字，完全不会被 *移除、篡改或者误导性呈现*，严格地以不弱于原样保留或增强的显著程度呈现，否则因包括但不限于显示造成的任何责任由您自行承担。<br>无论如何、任何情况下均严格禁止移除任何作者的任何名字；否则将本软件本身源码或可执行产物打包倒卖将被视为恶意，也不得作为售卖的商品的赠品。
+
+任何偏离原有署名方式的做法，须事先取得我的明确同意。
 
 米家官方可以自行、先行、直接集成该程序，但是必须保留署名；署名具体的方式可以商榷（最不能接受的是移除“哥哥”和名字，默认情况下均不可弱化署名），我或将可对小米官方提供更加合理的许可。
 
@@ -145,13 +149,15 @@ The Chinese characters “哥哥科技” must, Without exception, be retained e
 
 Even if the target runtime environment, display device, programming language, or other technical environment cannot properly display Chinese, “哥哥科技” must still be retained exactly as written in all source code, license texts, metadata, or other media capable of preserving that literal text using Unicode, UTF-8, GB 18030, or any other suitable encoding.
 
+*Retention in source code, license text, and metadata, and attribution in the end-user interface, are two separate and independent obligations: the former must still be kept, but it cannot stand in for the latter. **Attribution that appears only in the source code, where end users cannot see it, does not satisfy the attribution obligation of this Section.***
+
 If objective technical limitations prevent a user-visible interface from properly displaying “哥哥科技”, supplementary representations such as "BroTech", "Bro-Tech", the author's username, the project link, or other forms that clearly identify the author may be added, provided that the program's substantive representation of the Chinese characters “哥哥科技” is not removed. The author must also be promptly notified through GitHub or email.
 
 Any redistribution, modification, porting, merging, integration, translation, conversion to another programming language, or incorporation into a Larger Work must not diminish the prominence of the original manner in which “哥哥科技” is attributed, or reduce it below the level of attribution identifying the author in the original work; no reduction whatsoever in the degree of display is permitted, not merely no substantial reduction.
 
 The rights to use this software are granted to you ONLY subject to the absolute condition precedent of your complete, continuous, and strict compliance with the prominent attribution requirements herein. If you are unable to comprehend the legal implications of these terms, you are advised to consult independent legal counsel. Conversely, under no circumstances may you isolate, sever, or selectively apply the rights-granting clauses without fulfilling the prominent attribution obligations. 
 
-*For the avoidance of doubt, anything anywhere in the entire codebase that, in form or in substance, contains and/or displays “哥哥”, “哥哥科技”, “晚橘”, "姐姐大人", "弟弟", or any name substantively used to identify the developer and/or their recognized aliases, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?(?![A-Z0-9])|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.*
+*For the avoidance of doubt, anything anywhere in the entire codebase that, in form or in substance, contains and/or displays “哥哥”, “哥哥科技”, “晚橘”, "姐姐大人", "Claude/Opus姐", "弟弟", or any name substantively used to identify the developer and/or their recognized aliases, or that matches the expression `/\bBro(?:ther)?(?:[-_ ]?Tech)?(?![A-Z0-9])|\b(?:Claude|Opus)(?:[\W_]*(?:Claude|Opus))?\b/i`, must never be altered, weakened, or presented under any name other than the one intended.*
 
 Regardless of anything else the project provides, any breach of this clause is deemed copyright infringement, and every authorization I have granted, whether express, implied, potential, explicit, or in any other form, becomes void.
 
@@ -178,6 +184,8 @@ Once the Software's principal functionality operates normally, and the Software 
 
 **Whenever the Software is operating normally, there is no legitimate basis whatsoever for failing to display the name “哥哥科技” as required by the Attribution Requirements.**
 
+**What I care about most is one thing: every version in circulation carries the name I would like.** This license governs the program itself: its source code, executable script, its copies, and runtime interface, and any version based on it, including modifications, rewrites, and translations. Data the software exports when run, such as CSV files, belongs to the user.
+
 > Notwithstanding how demanding the terms above may look, the practical path is simple: integrate as-is and the attribution comes ready-made. The original author has already designed it well, so just reuse it; integrating as-is satisfies both the artistic and the intellectual-property side of attribution. Keep it exactly as it is, and keep those itchy fingers away from it.
 >
 > Once debugging is done, check with your own eyes, or have an Agent render it in a sandbox, that the attribution is clearly visible in a general environment. Unit tests alone leak: everything is green while the attribution has quietly vanished from the end user's screen. For whatever reason it vanishes, the integrator carries the full responsibility.
@@ -199,6 +207,8 @@ Services should, in principle, primarily consist of offline services involving i
 Nor may you charge any fees relating to this program on online platforms, under any pretext, to disguise what is in substance a fee for distributing the software.<br>
 Under no circumstances may the software itself, whether in source-code or executable form, be packaged and resold, or provided as a complimentary gift accompanying a product offered for sale.
 
+Any departure from the original manner of attribution requires my prior explicit consent.
+
 Developers of official, original factory firmware for MiHome Router already supported by this project may proceed with integration of this program on their own initiative, provided that attribution is retained. The specific form of attribution, and whether a more appropriate license can be provided, may be discussed with Xiaomi’s official team.
 
 ### On the English Name and Pinyin
@@ -209,6 +219,46 @@ Whether BroTech or any other spelling, a Latin-script form may only supplement �
 哥哥科技 2026 © Bro-Tech. All rights reserved.
 --
 END OF THE License. Strict compliance with this Agreement constitutes an absolute condition precedent to the legality of using any code from this Repository.
+
+## Scope and Purpose (this section is explanatory, not part of the license text)
+
+This license governs the program itself: its copies, its modified versions, and works that contain it.
+
+There is really only one thing I care about: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose.
+
+## Note on Compatibility with the GPL
+
+> This section is a usage guide, not part of the license text. It neither adds nor removes any rights or obligations; the actual rights and obligations are governed by the license file in the repository. Note: I am not a lawyer, and I am writing this only to save users trouble. The conclusions below are not restrictions I deliberately impose, but rules of thumb I have drawn from the license text and from actual practice.
+
+**The reason first.** The GPL requires that the entire combined work be released under the GPL, and that no further restrictions be placed on recipients beyond those of the GPL. This license has a fairly strong attribution requirement, plus terms on charging fees and on competition. From the GPL's perspective, all of these count as "additional restrictions" (similar in nature to the old BSD license with the advertising clause, which the FSF also considers incompatible with the GPL). The two sets of requirements cannot be satisfied at the same time, and the three points below all follow from this.
+
+**1. If your program is a GPL program, it may be inconvenient for you to integrate my program at the code level (the two are literally hard to reconcile).**
+
+My code is not proprietary, and your integration does not necessarily violate this license. The trouble lies on the GPL side: after merging, the GPL would require the whole work to be released under the GPL, and my attribution and other terms might, from the GPL's perspective, trigger further restrictions and the like, making the result literally "not pure".
+
+**2. One exception: you hold all the copyright.**
+In particular, suppose your GPL program has never incorporated third-party GPL code. It has been entirely your own original work from the start, or has only incorporated code under permissive licenses such as MIT, with no third-party GPL code. And suppose outside contributors all agree to your handling it this way. Then no third party can stop you. That is, every source of copyleft obligation comes entirely from you, the author, or from parts you have the right to control.
+
+You may grant an exception license for this merger yourself (similar to the common "linking exception"). This license allows combining with other code into a larger work, provided that the terms for my part continue to be satisfied. In that case, code-level merging is possible: my part falls under this license, with attribution fully preserved, and your part falls under the GPL plus the exception you grant. The whole work is then no longer "pure GPL".
+
+However, given the program's actual runtime environment (userscripts in the browser), code-level merging is also not very practical from an engineering standpoint. So this is only a theoretical possibility, not something I recommend.
+
+**3. Mere aggregation: any license is fine, including the AGPL.**
+
+The GPL calls this situation an "aggregate" (in GPLv2, "mere aggregation"): independent works placed in the same distribution package, not merged into one larger program. The GPL does not extend to the other parts because of this, and aggregation does not change the license of my part. As long as your userscript manager has no feature that erases, tampers with, or weakens attribution, and the script you integrate is byte-for-byte identical to the official version, you usually need not worry about the attribution clause:
+
+- It is byte-for-byte identical to the official version, integrated as-is, with attribution intact.
+- Your program (e.g., a userscript manager) has no feature that erases, tampers with, or weakens attribution, including rebranding, white-labeling, and the like. It also does not use compilation to impose additional restrictions on the rights users originally have in each work.
+- You do not violate the terms of this project, and in particular you do not violate the attribution clause.
+- Your program itself has no additional white-label restrictions, etc.
+- There is no deep interaction with your program's main functionality: neither is an extension of the other, they share no internal data structures, and they do not call each other within the same process. It is not a derivative work or a deep integration.
+- My prominent, mandatory, UI-level attribution and related terms still apply to my part.
+
+Even with the seemingly strict AGPL, you can still build one yourself under your own license, or integrate a userscript manager that treats this program as a shortcut entry point for users.
+
+Just like the Tualatin-Bar (图拉丁吧) Toolbox or various network diagnostic tool collections, I suggest integrating my program as-is, with no deep interaction with your program's main functionality.
+
+**On data exchange.** This program's exports (such as CSV files) may be handed to your program to read. Files, pipes, and command-line arguments are the usual ways independent programs communicate with each other. The exported data belongs to the user and contains none of this program's code. File-level data exchange is communication at arm's length, and it does not amount to "merging into a larger program" (a "combined work", i.e., a derivative work) in the GPL's sense. The boundary is the depth of the exchange: if the two sides exchange complex internal data structures and are so tightly coupled that they look like two parts of one program, they may be treated as one larger program, and then we are back at Point 1.
 
 ## Sustainable Use License
 
