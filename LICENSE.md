@@ -17,7 +17,7 @@ In SPDX notation:</br>
 许可证名称、SPDX 标识及其他简写仅用于识别。实际授权范围、条件及义务，以本仓库随软件发布的实际许可证文本、补充文件以及本文件中明确纳入的实际许可文本为准。
 
 无论使用何种许可证，都应当保留作者的显著署名。<br>
-Regardless of the license used, the 哥哥科技's prominent attribution must be retained.
+Regardless of the license used, 哥哥科技's prominent attribution must be retained.
 
 绝对、一定、必须保留哥哥科技这几个字，并且不得以任何形式降低“原有的署名方式的显著程度”，而不仅仅是显著降低。
 
@@ -56,7 +56,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 为免疑义，本款项下的任何终止均为***立即（0day）、绝对且不可补救的，*** 且严格不受任何宽限期、通知要求、时间流逝或任何其它条件的限制；***授权的终止仅剥夺各项许可权利，绝不免除或消灭任何既有副本、衍生作品或已分发物上继续保留显著署名的义务。***
 <details>
 <summary>开发者必读说明</summary></br>
-以下指南仅严格适用于一种极其特定的情形：即您将本软件代码实质性地集成至一个更大的整体作品中，且由于系统结构或技术原因，导致实质上已无法原封不动地保留原汁原味的原版最终用户界面（GUI）及其署名设计。</br>请特别注意（权利之保留）： 本指南仅出于指导合规之目的而提供。本指南该指南并不代表作者向您授予了额外的权利，也不意味着您只需遵守另外的义务。您对本指南的参考或执行，绝不意味着您可以免除对前述所有累加式法定前置条件的严格遵守，其无法表示任何豁免、替代或削弱。</br></br>
+以下指南仅严格适用于一种极其特定的情形：即您将本软件代码实质性地集成至一个更大的整体作品中，且由于系统结构或技术原因，导致实质上已无法原封不动地保留原汁原味的原版最终用户界面（GUI）及其署名设计。</br>请特别注意（权利之保留）： 本指南仅出于指导合规之目的而提供。该指南并不代表作者向您授予了额外的权利，也不意味着您只需遵守另外的义务。您对本指南的参考或执行，绝不意味着您可以免除对前述所有累加式法定前置条件的严格遵守，其无法表示任何豁免、替代或削弱。</br></br>
 若您作为开发者将本程序集成至更大的作品或项目中，您必须严格履行以下界面展示规则：署名的物理|逻辑显著程度（包括但不限于排版样式、字体字号、颜色及对比度等）绝对不得发生任何改变或削弱。</br></br>
 基于本程序进行二次开发时，署名在用户界面（GUI）上的绝对深度层级不得被更改；将其集成至更大作品时，其在界面交互架构中的“相对深度层级”亦不得发生任何降级。</br></br>
 例如：当最终用户进入主要由本软件构建的模块或功能页面时，必须在该特定模块/目录的最终用户界面内、且在本软件原设计的固定位置，原样且显著地呈现“哥哥科技”字样。严禁将其折叠、收纳或移至任何隐藏菜单。
@@ -69,7 +69,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 
 根据本软件的实际源代码及其技术特性，不存在一种能够使软件的普通功能正常运行、同时又使必要署名在技术上自动消失的运行方式。只要软件的主要功能能够正常运行，且软件能够在该功能中正常显示中文文本（源代码中功能描述的中文被侵权者故意删除掉情形的不影响此认定），即视为软件运行正常。
 
-**我最在意的只有一件事：市面上流通的每一个版本，都带着哥哥科技和所爱之人的名字。** 本许可证管辖的是项目本身，即源码、副本、可执行脚本及其运行时界面，以及基于它的修改、改写和翻译版本。软件运行后导出的数据，例如 CSV，属于使用者自己。
+**我最在意的事：市面上流通的每一个版本，都带着哥哥科技和所爱之人的名字。** 本许可证管辖的是项目本身，即源码、副本、可执行脚本及其运行时界面，以及基于它的修改、改写和翻译版本。软件运行后导出的数据，例如 CSV，属于使用者自己。
 
 **软件正常运行时，不存在任何正当理由可以不按照哥哥科技显著署名要求显示“哥哥科技”字样。**
 
@@ -134,7 +134,7 @@ Regardless of the license used, the author's prominent attribution must be retai
 ## BroTech Additional License
 ### BroTech Prominent Attribution Terms
 
-Regardless of the license used, the 哥哥科技's prominent attribution must be retained.<br>
+Regardless of the license used, 哥哥科技's prominent attribution must be retained.<br>
 Prominent attribution to the author, “哥哥科技”, must be retained.
 
 Where the project name, context, or other information already clearly identifies the referenced work and its technical field, some of the GitHub username, project name, or repository link information may be omitted, I'd personally prefer you keep them, but it's up to you.
@@ -186,7 +186,7 @@ Once the Software's principal functionality operates normally, and the Software 
 
 **Whenever the Software is operating normally, there is no legitimate basis whatsoever for failing to display the name “哥哥科技” as required by the Attribution Requirements.**
 
-**What I care about most is one thing: every version in circulation carries the name I would like.** This license governs the program itself: its source code, executable script, its copies, and runtime interface, and any version based on it, including modifications, rewrites, and translations. Data the software exports when run, such as CSV files, belongs to the user.
+**What I really care about is: every version in circulation carries the name I would like.** This license governs the program itself: its source code, executable script, its copies, and runtime interface, and any version based on it, including modifications, rewrites, and translations. Data the software exports when run, such as CSV files, belongs to the user.
 
 > Notwithstanding how demanding the terms above may look, the practical path is simple: integrate as-is and the attribution comes ready-made. The original author has already designed it well, so just reuse it; integrating as-is satisfies both the artistic and the intellectual-property side of attribution. Keep it exactly as it is, and keep those itchy fingers away from it.
 >
@@ -224,7 +224,7 @@ END OF THE License. Strict compliance with this Agreement constitutes an absolut
 
 ## Scope and Purpose
 
-There is really only one thing I care about: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose.
+What I really care about is: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose.
 
 ## Sustainable Use License
 

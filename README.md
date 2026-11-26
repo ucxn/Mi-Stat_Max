@@ -162,7 +162,7 @@ For the avoidance of doubt, the intended implementation may be understood as fol
 
 5. ***Attribution must not be hidden away solely in deep or secondary menus that users rarely visit.*** It must be placed near the relevant interface, framework, module, or area that primarily uses my code, in a location that is readily visible to users, or at minimum no less readily visible than in my original design.
 
-A violation of the 哥哥科技's Prominent Attribution Terms renders your license *void ab initio.*
+A violation of 哥哥科技's Prominent Attribution Terms renders your license *void ab initio.*
 ---
 *Authored by Bro-Tech*
 

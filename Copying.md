@@ -47,17 +47,17 @@ However, if your program is Turing-complete for end-users and allows them to wri
 
 ## 适用范围与初衷
 
-本软件和智右软件会（它们自己也经常玩一些略显恶俗的梗，还有各种生造词，避免使用词汇表和歧视PC双标对待。一方面说Linux也要叫PC，一方面又把Windows叫做某C，我这样也没问题）无任何关联。
+本软件和智右软件会（它们自己也经常玩一些略显恶俗的梗，还有各种生造词、“避免”使用词汇表和歧视PC双标对待。一方面说Linux也要叫PC，一方面又把Windows叫做某C，我这样也没问题）无任何关联。
 
 本协议管的是本程序本身：副本、修改版，以及包含其的作品。
 
-我真正在意的只有一件事：市面上流通的每一个版本，都应当带着我的名字。必须要在最终页面上能够向用户呈现出极为显著的署名。
+我真正在意的一件事：市面上流通的每一个版本，都应当带着我的名字。必须要在最终页面上能够向用户呈现出极为显著的署名。
 
 我不允许公开世界里出现无名氏版本。署名条款就是为这件事设计的。
 
 This license governs the program itself: its copies, its modified versions, and works that contain it. 
 
-There is really only one thing I care about: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose. A highly prominent and conspicuous attribution must be displayed to the end user on the final rendered page.
+What I really care about is: every version in circulation should carry my name. I do not allow anonymous versions to exist in the public world. The attribution clause was designed for exactly this purpose. A highly prominent and conspicuous attribution must be displayed to the end user on the final rendered page.
 
 ## 与 GPL 的兼容性说明
 > 本节是使用指南，不是许可证正文，不增加也不减少任何权利与义务，实际权利义务以仓库中的许可证文件为准。注意：我不是律师，写这些只是为了让使用者少碰麻烦。下面的结论并非我有意设下的限制，而是我基于许可证文本和实际实践得出的经验总结。
