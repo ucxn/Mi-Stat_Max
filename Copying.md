@@ -47,7 +47,7 @@ However, if your program is Turing-complete for end-users and allows them to wri
 
 ## 适用范围与初衷
 
-本软件和智右软件会（它们自己也经常玩一些略显恶俗的梗，还有各种生造词、“避免”使用词汇表和歧视PC双标对待。一方面说Linux也要叫PC，一方面又把Windows叫做某C，我这样也没问题）无任何关联。
+本软件和智右软件会（该组织自己也经常玩一些略显恶俗的梗，还有各种生造词、“避免”使用词汇表和歧视PC双标对待。一方面说Linux也要叫PC，一方面又把Windows叫做WC，大模型和AI搜索概览被它称之为胡说八道bullet xxit，相比之下、我这样真没问题）无任何关联。
 
 本协议管的是本程序本身：副本、修改版，以及包含其的作品。
 
